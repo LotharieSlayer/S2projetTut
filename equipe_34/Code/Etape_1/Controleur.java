@@ -9,14 +9,14 @@ public class Controleur
     public Controleur()
     {
         
-        public void action ( int numJoueur, char action, int numTerritoire )
+        public void action ( int couleurSeigneur, char action )
 	{
-		this.metier.action ( numJoueur, action, numTerritoire );
+		this.metier.action ( couleurSeigneur, action, numTerritoire );
 
-		if ( numJoueur == 1 ) this.frameJoueur1.maj();
-		if ( numJoueur == 2 ) this.frameJoueur2.maj();
+		//if ( numJoueur == 1 ) this.frameJoueur1.maj();
+		//if ( numJoueur == 2 ) this.frameJoueur2.maj();
 
-		this.framePlateau.maj();
+		//this.framePlateau.maj();
 
 	}
 
