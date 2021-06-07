@@ -47,18 +47,18 @@ public class Jeu
 
     public void action ( int numJoueur, char action, int nbBlanche, int nbNoi, nbDispo )
 	{
-		// action [A]jouter [E]nlever
+		// action [A]jouter [R]etirer
 
 		switch ( action )
 		{
 			case 'a' || 'A': // Ajouter un anneau
+			     this.nbBlanche.ajouterAnneauBlanc;
 			         
-			         
-			          break;
+			    break;
 
 			case 'r' || 'R': // Retirer un anneau
-					    
-					    break;
+				this.nbBlanche.retirerAnneauBlanc;
+			    break;
 
 			default : 
 		}
