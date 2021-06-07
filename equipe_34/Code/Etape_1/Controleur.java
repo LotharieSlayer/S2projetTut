@@ -1,4 +1,4 @@
-import java.util.Scanner;
++import java.util.Scanner;
 
 public class Controleur
 {
@@ -21,17 +21,16 @@ public class Controleur
             }
             else
             {
-                System.out.println("Planete choisi est invalide")
+                System.out.println("Planete choisi est invalide");
             }
         }
         else
         {
-            System.out.println("Action saisie est indisponible")
+            System.out.println("Action saisie est indisponible");
         }
     
-            // fermer les ressources
-            clavier.close();
-        }
+        // fermer les ressources
+        clavier.close();
 
         /*private String action ()
         {
@@ -72,4 +71,9 @@ public class Controleur
             }
         }*/
     }
+
+    public static void main(String[] a)
+	{
+		new Controleur();
+	}
 }
