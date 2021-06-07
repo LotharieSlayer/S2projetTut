@@ -1,3 +1,5 @@
+package lesseigneurdutemps.metier;
+
 import java.util.ArrayList;
 
 public class Joueur {
@@ -32,4 +34,6 @@ public class Joueur {
 		return String.format ( "%-10s", this.nom, " : le Seigneur des Anneaux " + this.couleurSeigneur );
 	}
     
+    public String getCouleur() { return this.couleurSeigneur; }
+
 }

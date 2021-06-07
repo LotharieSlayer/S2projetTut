@@ -1,15 +1,19 @@
-package seigneurdutemps;
+package lesseigneurdutemps;
 
-import seigneurdutemps.metier.Jeu;
+import lesseigneurdutemps.metier.Jeu;
 
 import java.util.Scanner;
 
 public class Controleur
 {
+	private Jeu metier;
+
     public Controleur()
     {
-        
-        public void action ( int couleurSeigneur, char action )
+		this.metier       = new Jeu ();
+	}
+    
+	public void action ( int couleurSeigneur, char action )
 	{
 		this.metier.action ( couleurSeigneur, action );
 

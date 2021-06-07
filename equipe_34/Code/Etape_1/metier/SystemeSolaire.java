@@ -1,23 +1,26 @@
+package lesseigneurdutemps.metier;
+
 import java.util.ArrayList;
 
 public class SystemeSolaire {
 
     private String nom     ;
-    private int    position;
-    private int    nbPlanet;
+    private int    nbPlanete;
 
-	public SystemeSolaire (String nom, int position, int nbPlanet)
+	public SystemeSolaire (String nom, int nbPlanete)
 	{
         this.nom      = nom     ;
-        this.position = position;
-        this.nbPlanet = nbPlanet;
+        this.nbPlanete = nbPlanete;
     }
-    
-    public SystemeSolaire (String nom, int position, int nbPlanet)
+
+    public SystemeSolaire creerSystemeSolaire (String nom, int nbPlanete)
     {
     		if (nom != "Triälum" || nom != "Uninium" || nom != "Mervelléum" || nom != "Quintum") return null;
-    		else return new SystemeSolaire
-    
+            else return new SystemeSolaire(nom, nbPlanete);
+    }
+
+    public String getNom(){ return this.nom; }
+
 	/*public String toString ()
 	{
     }*/
