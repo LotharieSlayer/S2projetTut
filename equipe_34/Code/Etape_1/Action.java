@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Action
 {
@@ -42,7 +43,7 @@ public class Action
                 clavier.close();
             }
 
-        private String génerationDesSystem()
+        private String génerationDesPositions() //genere les postion pour chaque planete
         {
             List<String> list = new ArrayList<String>();
             list.add("Triälum");
