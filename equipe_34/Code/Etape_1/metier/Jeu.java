@@ -17,6 +17,7 @@ public class Jeu
 
     public Jeu
     {
+        
     }
 
     public void action ( int couleurSeigneur, char action)
@@ -80,26 +81,5 @@ public class Jeu
     {
         this.nbDispo ++;
         return this.nbNoir = this.nbNoir - 1;
-    }
-
-    private String generationDesPositions() //genere les postion pour chaque planete
-    {
-		String tmp;
-		String[] tabSystem = { "Triälum" , "Uninium", "Mervelléum" , "Quintum" } ;
-        for ( int cpt = 0 , cpt < 10 , cpt++)
-		{
-			int rdm1  = Math.Random(4) ;
-			int rdm2  = Math.Random(4) ;
-			tmp = tabSystem[rdm1];
-			tabSystem[rdm1] = tabSystem[rdm2];
-			tabSystem[rdm2] = tmp;
-		}
-    }
-
-    private String avancerPlanete (int planete)
-    {
-        Sting tmp = tabSystem[planete];
-        tabSystem[planete] = tabSystem[planete + 1];
-        tabSystem[planete + 1] = tabSystem[planete];
     }
 }

@@ -12,7 +12,7 @@
 ./ihm/PanelJoueur.java
 
 ./metier/Jeu.java
-./metier/Territoire.java
+./metier/Galaxie.java
 ./metier/Joueur.java
-./metier/Nature.java
-./metier/Peuple.java
+./metier/Planete.java
+./metier/SystemeSolaire.java
