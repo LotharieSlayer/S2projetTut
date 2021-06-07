@@ -31,12 +31,12 @@ public class Action
                     }
                     else
                     {
-                        System.out.println("Planete choisi est invalide")
+                        System.out.println("Planete choisi est invalide");
                     }
                 }
                 else
                 {
-                    System.out.println("Action saisie est indisponible")
+                    System.out.println("Action saisie est indisponible");
                 }
         
                 // fermer les ressources
@@ -45,30 +45,16 @@ public class Action
 
         private String génerationDesPositions() //genere les postion pour chaque planete
         {
-            List<String> list = new ArrayList<String>();
-            list.add("Triälum");
-            list.add("Uninium");
-            list.add("Mervelléum");
-            list.add("Quintum");
-            String position1 = list.get(new Random().nextInt(list.size()));
-            
-            String position2 = list.get(new Random().nextInt(list.size()));
-            while (position2 == position1)
-            {
-                String position2 = list.get(new Random().nextInt(list.size()));
-            }
-            
-            String position3 = list.get(new Random().nextInt(list.size()));
-            while (position3 == position1 || position3 == position2)
-            {
-                String position3 = list.get(new Random().nextInt(list.size()));
-            }
-            
-            String position4 = list.get(new Random().nextInt(list.size()));
-            while (position4 == position1 || position4 == position2 || position4 == position3)
-            {
-                String position4 = list.get(new Random().nextInt(list.size()));
-            }
+			String tmp;
+			String[] tabSystem = { "Triälum" , "Uninium", "Mervelléum" , "Quintum" } ;
+            for ( int cpt = 0 , cpt < 10 , cpt++)
+			{
+				int rdm1  = Math.Random(4) ;
+				int rdm2  = Math.Random(4) ;
+				Sting tmp = tabSystem[rdm1];
+				tabSystem[rdm1] = tabSystem[rdm2];
+				tabSystem[rdm2] = tmp;
+			}
         }
     }
 }
