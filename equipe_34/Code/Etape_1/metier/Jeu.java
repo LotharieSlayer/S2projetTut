@@ -22,12 +22,12 @@ public class Jeu
 		switch ( action )
 		{
 			case 'a' || 'A': // Ajouter un anneau
-			     this.nbBlanche.ajouterAnneauBlanc;
+			     this.ajouterAnneauBlanc();
 			         
 			    break;
 
 			case 'r' || 'R': // Retirer un anneau
-				this.nbBlanche.retirerAnneauBlanc;
+				this.retirerAnneauBlanc();
 			    break;
 
 			default : System.out.println("Action invalide")
