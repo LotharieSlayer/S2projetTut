@@ -15,36 +15,6 @@ public class Jeu
     {
     }
 
-    private String action (int nbDispo, int nbNoir, int nbBlanche)
-    {
-
-        Scanner clavier = new Scanner(System.in);
-        System.out.print("Saisir votre action : ");
-        action = clavier.nextLine();
-
-        if (action == "n" || action == "b")
-        {
-            System.out.print("Saisir la planete de votre choix : ");
-            planete = clavier.nextLine();
-
-            if (planete == "1" || planete == "2" || planete == "3" || planete == "4")
-            {
-
-            }
-            else
-            {
-                System.out.println("Planete choisi est invalide");
-            }
-        }
-        else
-        {
-            System.out.println("Action saisie est indisponible");
-        }
-        
-        // fermer les ressources
-        clavier.close();
-    }
-
     public void action ( int numJoueur, char action, int nbBlanche, int nbNoi, nbDispo )
 	{
 		// action [A]jouter [R]etirer
@@ -60,32 +30,32 @@ public class Jeu
 				this.nbBlanche.retirerAnneauBlanc;
 			    break;
 
-			default : 
+			default : System.out.println("Action invalide")
 		}
 	}
 
     private int ajouterAnneauBlanc ()
     {
-        nbDispo = nbDispo - 1;
-        return nbBlanche ++;
+        this.nbDispo = this.nbDispo - 1;
+        return this.nbBlanche ++;
     }
 
     private int ajouterAnneauNoir ()
     {
-        nbDispo = nbDispo - 1;
-        return nbNoir ++;
+        this.nbDispo = this.nbDispo - 1;
+        return this.nbNoir ++;
     }
 
     private int retirerAnneauBlanc(int nbBlanche)
     {
-        nbDispo ++;
-        return nbBlanche = nbBlanche - 1;
+        this.nbDispo ++;
+        return this.nbBlanche = this.nbBlanche - 1;
     }
 
     private String retirerAnneauNoir(int nbNoir)
     {
-        nbDispo ++;
-        return nbNoir = nbNoir - 1;
+        this.nbDispo ++;
+        return this.nbNoir = this.nbNoir - 1;
     }
 
     private String generationDesPositions() //genere les postion pour chaque planete
