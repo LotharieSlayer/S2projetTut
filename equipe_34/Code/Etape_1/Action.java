@@ -43,7 +43,7 @@ public class Action
                 clavier.close();
             }
 
-        private String génerationDesPositions() //genere les postion pour chaque planete
+        private String generationDesPositions() //genere les postion pour chaque planete
         {
 			String tmp;
 			String[] tabSystem = { "Triälum" , "Uninium", "Mervelléum" , "Quintum" } ;
@@ -51,10 +51,17 @@ public class Action
 			{
 				int rdm1  = Math.Random(4) ;
 				int rdm2  = Math.Random(4) ;
-				Sting tmp = tabSystem[rdm1];
+				tmp = tabSystem[rdm1];
 				tabSystem[rdm1] = tabSystem[rdm2];
 				tabSystem[rdm2] = tmp;
 			}
+
+             private String avancerPlanete (int planete)
+             {
+                 Sting tmp = tabSystem[planete];
+                 tabSystem[planete] = tabSystem[planete + 1];
+                 tabSystem[planete + 1] = tabSystem[planete];
+             }
         }
     }
 }
