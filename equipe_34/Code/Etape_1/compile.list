@@ -1,15 +1,6 @@
 -encoding utf8
 
 ./Controleur.java
-./InfoTerritoire.java
-./SituationPlateau.java
-./Message.java
-
-./ihm/FramePlateau.java
-./ihm/PanelPlateau.java
-
-./ihm/FrameJoueur.java
-./ihm/PanelJoueur.java
 
 ./metier/Jeu.java
 ./metier/Galaxie.java

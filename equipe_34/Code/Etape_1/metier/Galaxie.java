@@ -11,9 +11,9 @@ public class Galaxie
 
     private ArrayList<SystemeSolaire> systemesSolaires;
 
-    private final int Triälum    = 3;
+    private final int Trialum    = 3;
     private final int Uninium    = 1;
-    private final int Mervelléum = 7;
+    private final int Mervelleum = 7;
     private final int Quintum    = 5;
 
     public void conquerirPlanete(Planete planete, Joueur seigneurProprietaire){
@@ -23,9 +23,9 @@ public class Galaxie
 
     private void debutDePartie()
     {
-        systemesSolaires.add( new SystemeSolaire("Triälum", Triälum));
+        systemesSolaires.add( new SystemeSolaire("Trialum", Trialum));
         systemesSolaires.add( new SystemeSolaire("Uninium", Uninium));
-        systemesSolaires.add( new SystemeSolaire("Mervelléum", Mervelléum));
+        systemesSolaires.add( new SystemeSolaire("Mervelleum", Mervelleum));
         systemesSolaires.add( new SystemeSolaire("Quintum", Quintum));
 
         for (int cpt = 0; cpt < 10; cpt++)
@@ -43,7 +43,7 @@ public class Galaxie
 
     private void avancerSystemeSolaire(Planete planete)
     {
-        int position;
+        int position = 0;
         String nomSysteme;
         nomSysteme = planete.getSystemeSolaire().getNom();
 

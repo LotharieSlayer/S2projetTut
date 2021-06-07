@@ -1,6 +1,6 @@
 package lesseigneurdutemps.metier;
 
-import seigneurdutemps.*;
+import lesseigneurdutemps.*;
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -9,57 +9,64 @@ public class Jeu
 {
     private String action;
     private String planete;
+    private Joueur joueurB;
+    private Joueur joueurN;
 
-    private final int Triälum    = 3;
+    private final int Trialum    = 3;
     private final int Uninium    = 1;
-    private final int Mervelléum = 7;
+    private final int Mervelleum = 7;
     private final int Quintum    = 5;
+    
 
-    public Jeu
+    public Jeu()
     {
-        
+        this.joueurN = new Joueur("Francis", "noir");
+        this.joueurB = new Joueur("Ara", "blanc");
     }
 
     public void action ( int couleurSeigneur, char action)
 	{
 		// determine quel joueur joue
-        if (this.couleurSeigneur == "noir")
+        if (this.joueurN.getCouleur() == "noir")
         {
             // action [A]jouter [R]etirer
             switch ( action )
             {
-                case 'a' || 'A': // Ajouter un anneau
-                    this.ajouterAnneauBlanc();
-                    this.avancerPlanete();
+                case 'A': // Ajouter un anneau
+                    //this.ajouterAnneauBlanc();
+                    //this.avancerPlanete();
+                    System.out.println("ANoir");
                     break;
 
-                case 'r' || 'R': // Retirer un anneau
-                    this.retirerAnneauBlanc();
+                case 'R': // Retirer un anneau
+                    //this.retirerAnneauBlanc();
+                    System.out.println("BNoir");
                     break;
 
-                default : System.out.println("Action invalide")
+                default : System.out.println("Action invalide");
             }
         }
         else
         {
             switch ( action )
             {
-                case 'a' || 'A': // Ajouter un anneau
-                    this.ajouterAnneauNoir();
-                    this.avancerPlanete();
-                        
+                case 'A': // Ajouter un anneau
+                    //this.ajouterAnneauNoir();
+                    //this.avancerPlanete();
+                    System.out.println("A");
                     break;
 
-                case 'r' || 'R': // Retirer un anneau
-                    this.retirerAnneauNoir();
+                case 'R': // Retirer un anneau
+                    //this.retirerAnneauNoir();
+                    System.out.println("R");
                     break;
 
-                default : System.out.println("Action invalide")
+                default : System.out.println("Action invalide");
             }
         }
 	}
 
-    private int ajouterAnneauBlanc ()
+    /*private int ajouterAnneauBlanc ()
     {
         this.nbDispo = this.nbDispo - 1;
         return this.nbBlanche ++;
@@ -81,5 +88,5 @@ public class Jeu
     {
         this.nbDispo ++;
         return this.nbNoir = this.nbNoir - 1;
-    }
+    }*/
 }

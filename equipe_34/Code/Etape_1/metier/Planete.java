@@ -16,7 +16,7 @@ public class Planete {
 
     public String getNom(){ return this.nom; }
 
-    public SystemeSolaire getSystemSolaire(){ return this.systemeSolaire; }
+    public SystemeSolaire getSystemeSolaire(){ return this.systemeSolaire; }
 
     public void changerProprietaire(Joueur seigneurProprietaire){
         this.seigneurProprietaire = seigneurProprietaire;
