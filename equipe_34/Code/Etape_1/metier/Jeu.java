@@ -1,3 +1,7 @@
+package seigneurdutemps.metier;
+
+import seigneurdutemps.*;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -15,24 +19,44 @@ public class Jeu
     {
     }
 
-    public void action ( int numJoueur, char action, int nbBlanche, int nbNoi, nbDispo )
+    public void action ( int couleurSeigneur, char action)
 	{
-		// action [A]jouter [R]etirer
+		// determine quel joueur joue
+        if (this.couleurSeigneur == "noir")
+        {
+            // action [A]jouter [R]etirer
+            switch ( action )
+            {
+                case 'a' || 'A': // Ajouter un anneau
+                    this.ajouterAnneauBlanc();
+                    this.avancerPlanete();
+                        
+                    break;
 
-		switch ( action )
-		{
-			case 'a' || 'A': // Ajouter un anneau
-			     this.ajouterAnneauBlanc();
-                 this.avancerPlanete();
-			         
-			    break;
+                case 'r' || 'R': // Retirer un anneau
+                    this.retirerAnneauBlanc();
+                    break;
 
-			case 'r' || 'R': // Retirer un anneau
-				this.retirerAnneauBlanc();
-			    break;
+                default : System.out.println("Action invalide")
+            }
+        }
+        else
+        {
+            switch ( action )
+            {
+                case 'a' || 'A': // Ajouter un anneau
+                    this.ajouterAnneauNoir();
+                    this.avancerPlanete();
+                        
+                    break;
 
-			default : System.out.println("Action invalide")
-		}
+                case 'r' || 'R': // Retirer un anneau
+                    this.retirerAnneauNoir();
+                    break;
+
+                default : System.out.println("Action invalide")
+            }
+        }
 	}
 
     private int ajouterAnneauBlanc ()

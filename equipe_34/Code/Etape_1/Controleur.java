@@ -1,3 +1,7 @@
+package seigneurdutemps;
+
+import seigneurdutemps.metier.Jeu;
+
 import java.util.Scanner;
 
 public class Controleur
