@@ -1,7 +1,6 @@
-package lesseigneurdutemps.metier;
+package equipe_34.lesSeigneursDuTemps.metier;
 
-import lesseigneurdutemps.*;
-
+import equipe_34.lesSeigneursDuTemps.*;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -13,7 +12,7 @@ public class Jeu
     private Joueur joueurN;
 
     private final int Trialum    = 3;
-    private final int Uninium    = 1;
+    private final int Uninium    = 1; 
     private final int Mervelleum = 7;
     private final int Quintum    = 5;
     
@@ -22,6 +21,7 @@ public class Jeu
     {
         this.joueurN = new Joueur("Francis", "noir");
         this.joueurB = new Joueur("Ara", "blanc");
+        System.out.println("OUI");
     }
 
     public void action ( int couleurSeigneur, char action)

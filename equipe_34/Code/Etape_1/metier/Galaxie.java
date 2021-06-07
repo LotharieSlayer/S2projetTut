@@ -1,5 +1,6 @@
-package lesseigneurdutemps.metier;
+package equipe_34.lesSeigneursDuTemps.metier;
 
+import equipe_34.lesSeigneursDuTemps.*;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.math.*;
