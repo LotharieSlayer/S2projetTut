@@ -11,7 +11,7 @@ public class Controleur
         
         public void action ( int couleurSeigneur, char action )
 	{
-		this.metier.action ( couleurSeigneur, action, numTerritoire );
+		this.metier.action ( couleurSeigneur, action );
 
 		//if ( numJoueur == 1 ) this.frameJoueur1.maj();
 		//if ( numJoueur == 2 ) this.frameJoueur2.maj();
