@@ -16,6 +16,15 @@ public class Controleur
                 String planete;
                 System.out.print("Saisir la planete de votre choix : ");
                 planete = clavier.nextLine();
+
+                if (planete == "1" || planete == "2" || planete == "3" || planete == "4")
+                {
+
+                }
+                else
+                {
+                    System.out.println("Planete choisi est invalide")
+                }
             }
             else
             {
@@ -30,7 +39,7 @@ public class Controleur
         {
             while (numSystem <= 4)
             {
-                Systeme.out.println("Systeme" + numSystem + planete dispo:" + nbDispo + "planete Noir"+ nbNoir + "planete Blanche" + nbBlanche);
+                Systeme.out.println("Systeme" + numSystem + "planete dispo:" + nbDispo + "planete Noir"+ nbNoir + "planete Blanche" + nbBlanche);
             }
         }
     }
