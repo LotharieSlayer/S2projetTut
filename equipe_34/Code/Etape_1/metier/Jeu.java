@@ -70,12 +70,12 @@ public class Jeu
 			tabSystem[rdm1] = tabSystem[rdm2];
 			tabSystem[rdm2] = tmp;
 		}
+    }
 
-        private String avancerPlanete (int planete)
-        {
-            Sting tmp = tabSystem[planete];
-            tabSystem[planete] = tabSystem[planete + 1];
-            tabSystem[planete + 1] = tabSystem[planete];
-        }
+    private String avancerPlanete (int planete)
+    {
+        Sting tmp = tabSystem[planete];
+        tabSystem[planete] = tabSystem[planete + 1];
+        tabSystem[planete + 1] = tabSystem[planete];
     }
 }
