@@ -1,3 +1,5 @@
+package lesseigneurdutemps.metier;
+
 import java.util.*;
 public class Planete {
 

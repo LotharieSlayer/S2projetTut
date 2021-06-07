@@ -30,7 +30,6 @@ public class Jeu
                 case 'a' || 'A': // Ajouter un anneau
                     this.ajouterAnneauBlanc();
                     this.avancerPlanete();
-                        
                     break;
 
                 case 'r' || 'R': // Retirer un anneau

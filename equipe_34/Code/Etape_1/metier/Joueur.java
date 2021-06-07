@@ -1,3 +1,5 @@
+package lesseigneurdutemps.metier;
+
 import java.util.ArrayList;
 
 public class Joueur {
