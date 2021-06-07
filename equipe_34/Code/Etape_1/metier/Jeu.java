@@ -1,4 +1,4 @@
-package seigneurdutemps.metier;
+package lesseigneurdutemps.metier;
 
 import seigneurdutemps.*;
 

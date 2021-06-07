@@ -1,4 +1,4 @@
-package seigneurdutemps;
+package lesseigneurdutemps;
 
 import seigneurdutemps.metier.Jeu;
 
