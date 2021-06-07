@@ -23,6 +23,7 @@ public class Jeu
 		{
 			case 'a' || 'A': // Ajouter un anneau
 			     this.ajouterAnneauBlanc();
+                 this.avancerPlanete();
 			         
 			    break;
 
