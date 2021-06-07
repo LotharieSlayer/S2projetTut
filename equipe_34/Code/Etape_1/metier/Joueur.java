@@ -7,8 +7,9 @@ public class Joueur {
 
     private String nom;
     private String couleurSeigneur;
+    private int nbAnneaux;
 
-    private ArrayList<Planete> planetesControlees;
+    //private ArrayList<Planete> planetesControlees;
 
 	public Joueur ( String nom, String couleurSeigneur )
 	{
@@ -25,16 +26,12 @@ public class Joueur {
 
     public String getNom() { return this.nom; }
 
-    public void ajouterPlanete(Planete planete)
-    {
-        planetesControlees.add(planete);
-    };
+    public int getNbAnneaux() { return this.nbAnneaux;}
 
-	public String toString()
-	{
-		return String.format ( "%-10s", this.nom, " : le Seigneur des Anneaux " + this.couleurSeigneur );
-	}
-    
     public String getCouleur() { return this.couleurSeigneur; }
+
+    public void conquerirPlanete(){ this.nbAnneaux = this.nbAnneaux--; };
+
+    public void libererPlanete(){ this.nbAnneaux = this.nbAnneaux++; };
 
 }

@@ -10,7 +10,7 @@ public class Controleur
 
     public Controleur()
     {
-		this.metier       = new Jeu ();
+		this.metier = new Jeu ();
 	}
     
 	public void action ( int couleurSeigneur, char action )

@@ -7,9 +7,6 @@ import java.math.*;
 
 public class Galaxie
 {
-    private String action;
-    private String planete;
-
     private ArrayList<SystemeSolaire> systemesSolaires;
 
     private final int Trialum    = 3;
@@ -24,10 +21,31 @@ public class Galaxie
 
     private void debutDePartie()
     {
-        systemesSolaires.add( new SystemeSolaire("Trialum", Trialum));
-        systemesSolaires.add( new SystemeSolaire("Uninium", Uninium));
-        systemesSolaires.add( new SystemeSolaire("Mervelleum", Mervelleum));
-        systemesSolaires.add( new SystemeSolaire("Quintum", Quintum));
+        systemesSolaires.add( creerSystemeSolaire("Triälum", Trialum));
+        systemesSolaires.add( creerSystemeSolaire("Uninium", Uninium));
+        systemesSolaires.add( creerSystemeSolaire("Mervelléum", Mervelleum));
+        systemesSolaires.add( creerSystemeSolaire("Quintum", Quintum));
+
+        //En attendant de trouver un moyen plus opti
+        systemesSolaires.get(0).ajouterPlanete(new Planete("Namek", systemesSolaires.get(0)));
+        systemesSolaires.get(0).ajouterPlanete(new Planete("Vegeta", systemesSolaires.get(0)));
+        systemesSolaires.get(0).ajouterPlanete(new Planete("Bidal", systemesSolaires.get(0)));
+
+        systemesSolaires.get(1).ajouterPlanete(new Planete("Allia", systemesSolaires.get(1)));
+
+        systemesSolaires.get(2).ajouterPlanete(new Planete("Imegga", systemesSolaires.get(2)));
+        systemesSolaires.get(2).ajouterPlanete(new Planete("Kaiokaï", systemesSolaires.get(2)));
+        systemesSolaires.get(2).ajouterPlanete(new Planete("Plant", systemesSolaires.get(2)));
+        systemesSolaires.get(2).ajouterPlanete(new Planete("Yardrat", systemesSolaires.get(2)));
+        systemesSolaires.get(2).ajouterPlanete(new Planete("Zun", systemesSolaires.get(2)));
+        systemesSolaires.get(2).ajouterPlanete(new Planete("Kaioshinkaï", systemesSolaires.get(2)));
+        systemesSolaires.get(2).ajouterPlanete(new Planete("Alpha HZ", systemesSolaires.get(2)));
+
+        systemesSolaires.get(3).ajouterPlanete(new Planete("Konatz", systemesSolaires.get(3)));
+        systemesSolaires.get(3).ajouterPlanete(new Planete("Makyo", systemesSolaires.get(3)));
+        systemesSolaires.get(3).ajouterPlanete(new Planete("Freezer n°79", systemesSolaires.get(3)));
+        systemesSolaires.get(3).ajouterPlanete(new Planete("Meat", systemesSolaires.get(3)));
+        systemesSolaires.get(3).ajouterPlanete(new Planete("Zun", systemesSolaires.get(3)));
 
         for (int cpt = 0; cpt < 10; cpt++)
         {
@@ -42,15 +60,13 @@ public class Galaxie
         }
     }
 
-    private void avancerSystemeSolaire(Planete planete)
+    private void avancerSystemeSolaire(SystemeSolaire systemeSolaire)
     {
         int position = 0;
-        String nomSysteme;
-        nomSysteme = planete.getSystemeSolaire().getNom();
 
         int cpt = 0 ;
         while(cpt < 4){
-            if(nomSysteme == systemesSolaires.get(cpt).getNom())
+            if(systemeSolaire.getNom() == systemesSolaires.get(cpt).getNom())
             {
                 position = cpt;
             }
@@ -63,6 +79,5 @@ public class Galaxie
             systemesSolaires.set(position, systemesSolaires.get(position++));
             systemesSolaires.set(position++, tmp);
         }
-
     }  
 }

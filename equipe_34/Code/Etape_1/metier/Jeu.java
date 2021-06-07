@@ -3,90 +3,128 @@ package equipe_34.lesSeigneursDuTemps.metier;
 import equipe_34.lesSeigneursDuTemps.*;
 import java.util.Scanner;
 import java.util.ArrayList;
+import iut.algo.Clavier;
 
 public class Jeu
 {
-    private String action;
-    private String planete;
+    private String nomJoueurA;
+    private String nomJoueurB;
+    private Joueur joueurA;
     private Joueur joueurB;
-    private Joueur joueurN;
+    private Joueur gagnant;
 
-    private final int Trialum    = 3;
-    private final int Uninium    = 1; 
-    private final int Mervelleum = 7;
-    private final int Quintum    = 5;
+    private int numTour = 1;
+
+    private final String COULEURA = "Noir";
+    private final String COULEURB = "Blanc";
     
 
     public Jeu()
     {
-        this.joueurN = new Joueur("Francis", "noir");
-        this.joueurB = new Joueur("Ara", "blanc");
-        System.out.println("OUI");
+        System.out.println("Comment s'apelle le joueur A ?");
+        this.nomJoueurA = Clavier.lire_String();
+        System.out.println("Comment s'apelle le joueur B ?");
+        this.nomJoueurB = Clavier.lire_String();
+
+        this.joueurA = new Joueur(this.nomJoueurA, COULEURA);
+        this.joueurB = new Joueur(this.nomJoueurB, COULEURB);
+
+        debutDePartie();
+        //afficherGalaxie();
+        
+        while(joueurB.getNbAnneaux() < 8 && joueurN.getNbAnneaux() < 8)
+        {
+            String couleurSeigneur, nomSeigneur;
+            if(this.numTour % 2 != 0){
+                couleurSeigneur = COULEURA;
+                nomSeigneur = this.nomJoueurA;
+            }
+            else 
+                couleurSeigneur = COULEURB;
+                nomSeigneur = this.nomJoueurB;
+
+            boolean debutTour = false;
+            while(debutTour = false){
+                char action, systemeSolaire;
+                System.out.println("Voulez-vous conquérir ou libérer une planète Seigneur " + nomSeigneur + " ? (C/l)");
+                action = Clavier.lire_char();
+
+                System.out.println("Donnez la première lettre du Système Solaire où effectué l'action :");
+                systemeSolaire = Clavier.lire_char();
+
+                if(action == 'C' || action == 'l' && 
+                   systemeSolaire == 'T' || systemeSolaire == 'U' || systemeSolaire == 'M' || systemeSolaire== 'Q'){
+                    debutTour= true;
+                    action(couleurSeigneur, action, systemeSolaire);
+                }
+            }
+            this.numTour++;
+        }
+        System.out.println("Partie terminé !");
+        gagnant = determinerGagnant();
+        System.out.println("Le Seigneur du Temps qui a remporté ka partie est " + gagnant.getNom());
+        System.out.println("Félicitations !");
     }
 
-    public void action ( int couleurSeigneur, char action)
+    public void action ( String couleurSeigneur, char action, char systemeSolaire)
 	{
-		// determine quel joueur joue
-        if (this.joueurN.getCouleur() == "noir")
+        int numSystemSolaire = 0;
+        String nomSystemeSolaire;
+
+        switch(systemeSolaire){
+            case 'T':
+                nomSystemeSolaire="Triälum";
+            case 'U':
+                nomSystemeSolaire="Uninium";
+            case 'M':
+                nomSystemeSolaire="Mervelléum";
+            case 'Q':
+                nomSystemeSolaire="Quintum";
+            }
+
+        while(nomSystemeSolaire != systemesSolaires.get(numSystemSolaire).getNom())
         {
-            // action [A]jouter [R]etirer
-            switch ( action )
-            {
-                case 'A': // Ajouter un anneau
-                    //this.ajouterAnneauBlanc();
-                    //this.avancerPlanete();
-                    System.out.println("ANoir");
-                    break;
+            numSystemSolaire++;
+        }
 
-                case 'R': // Retirer un anneau
-                    //this.retirerAnneauBlanc();
-                    System.out.println("BNoir");
-                    break;
-
-                default : System.out.println("Action invalide");
+        if(action == 'C')
+        {
+            if(couleurSeigneur == COULEURA){
+                if(systemesSolaires.get(numSystemSolaire).conquerirPlanete(joueurA) == false){this.debutTour=false;}
+            }
+            if(couleurSeigneur == COULEURB){
+                if(systemesSolaires.get(numSystemSolaire).conquerirPlanete(joueurB) == false){this.debutTour=false;}
             }
         }
         else
         {
-            switch ( action )
-            {
-                case 'A': // Ajouter un anneau
-                    //this.ajouterAnneauNoir();
-                    //this.avancerPlanete();
-                    System.out.println("A");
-                    break;
-
-                case 'R': // Retirer un anneau
-                    //this.retirerAnneauNoir();
-                    System.out.println("R");
-                    break;
-
-                default : System.out.println("Action invalide");
+            if(couleurSeigneur == COULEURA){
+                systemesSolaires.get(numSystemSolaire).libererPlanete(joueurA);
+            }
+            if(couleurSeigneur == COULEURB){
+                systemesSolaires.get(numSystemSolaire).libererPlanete(joueurB);
             }
         }
 	}
-
-    /*private int ajouterAnneauBlanc ()
+    public Joueur determinerGagnant()
     {
-        this.nbDispo = this.nbDispo - 1;
-        return this.nbBlanche ++;
+        int cpt=0;
+        int nbPlanetesJoueurA = 0;
+        int nbPlanetesJoueurB = 0;
+        while(cpt < systemesSolaires.get(3).getPlanetes().size())
+        {
+            if(systemesSolaires.get(3).getPlanetes().get(cpt).getProprietaire() == joueurA.getNom())
+            {
+                nbPlanetesJoueurA++;
+            }
+            else
+                nbPlanetesJoueurB++;
+            cpt++;
+        }
+        if(nbPlanetesJoueurA > nbPlanetesJoueurB){
+            return joueurA;
+        }
+        else
+            return joueurB;
     }
-
-    private int ajouterAnneauNoir ()
-    {
-        this.nbDispo = this.nbDispo - 1;
-        return this.nbNoir ++;
-    }
-
-    private int retirerAnneauBlanc(int nbBlanche)
-    {
-        this.nbDispo ++;
-        return this.nbBlanche = this.nbBlanche - 1;
-    }
-
-    private String retirerAnneauNoir(int nbNoir)
-    {
-        this.nbDispo ++;
-        return this.nbNoir = this.nbNoir - 1;
-    }*/
 }

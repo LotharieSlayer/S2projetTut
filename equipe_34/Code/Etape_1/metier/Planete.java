@@ -4,7 +4,6 @@ import equipe_34.lesSeigneursDuTemps.*;
 import java.util.*;
 public class Planete {
 
-    private static int numPlanete;
     private String nom;
     private SystemeSolaire systemeSolaire;
     private Joueur seigneurProprietaire;
@@ -15,7 +14,14 @@ public class Planete {
         this.systemeSolaire = systemeSolaire;
     }
 
+    public Planete(SystemeSolaire systemeSolaire)
+	{
+        this.systemeSolaire = systemeSolaire;
+    }
+
     public String getNom(){ return this.nom; }
+
+    public Joueur getProprietaire(){ return this.seigneurProprietaire; }
 
     public SystemeSolaire getSystemeSolaire(){ return this.systemeSolaire; }
 
@@ -23,18 +29,8 @@ public class Planete {
         this.seigneurProprietaire = seigneurProprietaire;
     }
 
-    public void libererPlanete()
+    public void libererProprietaire()
     {
         this.seigneurProprietaire = null;
     }
-
-	/*public String toString ()
-	{
-        System.out.println("Diapo" + this.iNumDiapo);
-
-        int cpt = 0;
-        while(cpt < nbElements){
-            System.out.println("\t" + cpt + " " + alElement.get(cpt));
-        }
-    }*/
 }
