@@ -1,6 +1,6 @@
-package lesseigneurdutemps;
+package equipe_34.lesSeigneursDuTemps;
 
-import lesseigneurdutemps.metier.Jeu;
+import equipe_34.lesSeigneursDuTemps.metier.Jeu;
 
 import java.util.Scanner;
 
