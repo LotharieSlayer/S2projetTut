@@ -22,7 +22,6 @@ public class PanelTitle extends JPanel
 		this.setBackground(Color.WHITE);
 		this.fichier = "image/logo.png";
 		this.ouvrirImage();
-		this.setVisible(true);
 	}
 
 	public void paint ( Graphics g )

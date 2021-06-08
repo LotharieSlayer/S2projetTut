@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.BorderLayout;
 import javax.swing.*;
@@ -21,16 +22,17 @@ public class FrameJoueur extends JFrame
 		/* Création des composants */
 		/* ----------------------- */
 		pnlMain = new JPanel();
-		this.pnlMain.setLayout( new GridLayout(3,0) );
+		this.pnlMain.setLayout( new BorderLayout() );
 
 		this.pnlTitle = new PanelTitle(ctrl);
+		this.pnlTitle.setPreferredSize(new Dimension(1600,150));
+		
 		this.pnlJoueur  = new PanelJoueur  (ctrl);
 
-		
 		/* ---------------------------- */
 		/* Postionnement des composants */
 		/* ---------------------------- */
-		this.pnlMain.add(this.pnlTitle);
+		this.pnlMain.add(this.pnlTitle , BorderLayout.NORTH);
 		this.pnlMain.add(this.pnlJoueur, BorderLayout.CENTER);
 		this.pnlMain.setBackground(Color.WHITE);
 		this.add(this.pnlMain);

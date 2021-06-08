@@ -20,10 +20,9 @@ import javax.swing.*;
 /*--------------------------------------------------------------*/
 /* PanelSelctCouleur                                            */
 /*--------------------------------------------------------------*/
-public class PanelSelectSysteme extends JPanel
+public class PanelCentre extends JPanel
 {
 	// Attributs d'instance
-	private Planete    pl;
 	private Controleur ctrl;
 	private String fichier;
 	private Image image;
@@ -39,7 +38,7 @@ public class PanelSelectSysteme extends JPanel
 	//
 	// Le type correspond à une des trois constante de classe ROUGE VERT BLEU
 
-	public PanelSelectSysteme()//Planete pl, Controleur ctrl)
+	public PanelCentre()
 	{
 		//this.pl                    = pl;
 		//this.ctrl                  = ctrl;
@@ -58,7 +57,7 @@ public class PanelSelectSysteme extends JPanel
 		Font smallFont = new Font("Free Pixels", Font.PLAIN, 16);  
 		Font bigFont = new Font("Montserrat", Font.BOLD, 42);
 		
-		this.lblPlanete = new JLabel ( " Trialum ", JLabel.CENTER );
+		this.lblPlanete = new JLabel ( " Centre ", JLabel.CENTER );
 		this.lblPlanete.setFont(bigFont);
 
 
@@ -73,7 +72,7 @@ public class PanelSelectSysteme extends JPanel
 		
 		//Panel Haut (Image selon objet Planète)
 		try {
-			BufferedImage image = ImageIO.read(new File("assets/systemes/Trialum.png"));
+			BufferedImage image = ImageIO.read(new File("assets/systemes/Centre.png"));
 			JLabel lblImage = new JLabel(new ImageIcon(image));
 			panelHaut.add(lblImage);
 		} catch (IOException e) { e.printStackTrace(); }
