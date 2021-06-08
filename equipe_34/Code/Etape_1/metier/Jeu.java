@@ -2,6 +2,9 @@ package equipe_34.lesSeigneursDuTemps.metier;
 
 import equipe_34.lesSeigneursDuTemps.*;
 import java.util.Scanner;
+
+import javax.lang.model.util.ElementScanner14;
+
 import java.util.ArrayList;
 import iut.algo.Clavier;
 
@@ -18,6 +21,7 @@ public class Jeu
     private int numTour = 1;
 
     private boolean debutTour;
+    private boolean planeteLibere;
 
     private final String COULEURA = "Noir";
     private final String COULEURB = "Blanc";
@@ -38,7 +42,7 @@ public class Jeu
         this.galaxie.debutDePartie();
         //afficherGalaxie();
         
-        while(this.joueurA.getNbAnneaux() < 8 && this.joueurB.getNbAnneaux() < 8)
+        while(this.joueurA.getNbAnneaux() != 0 || this.joueurB.getNbAnneaux() != 0)
         {
             String couleurSeigneur, nomSeigneur;
             debutTour = false;
@@ -73,10 +77,16 @@ public class Jeu
                     
                 }
 
-                System.out.println("Voulez-vous conquérir ou libérer une planète Seigneur " + nomSeigneur + " ? (C/l)");
-                action = Clavier.lire_char();
-
-                System.out.println("Donnez la première lettre du Système Solaire où effectué l'action :");
+                if(planeteLibere == true){
+                    action = 'C';
+                    System.out.println("Donnez la première lettre du Système Solaire où conquérir la planète :");
+                }
+                else
+                {
+                    System.out.println("Voulez-vous conquérir ou libérer une planète Seigneur " + nomSeigneur + " ? (C/l)");
+                    action = Clavier.lire_char();
+                    System.out.println("Donnez la première lettre du Système Solaire où effectué l'action :");
+                }
                 systemeSolaire = Clavier.lire_char();
 
                 if((action == 'C' || action == 'c' || action == 'L' || action == 'l') && 
@@ -86,6 +96,11 @@ public class Jeu
                     debutTour= true;
                     action(couleurSeigneur, action, systemeSolaire);
                 }
+                else if(action == 'C' || action == 'c' || action == 'L' || action == 'l'){
+                    System.out.println("Le système solaire sélectionné est incorrecte !");
+                }
+                else
+                    System.out.println("L'action sélectionné est incorrecte");
             }
             this.numTour++;
         }
@@ -141,9 +156,10 @@ public class Jeu
                 
                 if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurA) == true)
                 {
+                    this.planeteLibere = false;
                     if(numSystemSolaire == 3)
                     {  
-                        this.galaxie.getSystemesSolaires().get(numSystemSolaire + 0).ajouterPlaneteJoueurA();
+                        this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurA();
                     }
                     else
                     {
@@ -160,9 +176,10 @@ public class Jeu
             {
                 if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurB) == true)
                 {
+                    this.planeteLibere = false;
                     if(numSystemSolaire == 3)
                     {
-                        this.galaxie.getSystemesSolaires().get(numSystemSolaire + 0).ajouterPlaneteJoueurB();
+                        this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurB();
                     }
                     else
                     {
@@ -181,6 +198,7 @@ public class Jeu
                 if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).libererPlanete(joueurA) == true)
                 {
                     this.galaxie.getSystemesSolaires().get(numSystemSolaire ).libererPlaneteJoueurA();
+                    this.planeteLibere = true;
                 }
                 this.debutTour=false;
             }
@@ -189,6 +207,7 @@ public class Jeu
                 if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).libererPlanete(joueurB) == true)
                 {
                     this.galaxie.getSystemesSolaires().get(numSystemSolaire ).libererPlaneteJoueurB();
+                    this.planeteLibere = true;
                 }
                 this.debutTour=false;
             }
@@ -196,22 +215,7 @@ public class Jeu
 	}
     public Joueur determinerGagnant()
     {
-        int cpt=0;
-        int nbPlanetesJoueurA = 0;
-        int nbPlanetesJoueurB = 0;
-        while(cpt < this.galaxie.getSystemesSolaires().get(3).getPlanetes().size())
-        {
-            if(this.galaxie.getSystemesSolaires().get(3).getPlanetes().get(cpt).getProprietaire().getNom() == joueurA.getNom())
-            {
-                nbPlanetesJoueurA++;
-            }
-            else
-            {
-                nbPlanetesJoueurB++;
-            }
-            cpt++;
-        }
-        if(nbPlanetesJoueurA > nbPlanetesJoueurB)
+        if(this.galaxie.getSystemesSolaires().get(3).getNBPlaneteJoueurA() > this.galaxie.getSystemesSolaires().get(3).getNBPlaneteJoueurB())
         {
             return joueurA;
         }

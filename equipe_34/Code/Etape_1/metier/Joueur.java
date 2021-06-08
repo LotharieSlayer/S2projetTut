@@ -7,7 +7,7 @@ public class Joueur {
 
     private String nom;
     private String couleurSeigneur;
-    private int nbAnneaux;
+    private int nbAnneaux = 8;
 
     //private ArrayList<Planete> planetesControlees;
 
@@ -30,8 +30,8 @@ public class Joueur {
 
     public String getCouleur() { return this.couleurSeigneur; }
 
-    public void conquerirPlanete(){ this.nbAnneaux = this.nbAnneaux--; };
+    public void conquerirPlanete(){ this.nbAnneaux--; };
 
-    public void libererPlanete(){ this.nbAnneaux = this.nbAnneaux++; };
+    public void libererPlanete(){ this.nbAnneaux++; };
 
 }

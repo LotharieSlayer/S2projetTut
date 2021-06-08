@@ -3,6 +3,8 @@ package equipe_34.lesSeigneursDuTemps.metier;
 import equipe_34.lesSeigneursDuTemps.*;
 import java.util.ArrayList;
 
+import javax.lang.model.util.ElementScanner14;
+
 public class SystemeSolaire {
 
     private String nom      ;
@@ -41,7 +43,7 @@ public class SystemeSolaire {
         }
         else
         {
-            System.out.println("Erreur, le système solaire séléctionné n'a plus de planèters de libre");
+            System.out.println("Erreur, le système solaire séléctionné n'a plus de planètes de libre");
             return false;
         }
     }
@@ -49,11 +51,21 @@ public class SystemeSolaire {
     public boolean libererPlanete(Joueur seigneurProprietaire)
     {
         int cpt = 0;
-        while(planetes.get(cpt).getProprietaire().getNom() != seigneurProprietaire.getNom() && cpt < planetes.size() - 1)
+        boolean planeteTrouve = false;
+        while (planeteTrouve == false && cpt < planetes.size() - 1)
         {
-            cpt++;
+            if(planetes.get(cpt).getProprietaire() == null)
+            {
+                cpt++;
+            }
+            else if (planetes.get(cpt).getProprietaire() == seigneurProprietaire)
+            {
+                planeteTrouve = true;
+            }
+            else 
+                cpt++;
         }
-        if(planetes.get(cpt).getProprietaire() != null)
+        if(planeteTrouve == true)
         {
             planetes.get(cpt).libererProprietaire();
             seigneurProprietaire.libererPlanete();
