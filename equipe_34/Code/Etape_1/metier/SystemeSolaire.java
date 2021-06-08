@@ -28,7 +28,7 @@ public class SystemeSolaire {
     public boolean conquerirPlanete(Joueur seigneurProprietaire)
     {
         int cpt = 0;
-        while(planetes.get(cpt).getProprietaire() != null || cpt < planetes.size() - 1)
+        while(planetes.get(cpt).getProprietaire() != null && cpt < planetes.size() - 1)
         {
             cpt++;
         }
@@ -37,7 +37,6 @@ public class SystemeSolaire {
             planetes.get(cpt).changerProprietaire(seigneurProprietaire);
             seigneurProprietaire.conquerirPlanete();
             galaxie.avancerSystemeSolaire(this);
-            System.out.println("Système déplacé !");
             return true;
         }
         else
@@ -50,7 +49,7 @@ public class SystemeSolaire {
     public boolean libererPlanete(Joueur seigneurProprietaire)
     {
         int cpt = 0;
-        while(planetes.get(cpt).getProprietaire().getNom() != seigneurProprietaire.getNom() || cpt < planetes.size() - 1)
+        while(planetes.get(cpt).getProprietaire().getNom() != seigneurProprietaire.getNom() && cpt < planetes.size() - 1)
         {
             cpt++;
         }

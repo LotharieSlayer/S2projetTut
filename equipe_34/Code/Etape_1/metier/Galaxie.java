@@ -73,7 +73,6 @@ public class Galaxie
             cpt++;  
         }
         position = cpt;
-        System.out.println(position);
         if(position < 3)
         {
             SystemeSolaire tmp = systemesSolaires.get(position);
