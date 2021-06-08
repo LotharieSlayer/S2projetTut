@@ -7,6 +7,8 @@ public class SystemeSolaire {
 
     private String nom      ;
     private int    nbPlanete;
+    private int    nbA;
+    private int    nbB;
     private ArrayList<Planete> planetes;
     private Galaxie galaxie;
 
@@ -65,4 +67,25 @@ public class SystemeSolaire {
     public String getNom(){ return this.nom; }
     
     public ArrayList<Planete> getPlanetes(){return planetes;}
+
+    public int ajouterPlaneteJoueur (int nbA, int nbB, String couleurSeigneur)
+    {
+        if (planetes.getProprietaire() == "Noir")
+        {
+            if (this.nbA < this.nbB + this.nbPlanete)
+            {
+                this.nbA ++;
+            }
+            else {return System.out.println("Il n'y a plus de planete disponible");}
+             
+        }
+        else
+        {
+            if (this.nbB < this.nbA + this.nbPlanete)
+            {
+                this.nbB ++;
+            }
+            else {return System.out.println("Il n'y a plus de planete disponible");}
+        }
+    }
 }
