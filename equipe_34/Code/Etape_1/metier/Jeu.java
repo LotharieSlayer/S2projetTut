@@ -45,10 +45,12 @@ public class Jeu
                 couleurSeigneur = COULEURA;
                 nomSeigneur = this.nomJoueurA;
             }
-            else 
+            else
+            {
                 couleurSeigneur = COULEURB;
                 nomSeigneur = this.nomJoueurB;
-
+            } 
+                
             while(this.debutTour == false){
                 char action, systemeSolaire;
                 System.out.println("Voulez-vous conquérir ou libérer une planète Seigneur " + nomSeigneur + " ? (C/l)");
@@ -79,11 +81,19 @@ public class Jeu
         switch(systemeSolaire){
             case 'T':
                 nomSystemeSolaire="Triälum";
+            case 't':
+                nomSystemeSolaire="Triälum";
             case 'U':
+                nomSystemeSolaire="Uninium";
+            case 'u':
                 nomSystemeSolaire="Uninium";
             case 'M':
                 nomSystemeSolaire="Mervelléum";
+            case 'm':
+                nomSystemeSolaire="Mervelléum";
             case 'Q':
+                nomSystemeSolaire="Quintum";
+            case 'q':
                 nomSystemeSolaire="Quintum";
             }
 

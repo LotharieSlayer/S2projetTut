@@ -69,15 +69,17 @@ public class Galaxie
             if(systemeSolaire.getNom() == systemesSolaires.get(cpt).getNom())
             {
                 position = cpt;
+                System.out.println(cpt);
             }
             cpt++;
         }
 
-        if(position < 4)
+        if(position < 3)
         {
             SystemeSolaire tmp = systemesSolaires.get(position);
             systemesSolaires.set(position, systemesSolaires.get(position++));
             systemesSolaires.set(position++, tmp);
+            System.out.println(cpt);
         }
     }  
 }
