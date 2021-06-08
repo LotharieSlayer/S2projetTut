@@ -62,11 +62,11 @@ public class Jeu
                 while (cpt < 4)
                 {
                     System.out.println(this.galaxie.getSystemesSolaires().get(cpt).getNom()); 
-                    System.out.println("        Nombre de planete total  :" + this.galaxie.getSystemesSolaires().get(cpt).getNbPlanete()                       + " planete" ); 
-                    System.out.println("        Le Joueur A a            :" + this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurA()                + " planete");
-                    System.out.println("        Le joueur B a            :" + this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurB()                + " planete");
-                    System.out.println("        planete encore disponible:" + (this.galaxie.getSystemesSolaires().get(cpt).getNbPlanete() - 
-                    (this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurA() + this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurB() ) ) + " planete" );
+                    System.out.println("        Nombre de planètes                  :   " + this.galaxie.getSystemesSolaires().get(cpt).getNbPlanete()                       + " planètes" ); 
+                    System.out.println("        Le Joueur A contrôle                :   " + this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurA()                + " planète(s)");
+                    System.out.println("        Le joueur B contrôle                :   " + this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurB()                + " planète(s)");
+                    System.out.println("        Nombre de Planète(s) Disponible(s)  :   " + (this.galaxie.getSystemesSolaires().get(cpt).getNbPlanete() - 
+                    (this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurA() + this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurB() ) ) + " planète(s)" );
 
                     System.out.println();
                     cpt ++;
@@ -78,7 +78,9 @@ public class Jeu
                 System.out.println("Donnez la première lettre du Système Solaire où effectué l'action :");
                 systemeSolaire = Clavier.lire_char();
 
-                if(action == 'C' || action == 'c' || action == 'L' || action == 'l' && systemeSolaire == 'T' || systemeSolaire == 'U' || systemeSolaire == 'M' || systemeSolaire== 'Q')
+                if((action == 'C' || action == 'c' || action == 'L' || action == 'l') && 
+                   (systemeSolaire == 'T' || systemeSolaire == 'U' || systemeSolaire == 'M' || systemeSolaire == 'Q') ||
+                   (systemeSolaire == 't' || systemeSolaire == 'u' || systemeSolaire == 'm' || systemeSolaire == 'q'))
                 {
                     debutTour= true;
                     action(couleurSeigneur, action, systemeSolaire);
@@ -95,26 +97,34 @@ public class Jeu
     public void action ( String couleurSeigneur, char action, char systemeSolaire)
 	{
         int numSystemSolaire = 0;
-        String nomSystemeSolaire =" ";
+        String nomSystemeSolaire = " ";
 
         switch(systemeSolaire)
         {
             case 'T':
                 nomSystemeSolaire="Triälum";
+                break;
             case 't':
                 nomSystemeSolaire="Triälum";
+                break;
             case 'U':
                 nomSystemeSolaire="Uninium";
+                break;
             case 'u':
                 nomSystemeSolaire="Uninium";
+                break;
             case 'M':
                 nomSystemeSolaire="Mervelléum";
+                break;
             case 'm':
                 nomSystemeSolaire="Mervelléum";
+                break;
             case 'Q':
                 nomSystemeSolaire="Quintum";
+                break;
             case 'q':
                 nomSystemeSolaire="Quintum";
+                break;
         }
 
         while(nomSystemeSolaire != this.galaxie.getSystemesSolaires().get(numSystemSolaire).getNom())
@@ -126,30 +136,40 @@ public class Jeu
         {
             if(couleurSeigneur == COULEURA)
             {
-                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurA) == false)
+                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurA) == true)
                 {
-                    this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurA();
-                    this.debutTour=false;
+                    this.galaxie.getSystemesSolaires().get(numSystemSolaire + 1).ajouterPlaneteJoueurA();
                 }
+                else
+                    this.debutTour=false;
             }
             if(couleurSeigneur == COULEURB)
             {
-                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurB) == false)
+                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurB) == true)
                 {
-                    this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurB();
-                    this.debutTour=false;
+                    this.galaxie.getSystemesSolaires().get(numSystemSolaire + 1).ajouterPlaneteJoueurB();
                 }
+                else
+                    this.debutTour=false;
             }
         }
         else
         {
             if(couleurSeigneur == COULEURA)
             {
-                this.galaxie.getSystemesSolaires().get(numSystemSolaire).libererPlanete(joueurA);
+                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).libererPlanete(joueurA) == true)
+                {
+                    this.galaxie.getSystemesSolaires().get(numSystemSolaire + 1).libererPlaneteJoueurA();
+                }
+                this.debutTour=false;
             }
             if(couleurSeigneur == COULEURB)
             {
-                this.galaxie.getSystemesSolaires().get(numSystemSolaire).libererPlanete(joueurB);
+                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).libererPlanete(joueurB) == true)
+                {
+                    this.galaxie.getSystemesSolaires().get(numSystemSolaire + 1).libererPlaneteJoueurB();
+                }
+                this.debutTour=false;
             }
         }
 	}

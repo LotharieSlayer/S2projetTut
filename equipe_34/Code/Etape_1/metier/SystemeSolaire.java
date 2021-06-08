@@ -47,7 +47,7 @@ public class SystemeSolaire {
         }
     }
 
-    public void libererPlanete(Joueur seigneurProprietaire)
+    public boolean libererPlanete(Joueur seigneurProprietaire)
     {
         int cpt = 0;
         while(planetes.get(cpt).getProprietaire().getNom() != seigneurProprietaire.getNom() || cpt < planetes.size() - 1)
@@ -58,23 +58,26 @@ public class SystemeSolaire {
         {
             planetes.get(cpt).libererProprietaire();
             seigneurProprietaire.libererPlanete();
-
+            return true;
         }
         else
-            System.out.println("Erreur, le système solaire séléctionné n'a aucune planète contrôlé par vous !");
+            {
+                System.out.println("Erreur, le système solaire séléctionné n'a aucune planète contrôlé par vous !");
+                return false;
+            }
     }
 
     public String getNom()   { return this.nom;       }
     public int getNbPlanete(){ return this.nbPlanete; }
 
-    public void ajouterPlaneteJoueurA(){ nbA++; }
-    public void ajouterPlaneteJoueurB(){ nbB++; }
+    public void ajouterPlaneteJoueurA(){ this.nbA++; }
+    public void ajouterPlaneteJoueurB(){ this.nbB++; }
 
-    public void libererPlaneteJoueurA(){ nbA--; }
-    public void libererPlaneteJoueurB(){ nbB--; }
+    public void libererPlaneteJoueurA(){ this.nbA--; }
+    public void libererPlaneteJoueurB(){ this.nbB--; }
 
-    public int getNBPlaneteJoueurA(){ return nbA;}
-    public int getNBPlaneteJoueurB(){ return nbB;}
+    public int getNBPlaneteJoueurA(){ return this.nbA;}
+    public int getNBPlaneteJoueurB(){ return this.nbB;}
     
     public ArrayList<Planete> getPlanetes(){return planetes;}
 }
