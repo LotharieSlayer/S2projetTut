@@ -164,7 +164,7 @@ public class Jeu
         }
     }
 
-    public String toString()
+    /*public String toString()
     {
         int cpt = 0 ;
         String affichage = " ";
@@ -172,5 +172,5 @@ public class Jeu
         {
            return String affichage = interger.toString(this.galaxie.getSystemesSolaires().get(cpt).getNom() + this.galaxie.getSystemesSolaires().get(cpt).getNbPlanete() + this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurA() + this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurB() + (this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurA() - this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurB() ) );
         }
-    }
+    }*/
 }
