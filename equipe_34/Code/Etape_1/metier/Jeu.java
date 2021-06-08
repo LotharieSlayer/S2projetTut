@@ -56,13 +56,22 @@ public class Jeu
             while(this.debutTour == false)
             {
                 char action, systemeSolaire;
+
+                int cpt = 0 ;
+                String affichage = " ";
+                while (cpt < 4)
+                {
+                    System.out.print(this.galaxie.getSystemesSolaires().get(cpt).getNom() + this.galaxie.getSystemesSolaires().get(cpt).getNbPlanete() + this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurA() + this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurB() + (this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurA() - this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurB() ) );
+                    cpt ++;
+                }
+
                 System.out.println("Voulez-vous conquérir ou libérer une planète Seigneur " + nomSeigneur + " ? (C/l)");
                 action = Clavier.lire_char();
 
                 System.out.println("Donnez la première lettre du Système Solaire où effectué l'action :");
                 systemeSolaire = Clavier.lire_char();
 
-                if(action == 'C' || action == 'l' && systemeSolaire == 'T' || systemeSolaire == 'U' || systemeSolaire == 'M' || systemeSolaire== 'Q')
+                if(action == 'C' || action == 'c' || action == 'L' || action == 'l' && systemeSolaire == 'T' || systemeSolaire == 'U' || systemeSolaire == 'M' || systemeSolaire== 'Q')
                 {
                     debutTour= true;
                     action(couleurSeigneur, action, systemeSolaire);
