@@ -68,9 +68,9 @@ public class SystemeSolaire {
     
     public ArrayList<Planete> getPlanetes(){return planetes;}
 
-    public int ajouterPlaneteJoueur (int nbA, int nbB, String couleurSeigneur)
+    public int ajouterPlaneteJoueur (int nbA, int nbB, String COULEURA, String COULEURB)
     {
-        if (planetes.getProprietaire() == "Noir")
+        if ()
         {
             if (this.nbA < this.nbB + this.nbPlanete)
             {

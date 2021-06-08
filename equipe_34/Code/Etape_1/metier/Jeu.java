@@ -106,10 +106,10 @@ public class Jeu
         if(action == 'C')
         {
             if(couleurSeigneur == COULEURA){
-                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurA) == false){this.debutTour=false;}
+                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurA).ajouterPlaneteJoueur(couleurSeigneur) == false){this.debutTour=false;}
             }
             if(couleurSeigneur == COULEURB){
-                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurB) == false){this.debutTour=false;}
+                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurB).ajouterPlaneteJoueur(couleurSeigneur) == false){this.debutTour=false;}
             }
         }
         else
