@@ -70,11 +70,11 @@ public class SystemeSolaire {
     public String getNom()   { return this.nom;       }
     public int getNbPlanete(){ return this.nbPlanete; }
 
-    public void ajouterPlaneteJoueurA(){ this.nbA++; }
-    public void ajouterPlaneteJoueurB(){ this.nbB++; }
+    public void ajouterPlaneteJoueurA(){ this.nbA++;  }
+    public void ajouterPlaneteJoueurB(){ this.nbB++;  }
 
-    public void libererPlaneteJoueurA(){ this.nbA--; }
-    public void libererPlaneteJoueurB(){ this.nbB--; }
+    public void libererPlaneteJoueurA(){ this.nbA--;  }
+    public void libererPlaneteJoueurB(){ this.nbB--;  }
 
     public int getNBPlaneteJoueurA(){ return this.nbA;}
     public int getNBPlaneteJoueurB(){ return this.nbB;}
