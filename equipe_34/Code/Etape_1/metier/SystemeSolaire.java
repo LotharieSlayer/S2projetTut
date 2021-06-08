@@ -35,11 +35,14 @@ public class SystemeSolaire {
             planetes.get(cpt).changerProprietaire(seigneurProprietaire);
             seigneurProprietaire.conquerirPlanete();
             galaxie.avancerSystemeSolaire(this);
+            System.out.println("Système déplacé !");
             return true;
         }
         else
+        {
             System.out.println("Erreur, le système solaire séléctionné n'a plus de planèters de libre");
             return false;
+        }
     }
 
     public void libererPlanete(Joueur seigneurProprietaire)

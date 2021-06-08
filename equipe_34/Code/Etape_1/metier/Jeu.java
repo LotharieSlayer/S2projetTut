@@ -17,7 +17,7 @@ public class Jeu
 
     private int numTour = 1;
 
-    private boolean debutTour = false;
+    private boolean debutTour;
 
     private final String COULEURA = "Noir";
     private final String COULEURB = "Blanc";
@@ -41,6 +41,7 @@ public class Jeu
         while(this.joueurA.getNbAnneaux() < 8 && this.joueurB.getNbAnneaux() < 8)
         {
             String couleurSeigneur, nomSeigneur;
+            debutTour = false;
             if(this.numTour % 2 != 0){
                 couleurSeigneur = COULEURA;
                 nomSeigneur = this.nomJoueurA;
