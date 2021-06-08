@@ -67,7 +67,8 @@ public class Galaxie
         int position = 0;
 
         int cpt = 0 ;
-        while(cpt < 4){
+        while(cpt < 4)
+        {
             if(systemeSolaire.getNom() == systemesSolaires.get(cpt).getNom())
             {
                 position = cpt;
