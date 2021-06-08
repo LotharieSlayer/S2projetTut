@@ -65,27 +65,15 @@ public class SystemeSolaire {
     }
 
     public String getNom(){ return this.nom; }
+
+    public void ajouterPlaneteJoueurA(){ nbA++; }
+    public void ajouterPlaneteJoueurB(){ nbB++; }
+
+    public void libererPlaneteJoueurA(){ nbA--; }
+    public void libererPlaneteJoueurB(){ nbB--; }
+
+    public int getNBPlaneteJoueurA(){ return nbA;}
+    public int getNBPlaneteJoueurB(){ return nbB;}
     
     public ArrayList<Planete> getPlanetes(){return planetes;}
-
-    public int ajouterPlaneteJoueur (int nbA, int nbB, String COULEURA, String COULEURB)
-    {
-        if ()
-        {
-            if (this.nbA < this.nbB + this.nbPlanete)
-            {
-                this.nbA ++;
-            }
-            else {return System.out.println("Il n'y a plus de planete disponible");}
-             
-        }
-        else
-        {
-            if (this.nbB < this.nbA + this.nbPlanete)
-            {
-                this.nbB ++;
-            }
-            else {return System.out.println("Il n'y a plus de planete disponible");}
-        }
-    }
 }
