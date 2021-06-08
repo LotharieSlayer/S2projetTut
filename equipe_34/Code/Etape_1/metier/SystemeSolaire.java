@@ -64,7 +64,8 @@ public class SystemeSolaire {
             System.out.println("Erreur, le système solaire séléctionné n'a aucune planète contrôlé par vous !");
     }
 
-    public String getNom(){ return this.nom; }
+    public String getNom()   { return this.nom;       }
+    public int getNbPlanete(){ return this.nbPlanete; }
 
     public void ajouterPlaneteJoueurA(){ nbA++; }
     public void ajouterPlaneteJoueurB(){ nbB++; }
