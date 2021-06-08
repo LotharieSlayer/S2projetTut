@@ -14,12 +14,7 @@ public class Galaxie
     private final int Mervelleum = 7;
     private final int Quintum    = 5;
 
-    public void conquerirPlanete(Planete planete, Joueur seigneurProprietaire){
-        planete.changerProprietaire(seigneurProprietaire);
-        seigneurProprietaire.ajouterPlanete(planete);
-    }
-
-    private void debutDePartie()
+    public void debutDePartie()
     {
         systemesSolaires.add( creerSystemeSolaire("Triälum", Trialum));
         systemesSolaires.add( creerSystemeSolaire("Uninium", Uninium));

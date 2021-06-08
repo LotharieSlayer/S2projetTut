@@ -15,6 +15,8 @@ public class Jeu
 
     private int numTour = 1;
 
+    private boolean debutTour = false;
+
     private final String COULEURA = "Noir";
     private final String COULEURB = "Blanc";
     
@@ -22,17 +24,17 @@ public class Jeu
     public Jeu()
     {
         System.out.println("Comment s'apelle le joueur A ?");
-        this.nomJoueurA = Clavier.lire_String();
+        this.nomJoueurA = Clavier.lireString();
         System.out.println("Comment s'apelle le joueur B ?");
-        this.nomJoueurB = Clavier.lire_String();
+        this.nomJoueurB = Clavier.lireString();
 
         this.joueurA = new Joueur(this.nomJoueurA, COULEURA);
         this.joueurB = new Joueur(this.nomJoueurB, COULEURB);
 
-        debutDePartie();
+        metier.debutDePartie();
         //afficherGalaxie();
         
-        while(joueurB.getNbAnneaux() < 8 && joueurN.getNbAnneaux() < 8)
+        while(this.joueurA.getNbAnneaux() < 8 && this.joueurB.getNbAnneaux() < 8)
         {
             String couleurSeigneur, nomSeigneur;
             if(this.numTour % 2 != 0){
@@ -43,8 +45,7 @@ public class Jeu
                 couleurSeigneur = COULEURB;
                 nomSeigneur = this.nomJoueurB;
 
-            boolean debutTour = false;
-            while(debutTour = false){
+            while(this.debutTour == false){
                 char action, systemeSolaire;
                 System.out.println("Voulez-vous conquérir ou libérer une planète Seigneur " + nomSeigneur + " ? (C/l)");
                 action = Clavier.lire_char();

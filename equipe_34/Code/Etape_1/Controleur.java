@@ -13,17 +13,6 @@ public class Controleur
 		this.metier = new Jeu ();
 	}
     
-	public void action ( int couleurSeigneur, char action )
-	{
-		this.metier.action ( couleurSeigneur, action );
-
-		//if ( numJoueur == 1 ) this.frameJoueur1.maj();
-		//if ( numJoueur == 2 ) this.frameJoueur2.maj();
-
-		//this.framePlateau.maj();
-
-	}
-
     public static void main(String[] a)
 	{
 		new Controleur();
