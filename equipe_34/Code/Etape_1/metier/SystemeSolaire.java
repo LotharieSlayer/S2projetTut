@@ -8,17 +8,14 @@ public class SystemeSolaire {
     private String nom      ;
     private int    nbPlanete;
     private ArrayList<Planete> planetes;
+    private Galaxie galaxie;
 
-	public SystemeSolaire (String nom, int nbPlanete)
+	public SystemeSolaire (String nom, int nbPlanete, Galaxie galaxie)
 	{
         this.nom       = nom      ;
         this.nbPlanete = nbPlanete;
-    }
-
-    public SystemeSolaire creerSystemeSolaire (String nom, int nbPlanete)
-    {
-    		if (nom != "Triälum" || nom != "Uninium" || nom != "Mervelléum" || nom != "Quintum") return null;
-            else return new SystemeSolaire(nom, nbPlanete);
+        this.galaxie = galaxie;
+        this.planetes = new ArrayList<Planete>();
     }
 
     public void ajouterPlanete(Planete planete)
@@ -29,7 +26,7 @@ public class SystemeSolaire {
     public boolean conquerirPlanete(Joueur seigneurProprietaire)
     {
         int cpt = 0;
-        while(planetes.get(cpt).getProprietaire() != null || cpt < planetes.size())
+        while(planetes.get(cpt).getProprietaire() != null || cpt < planetes.size() - 1)
         {
             cpt++;
         }
@@ -37,7 +34,7 @@ public class SystemeSolaire {
         {
             planetes.get(cpt).changerProprietaire(seigneurProprietaire);
             seigneurProprietaire.conquerirPlanete();
-            avancerSystemeSolaire(this);
+            galaxie.avancerSystemeSolaire(this);
             return true;
         }
         else
@@ -48,7 +45,7 @@ public class SystemeSolaire {
     public void libererPlanete(Joueur seigneurProprietaire)
     {
         int cpt = 0;
-        while(planetes.get(cpt).getProprietaire() != seigneurProprietaire.getNom() || cpt < planetes.size())
+        while(planetes.get(cpt).getProprietaire().getNom() != seigneurProprietaire.getNom() || cpt < planetes.size() - 1)
         {
             cpt++;
         }

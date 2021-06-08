@@ -16,10 +16,13 @@ public class Galaxie
 
     public void debutDePartie()
     {
-        systemesSolaires.add( creerSystemeSolaire("Triälum", Trialum));
-        systemesSolaires.add( creerSystemeSolaire("Uninium", Uninium));
-        systemesSolaires.add( creerSystemeSolaire("Mervelléum", Mervelleum));
-        systemesSolaires.add( creerSystemeSolaire("Quintum", Quintum));
+
+        this.systemesSolaires = new ArrayList<SystemeSolaire>();
+
+        systemesSolaires.add( new SystemeSolaire("Triälum", Trialum, this));
+        systemesSolaires.add( new SystemeSolaire("Uninium", Uninium, this));
+        systemesSolaires.add( new SystemeSolaire("Mervelléum", Mervelleum, this));
+        systemesSolaires.add( new SystemeSolaire("Quintum", Quintum, this));
 
         //En attendant de trouver un moyen plus opti
         systemesSolaires.get(0).ajouterPlanete(new Planete("Namek", systemesSolaires.get(0)));
@@ -55,7 +58,9 @@ public class Galaxie
         }
     }
 
-    private void avancerSystemeSolaire(SystemeSolaire systemeSolaire)
+    public ArrayList<SystemeSolaire> getSystemesSolaires(){return systemesSolaires;}
+
+    public void avancerSystemeSolaire(SystemeSolaire systemeSolaire)
     {
         int position = 0;
 
