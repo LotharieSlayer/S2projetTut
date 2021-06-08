@@ -61,7 +61,14 @@ public class Jeu
                 String affichage = " ";
                 while (cpt < 4)
                 {
-                    System.out.print(this.galaxie.getSystemesSolaires().get(cpt).getNom() + this.galaxie.getSystemesSolaires().get(cpt).getNbPlanete() + this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurA() + this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurB() + (this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurA() - this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurB() ) );
+                    System.out.println(this.galaxie.getSystemesSolaires().get(cpt).getNom()); 
+                    System.out.println("        Nombre de planete total  :" + this.galaxie.getSystemesSolaires().get(cpt).getNbPlanete()                       + " planete" ); 
+                    System.out.println("        Le Joueur A a            :" + this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurA()                + " planete");
+                    System.out.println("        Le joueur B a            :" + this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurB()                + " planete");
+                    System.out.println("        planete encore disponible:" + (this.galaxie.getSystemesSolaires().get(cpt).getNbPlanete() - 
+                    (this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurA() + this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurB() ) ) + " planete" );
+
+                    System.out.println();
                     cpt ++;
                 }
 
