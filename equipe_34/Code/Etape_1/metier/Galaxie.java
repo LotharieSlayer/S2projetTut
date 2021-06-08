@@ -47,10 +47,12 @@ public class Galaxie
 
         for (int cpt = 0; cpt < 10; cpt++)
         {
-            int rdm1, rdm2;
+            int rdm1 = 0, rdm2 = 0;
 
-            rdm1 = (int) Math.random() * 4;
-            rdm2 = (int) Math.random() * 4;
+            while(rdm1 == rdm2){
+                rdm1 = (int)(Math.random() * 4);
+                rdm2 = (int)(Math.random() * 4);
+            }
 
             SystemeSolaire tmp = systemesSolaires.get(rdm1);
             systemesSolaires.set(rdm1, systemesSolaires.get(rdm2));
