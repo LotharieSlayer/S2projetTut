@@ -66,10 +66,11 @@ public class Jeu
                     System.out.println("        Le Joueur A contrôle                :   " + this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurA()                + " planète(s)");
                     System.out.println("        Le joueur B contrôle                :   " + this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurB()                + " planète(s)");
                     System.out.println("        Nombre de Planète(s) Disponible(s)  :   " + (this.galaxie.getSystemesSolaires().get(cpt).getNbPlanete() - 
-                    (this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurA() + this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurB() ) ) + " planète(s)" );
+                        (this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurA() + this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurB() ) ) + " planète(s)" );
 
                     System.out.println();
                     cpt ++;
+                    
                 }
 
                 System.out.println("Voulez-vous conquérir ou libérer une planète Seigneur " + nomSeigneur + " ? (C/l)");
@@ -134,20 +135,40 @@ public class Jeu
 
         if(action == 'C')
         {
+
             if(couleurSeigneur == COULEURA)
             {
+                
                 if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurA) == true)
                 {
-                    this.galaxie.getSystemesSolaires().get(numSystemSolaire + 1).ajouterPlaneteJoueurA();
+                    if(numSystemSolaire == 3)
+                    {  
+                        this.galaxie.getSystemesSolaires().get(numSystemSolaire + 0).ajouterPlaneteJoueurA();
+                    }
+                    else
+                    {
+                        this.galaxie.getSystemesSolaires().get(numSystemSolaire + 1).ajouterPlaneteJoueurA();
+                    }
                 }
                 else
+                {
                     this.debutTour=false;
+                }   
             }
+
             if(couleurSeigneur == COULEURB)
             {
                 if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurB) == true)
                 {
-                    this.galaxie.getSystemesSolaires().get(numSystemSolaire + 1).ajouterPlaneteJoueurB();
+                    if(numSystemSolaire == 3)
+                    {
+                        this.galaxie.getSystemesSolaires().get(numSystemSolaire + 0).ajouterPlaneteJoueurB();
+                    }
+                    else
+                    {
+                        this.galaxie.getSystemesSolaires().get(numSystemSolaire + 1).ajouterPlaneteJoueurB();
+                    }
+                    
                 }
                 else
                     this.debutTour=false;
@@ -159,7 +180,7 @@ public class Jeu
             {
                 if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).libererPlanete(joueurA) == true)
                 {
-                    this.galaxie.getSystemesSolaires().get(numSystemSolaire + 1).libererPlaneteJoueurA();
+                    this.galaxie.getSystemesSolaires().get(numSystemSolaire ).libererPlaneteJoueurA();
                 }
                 this.debutTour=false;
             }
@@ -167,7 +188,7 @@ public class Jeu
             {
                 if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).libererPlanete(joueurB) == true)
                 {
-                    this.galaxie.getSystemesSolaires().get(numSystemSolaire + 1).libererPlaneteJoueurB();
+                    this.galaxie.getSystemesSolaires().get(numSystemSolaire ).libererPlaneteJoueurB();
                 }
                 this.debutTour=false;
             }
@@ -199,14 +220,4 @@ public class Jeu
             return joueurB;
         }
     }
-
-    /*public String toString()
-    {
-        int cpt = 0 ;
-        String affichage = " ";
-        while (cpt < 4)
-        {
-           return String affichage = interger.toString(this.galaxie.getSystemesSolaires().get(cpt).getNom() + this.galaxie.getSystemesSolaires().get(cpt).getNbPlanete() + this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurA() + this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurB() + (this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurA() - this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurB() ) );
-        }
-    }*/
 }
