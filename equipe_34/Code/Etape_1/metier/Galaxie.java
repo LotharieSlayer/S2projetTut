@@ -62,27 +62,23 @@ public class Galaxie
 
     public ArrayList<SystemeSolaire> getSystemesSolaires(){return systemesSolaires;}
 
-    public void avancerSystemeSolaire(SystemeSolaire systemeSolaire)
+    public void avancerSystemeSolaire(SystemeSolaire systemeSolaireSelectionne)
     {
         int position = 0;
 
         int cpt = 0 ;
-        while(cpt < 4)
-        {
-            if(systemeSolaire.getNom() == systemesSolaires.get(cpt).getNom())
-            {
-                position = cpt;
-                System.out.println(cpt);
-            }
-            cpt++;
-        }
 
+        while(systemeSolaireSelectionne.getNom().equals(systemesSolaires.get(cpt).getNom()) == false)
+        {
+            cpt++;  
+        }
+        position = cpt;
+        System.out.println(position);
         if(position < 3)
         {
             SystemeSolaire tmp = systemesSolaires.get(position);
-            systemesSolaires.set(position, systemesSolaires.get(position++));
-            systemesSolaires.set(position++, tmp);
-            System.out.println(cpt);
+            systemesSolaires.set(position, systemesSolaires.get(position + 1));
+            systemesSolaires.set(position + 1, tmp);
         }
     }  
 }
