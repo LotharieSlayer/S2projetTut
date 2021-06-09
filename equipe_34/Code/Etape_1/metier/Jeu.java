@@ -148,7 +148,7 @@ public class Jeu
             numSystemSolaire++;
         }
 
-        if(action == 'C')
+        if(action == 'C' || action == 'c')
         {
 
             if(couleurSeigneur == COULEURA)
