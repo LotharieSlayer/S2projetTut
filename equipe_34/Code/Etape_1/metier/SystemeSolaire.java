@@ -27,7 +27,7 @@ public class SystemeSolaire {
         planetes.add(planete);
     };
 
-    public boolean conquerirPlanete(Joueur seigneurProprietaire)
+    public boolean conquerirPlanete(Joueur seigneurProprietaire, boolean AvancerSystemeSolaire)
     {
         int cpt = 0;
         while(planetes.get(cpt).getProprietaire() != null && cpt < planetes.size() - 1)
@@ -38,7 +38,7 @@ public class SystemeSolaire {
         {
             planetes.get(cpt).changerProprietaire(seigneurProprietaire);
             seigneurProprietaire.conquerirPlanete();
-            galaxie.avancerSystemeSolaire(this);
+            if(AvancerSystemeSolaire == true){ galaxie.avancerSystemeSolaire(this); }
             return true;
         }
         else
