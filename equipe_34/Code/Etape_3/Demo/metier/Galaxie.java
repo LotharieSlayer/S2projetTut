@@ -14,7 +14,7 @@ public class Galaxie
     private final int Mervelleum = 7;
     private final int Quintum    = 5;
 
-    public void debutDePartie(boolean data, String[][] sData)
+    public void debutDePartie(boolean data, String[][] sData, Joueur seigneurA, Joueur seigneurB)
     {
         if(data == true)
         {
@@ -24,19 +24,19 @@ public class Galaxie
                 switch(sData[i][0])
                 {
                     case "Triälum" :
-                        systemesSolaires.add( new SystemeSolaire(sData[i][0], Trialum, this));
+                        systemesSolaires.add( new SystemeSolaire(sData[i][0].replaceAll(" ",""), Trialum, this));
                         systemesSolaires.get(i).ajouterPlanete(new Planete("Namek", systemesSolaires.get(i)));
                         systemesSolaires.get(i).ajouterPlanete(new Planete("Vegeta", systemesSolaires.get(i)));
                         systemesSolaires.get(i).ajouterPlanete(new Planete("Bidal", systemesSolaires.get(i)));
                         break;
 
                     case "Uninium" :
-                        systemesSolaires.add( new SystemeSolaire(sData[i][0], Uninium, this));
+                        systemesSolaires.add( new SystemeSolaire(sData[i][0].replaceAll(" ",""), Uninium, this));
                         systemesSolaires.get(i).ajouterPlanete(new Planete("Allia", systemesSolaires.get(i)));
                         break;
 
                     case "Mervelléum" :
-                        systemesSolaires.add( new SystemeSolaire(sData[i][0], Mervelleum, this));
+                        systemesSolaires.add( new SystemeSolaire(sData[i][0].replaceAll(" ",""), Mervelleum, this));
                         systemesSolaires.get(i).ajouterPlanete(new Planete("Imegga", systemesSolaires.get(i)));
                         systemesSolaires.get(i).ajouterPlanete(new Planete("Kaiokaï", systemesSolaires.get(i)));
                         systemesSolaires.get(i).ajouterPlanete(new Planete("Plant", systemesSolaires.get(i)));
@@ -47,7 +47,7 @@ public class Galaxie
                         break;
                     
                     case "Quintum" :
-                        systemesSolaires.add( new SystemeSolaire(sData[i][0], Quintum, this));
+                        systemesSolaires.add( new SystemeSolaire(sData[i][0].replaceAll(" ",""), Quintum, this));
                         systemesSolaires.get(i).ajouterPlanete(new Planete("Konatz", systemesSolaires.get(i)));
                         systemesSolaires.get(i).ajouterPlanete(new Planete("Makyo", systemesSolaires.get(i)));
                         systemesSolaires.get(i).ajouterPlanete(new Planete("Freezer n°79", systemesSolaires.get(i)));
@@ -55,11 +55,18 @@ public class Galaxie
                         systemesSolaires.get(i).ajouterPlanete(new Planete("Zun", systemesSolaires.get(i)));
                         break;
                 }
-                for (int j=0; j < Integer.parseInt(sData[i][1]);j++) {
+                int j = 0, k = 0;
+                while(j < Integer.parseInt(sData[i][1]))
+                {
                     systemesSolaires.get(i).ajouterPlaneteJoueurA();
+                    systemesSolaires.get(i).getPlanetes().get(j).changerProprietaire(seigneurA);
+                    j++;
                 }
-                for (int j=0; j < Integer.parseInt(sData[i][2]);j++) {
+                while(k < Integer.parseInt(sData[i][2]))
+                {
                     systemesSolaires.get(i).ajouterPlaneteJoueurB();
+                    systemesSolaires.get(i).getPlanetes().get(j+k).changerProprietaire(seigneurB);
+                    k++;
                 }
             }
         }

@@ -34,6 +34,7 @@ public class SystemeSolaire {
         {
             cpt++;
         }
+        System.out.println(planetes.get(cpt).getProprietaire().getNom());
         if(planetes.get(cpt).getProprietaire() == null)
         {
             planetes.get(cpt).changerProprietaire(seigneurProprietaire);

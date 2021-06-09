@@ -38,7 +38,7 @@ public class Jeu
 
         this.galaxie = new Galaxie();
 
-        this.galaxie.debutDePartie(true, this.data);
+        this.galaxie.debutDePartie(true, this.data, this.joueurA, this.joueurB);
         
         while(this.joueurA.getNbAnneaux() != 0 || this.joueurB.getNbAnneaux() != 0)
         {
@@ -122,7 +122,7 @@ public class Jeu
 
         this.galaxie = new Galaxie();
 
-        this.galaxie.debutDePartie(false, this.data);
+        this.galaxie.debutDePartie(false, this.data, this.joueurA, this.joueurB );
         
         while(this.joueurA.getNbAnneaux() != 0 || this.joueurB.getNbAnneaux() != 0)
         {
@@ -226,8 +226,7 @@ public class Jeu
                 nomSystemeSolaire="Quintum";
                 break;
         }
-
-        while(nomSystemeSolaire != this.galaxie.getSystemesSolaires().get(numSystemSolaire).getNom())
+        while(!nomSystemeSolaire.equals(this.galaxie.getSystemesSolaires().get(numSystemSolaire).getNom()))
         {
             numSystemSolaire++;
         }
