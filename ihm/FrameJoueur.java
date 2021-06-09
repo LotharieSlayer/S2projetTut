@@ -10,13 +10,15 @@ public class FrameJoueur extends JFrame
 	private JPanel				 pnlMain;
 	private JPanel				 pnlCoteLeft;
 	private JPanel				 pnlCoteRight;
+	private JPanel				 pnlFooter;
 
 	private PanelJoueur          pnlJoueur;
 	private PanelTitle 			 pnlTitle;
 	private PanelStatutNoir		 pnlStatutN;
 	private PanelStatutBlanc	 pnlStatutB;
-	//private PanelFooter			 pnlFooter;
-
+	// private PanelAnneaux		 pnlAnneaux;
+	private PanelAction			 pnlAction;
+	
     public FrameJoueur(Controleur ctrl)
     {
 		this.setLocation(160,50);
@@ -28,8 +30,9 @@ public class FrameJoueur extends JFrame
 		/* ----------------------- */
 		/* Création des composants */
 		/* ----------------------- */
-		pnlMain = new JPanel();
-		this.pnlMain.setLayout( new BorderLayout() );
+		this.pnlMain = new JPanel( new BorderLayout() );
+		this.pnlFooter = new JPanel( new BorderLayout() );
+
 
 		this.pnlTitle = new PanelTitle(ctrl);
 		this.pnlTitle.setPreferredSize(new Dimension(1600,150));
@@ -46,7 +49,10 @@ public class FrameJoueur extends JFrame
 		this.pnlCoteRight.setPreferredSize(new Dimension(80,0));
 		this.pnlCoteRight.setBackground(Color.WHITE);
 
-
+		// this.pnlAnneaux = new PanelAnneaux(this.ctrl);
+		this.pnlAction = new PanelAction(ctrl);
+		// this.pnlFooter.add(this.pnlAnneaux, BorderLayout.WEST); //PANEL ANNEAUX
+		this.pnlFooter.add(this.pnlAction, BorderLayout.EAST);
 
 		this.pnlJoueur  = new PanelJoueur  (ctrl);
 
