@@ -53,7 +53,7 @@ public class PanelSelectSysteme extends JPanel
 	
 		//FONT
 		String fName = "./assets/fonts/Montserrat/Montserrat-Bold.ttf";
-		InputStream fFont = PanelMessageStatut.class.getResourceAsStream(fName);
+		InputStream fFont = PanelSelectSysteme.class.getResourceAsStream(fName);
 		try {
 			Font font = Font.createFont(Font.TRUETYPE_FONT, fFont);
 			Font bigFont = font.deriveFont(Font.PLAIN, 42);

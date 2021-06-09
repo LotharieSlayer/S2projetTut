@@ -4,12 +4,15 @@ import java.awt.GridLayout;
 import java.awt.BorderLayout;
 import javax.swing.*;
 
+
 public class FrameJoueur extends JFrame
 {
 	private JPanel				 pnlMain;
 	private PanelJoueur          pnlJoueur;
 	private PanelTitle 			 pnlTitle;
-	private PanelMessageStatut	 pnlStatut;
+	private PanelStatutNoir		 pnlStatutN;
+	private PanelStatutBlanc	 pnlStatutB;
+	//private PanelFooter			 pnlFooter;
 
     public FrameJoueur(Controleur ctrl)
     {
@@ -27,8 +30,10 @@ public class FrameJoueur extends JFrame
 
 		this.pnlTitle = new PanelTitle(ctrl);
 		this.pnlTitle.setPreferredSize(new Dimension(1600,150));
-		this.pnlStatut = new PanelMessageStatut(ctrl);
-		this.pnlStatut.setPreferredSize(new Dimension(1600,400));
+		this.pnlStatutN = new PanelStatutNoir(ctrl);
+		this.pnlStatutN.setPreferredSize(new Dimension(1600,400));
+		this.pnlStatutB = new PanelStatutBlanc(ctrl);
+		this.pnlStatutB.setPreferredSize(new Dimension(1600,400));
 		
 		this.pnlJoueur  = new PanelJoueur  (ctrl);
 
@@ -37,7 +42,8 @@ public class FrameJoueur extends JFrame
 		/* ---------------------------- */
 		this.pnlMain.add(this.pnlTitle , BorderLayout.NORTH);
 		this.pnlMain.add(this.pnlJoueur, BorderLayout.CENTER);
-		this.pnlMain.add(this.pnlStatut, BorderLayout.SOUTH);
+		//this.pnlMain.add(this.pnlStatutN, BorderLayout.SOUTH); //mettre le message au tour du noir
+		this.pnlMain.add(this.pnlStatutB, BorderLayout.SOUTH); //mettre le message au tour du blanc
 		this.pnlMain.setBackground(Color.WHITE);
 		this.add(this.pnlMain);
 		

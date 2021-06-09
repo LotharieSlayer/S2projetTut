@@ -51,7 +51,7 @@ public class PanelCentre extends JPanel
 		/*-------------------------------*/
 
 		String fName = "./assets/fonts/FreePixel.ttf";
-		InputStream fFont = PanelMessageStatut.class.getResourceAsStream(fName);
+		InputStream fFont = PanelCentre.class.getResourceAsStream(fName);
 		try {
 			Font font = Font.createFont(Font.TRUETYPE_FONT, fFont);
 			Font smallFont = font.deriveFont(Font.PLAIN, 24);	
