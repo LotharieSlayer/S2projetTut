@@ -90,8 +90,8 @@ public class Jeu
                 systemeSolaire = Clavier.lire_char();
 
                 if((action == 'C' || action == 'c' || action == 'L' || action == 'l') && 
-                   (systemeSolaire == 'T' || systemeSolaire == 'U' || systemeSolaire == 'M' || systemeSolaire == 'Q') ||
-                   (systemeSolaire == 't' || systemeSolaire == 'u' || systemeSolaire == 'm' || systemeSolaire == 'q'))
+                   ((systemeSolaire == 'T' || systemeSolaire == 'U' || systemeSolaire == 'M' || systemeSolaire == 'Q') ||
+                   (systemeSolaire == 't' || systemeSolaire == 'u' || systemeSolaire == 'm' || systemeSolaire == 'q')))
                 {
                     debutTour= true;
                     action(couleurSeigneur, action, systemeSolaire);
@@ -106,7 +106,7 @@ public class Jeu
         }
         System.out.println("Partie terminé !");
         gagnant = determinerGagnant();
-        System.out.println("Le Seigneur du Temps qui a remporté ka partie est " + gagnant.getNom());
+        System.out.println("Le Seigneur du Temps qui a remporté la partie est " + gagnant.getNom());
         System.out.println("Félicitations !");
     }
 
