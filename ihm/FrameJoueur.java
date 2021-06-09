@@ -9,6 +9,7 @@ public class FrameJoueur extends JFrame
 	private JPanel				 pnlMain;
 	private PanelJoueur          pnlJoueur;
 	private PanelTitle 			 pnlTitle;
+	private PanelMessageStatut	 pnlStatut;
 
     public FrameJoueur(Controleur ctrl)
     {
@@ -26,6 +27,8 @@ public class FrameJoueur extends JFrame
 
 		this.pnlTitle = new PanelTitle(ctrl);
 		this.pnlTitle.setPreferredSize(new Dimension(1600,150));
+		this.pnlStatut = new PanelMessageStatut(ctrl);
+		this.pnlStatut.setPreferredSize(new Dimension(1600,400));
 		
 		this.pnlJoueur  = new PanelJoueur  (ctrl);
 
@@ -34,6 +37,7 @@ public class FrameJoueur extends JFrame
 		/* ---------------------------- */
 		this.pnlMain.add(this.pnlTitle , BorderLayout.NORTH);
 		this.pnlMain.add(this.pnlJoueur, BorderLayout.CENTER);
+		this.pnlMain.add(this.pnlStatut, BorderLayout.SOUTH);
 		this.pnlMain.setBackground(Color.WHITE);
 		this.add(this.pnlMain);
 		

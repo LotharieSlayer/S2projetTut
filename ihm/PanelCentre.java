@@ -50,15 +50,18 @@ public class PanelCentre extends JPanel
 		/* Création des composants       */
 		/*-------------------------------*/
 
-		// Partie Haute
-		//this.fichier = "";
+		String fName = "./assets/fonts/FreePixel.ttf";
+		InputStream fFont = PanelMessageStatut.class.getResourceAsStream(fName);
+		try {
+			Font font = Font.createFont(Font.TRUETYPE_FONT, fFont);
+			Font smallFont = font.deriveFont(Font.PLAIN, 24);	
+			this.lblPlanete = new JLabel ( " Centre ", JLabel.CENTER );
+			this.lblPlanete.setFont(smallFont); 
 
-		// Partie Basse
-		Font smallFont = new Font("Free Pixels", Font.PLAIN, 16);  
-		Font bigFont = new Font("Montserrat", Font.BOLD, 42);
-		
-		this.lblPlanete = new JLabel ( " Centre ", JLabel.CENTER );
-		this.lblPlanete.setFont(bigFont);
+	
+		}
+		catch (IOException e){ e.printStackTrace(); }
+		catch (FontFormatException e){ e.printStackTrace(); }
 
 
 		/*----------------------------------------------*/
