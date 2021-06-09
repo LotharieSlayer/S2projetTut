@@ -30,7 +30,7 @@ public class PanelStatutBlanc extends JPanel
 		this.setBackground(Color.WHITE);
 
 		//FONT
-		this.lblStatut = new JLabel("C’est au tour du seigneur Blanc ! (=^‥^=)", JLabel.CENTER);
+		this.lblStatut = new JLabel("C’est au tour du seigneur Blanc ! (=^.^=)", JLabel.CENTER);
 		this.lblSubtitle = new JLabel("Choisissez la planète à conquérir ou libérer.", JLabel.CENTER);
 		String fName = "./assets/fonts/Montserrat/Montserrat-Bold.ttf";
 		String f2Name = "./assets/fonts/FreePixel.ttf";

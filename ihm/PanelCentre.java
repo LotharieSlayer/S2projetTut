@@ -38,10 +38,9 @@ public class PanelCentre extends JPanel
 	//
 	// Le type correspond à une des trois constante de classe ROUGE VERT BLEU
 
-	public PanelCentre()
+	public PanelCentre(Controleur ctrl)
 	{
-		//this.pl                    = pl;
-		//this.ctrl                  = ctrl;
+		this.ctrl = ctrl;
 		this.setBackground(Color.WHITE);
 		this.setLayout ( new GridLayout(2,0) );
 

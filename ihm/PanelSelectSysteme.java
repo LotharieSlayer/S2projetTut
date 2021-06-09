@@ -26,7 +26,8 @@ public class PanelSelectSysteme extends JPanel
 	private Planete    pl;
 	private Controleur ctrl;
 	private String fichier;
-	private Image image;
+	private Image imgSysteme;
+
 
 	private JLabel lblPlanete = new JLabel();
 
@@ -34,17 +35,11 @@ public class PanelSelectSysteme extends JPanel
 	/* Constructeur */
 	/*--------------*/
 
-	// Ce Panel est constitué de deux sous-Panel que je définie directement,
-	// dans le constructeur sans passer par des nouvelles classes.
-	//
-	// Le type correspond à une des trois constante de classe ROUGE VERT BLEU
-
-	public PanelSelectSysteme()//Planete pl, Controleur ctrl)
+	public PanelSelectSysteme(Controleur ctrl)
 	{
-		//this.pl                    = pl;
-		//this.ctrl                  = ctrl;
+		this.ctrl = ctrl;
 		this.setBackground(Color.WHITE);
-		this.setLayout ( new GridLayout(2,0) );
+		this.setLayout ( new BorderLayout() );
 
 
 		/*-------------------------------*/
@@ -59,6 +54,7 @@ public class PanelSelectSysteme extends JPanel
 			Font bigFont = font.deriveFont(Font.PLAIN, 42);
 			
 			this.lblPlanete.setText(" Trialum ");
+			this.lblPlanete.setHorizontalAlignment( JLabel.CENTER );
 			this.lblPlanete.setFont(bigFont);
 			this.lblPlanete.setForeground(Color.BLACK);
 		}
@@ -70,23 +66,26 @@ public class PanelSelectSysteme extends JPanel
 		/* Positionnement des Composants                */
 		/*----------------------------------------------*/
 
-		JPanel panelHaut  = new JPanel();
-		JPanel panelBas   = new JPanel();
-		panelHaut.setBackground ( Color.WHITE );
-		panelBas.setBackground  ( Color.WHITE );
 		
-		//Panel Haut (Image selon objet Planète)
-		try {
-			BufferedImage image = ImageIO.read(new File("assets/systemes/Trialum.png"));
-			JLabel lblImage = new JLabel(new ImageIcon(image));
-			panelHaut.add(lblImage);
-		} catch (IOException e) { e.printStackTrace(); }
+ 		//Panel Haut (Image selon objet Planète)
+		// try {
+		// 	BufferedImage image = ImageIO.read(new File("assets/systemes/Trialum.png"));
+		// 	JLabel lblImage = new JLabel(new ImageIcon(image));
+		// 	panelHaut.add(lblImage);
+		// } catch (IOException e) { e.printStackTrace(); }
 
-		//Panel Bas (Titre de la planète)
-		panelBas.add ( this.lblPlanete, BorderLayout.CENTER );
+		
+		//Systeme
+		this.imgSysteme = Toolkit.getDefaultToolkit().getImage( "assets/systemes/Trialum.png" );
 
-		this.add ( panelHaut );
-		this.add ( panelBas  );
+		// Panel Bas (Titre de la planète)
+		this.add( this.lblPlanete, BorderLayout.SOUTH );
 
 	}
+
+	
+	public void paintComponent(Graphics g) {
+        super.paintComponent( g );
+		g.drawImage( this.imgSysteme, 15, 5, this );
+    }
 }

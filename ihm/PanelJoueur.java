@@ -21,13 +21,14 @@ public class PanelJoueur extends JPanel
 	{
 		this.ctrl = ctrl;
 		this.setBackground(Color.WHITE);
+		this.setLayout( new GridLayout( 1, 5 ) );
 
-		this.panelSelectTrialum = new PanelSelectSysteme();//, this.ctrl);
-		this.panelSelectUninium = new PanelSelectSysteme();//, this.ctrl);
-		this.panelSelectMervelleum = new PanelSelectSysteme();//, this.ctrl);
-		this.panelSelectQuintum = new PanelSelectSysteme();//, this.ctrl);
+		this.panelSelectTrialum = new PanelSelectSysteme(this.ctrl);
+		this.panelSelectUninium = new PanelSelectSysteme(this.ctrl);
+		this.panelSelectMervelleum = new PanelSelectSysteme(this.ctrl);
+		this.panelSelectQuintum = new PanelSelectSysteme(this.ctrl);
 
-		this.pnlCentre = new PanelCentre();
+		this.pnlCentre = new PanelCentre(this.ctrl);
 		this.pnlCentre.setLayout( new GridLayout(2,0));
 
 		this.add(this.panelSelectTrialum);
