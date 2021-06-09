@@ -28,7 +28,7 @@ public class PanelSelectSysteme extends JPanel
 	private String fichier;
 	private Image image;
 
-	private JLabel lblPlanete;
+	private JLabel lblPlanete = new JLabel();
 
 	/*--------------*/
 	/* Constructeur */
@@ -50,16 +50,20 @@ public class PanelSelectSysteme extends JPanel
 		/*-------------------------------*/
 		/* Création des composants       */
 		/*-------------------------------*/
-
-		// Partie Haute
-		//this.fichier = "";
-
-		// Partie Basse
-		Font smallFont = new Font("Free Pixels", Font.PLAIN, 16);  
-		Font bigFont = new Font("Montserrat", Font.BOLD, 42);
-		
-		this.lblPlanete = new JLabel ( " Trialum ", JLabel.CENTER );
-		this.lblPlanete.setFont(bigFont);
+	
+		//FONT
+		String fName = "./assets/fonts/Montserrat/Montserrat-Bold.ttf";
+		InputStream fFont = PanelMessageStatut.class.getResourceAsStream(fName);
+		try {
+			Font font = Font.createFont(Font.TRUETYPE_FONT, fFont);
+			Font bigFont = font.deriveFont(Font.PLAIN, 42);
+			
+			this.lblPlanete.setText(" Trialum ");
+			this.lblPlanete.setFont(bigFont);
+			this.lblPlanete.setForeground(Color.BLACK);
+		}
+		catch (IOException e){ e.printStackTrace(); }
+		catch (FontFormatException e){ e.printStackTrace(); }
 
 
 		/*----------------------------------------------*/
