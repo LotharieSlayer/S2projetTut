@@ -31,15 +31,16 @@ public class FrameJoueur extends JFrame
 		/* Création des composants */
 		/* ----------------------- */
 		this.pnlMain = new JPanel( new BorderLayout() );
-		this.pnlFooter = new JPanel( new BorderLayout() );
+		this.pnlFooter = new JPanel( new GridLayout(1,3) );
+		this.pnlFooter.setPreferredSize(new Dimension(1600, 160));
 
 
 		this.pnlTitle = new PanelTitle(ctrl);
 		this.pnlTitle.setPreferredSize(new Dimension(1600,150));
 		this.pnlStatutN = new PanelStatutNoir(ctrl);
-		this.pnlStatutN.setPreferredSize(new Dimension(1600,400));
+		this.pnlStatutN.setPreferredSize(new Dimension(1600,225));
 		this.pnlStatutB = new PanelStatutBlanc(ctrl);
-		this.pnlStatutB.setPreferredSize(new Dimension(1600,400));
+		this.pnlStatutB.setPreferredSize(new Dimension(1600,225));
 		
 		this.pnlCoteLeft = new JPanel();
 		this.pnlCoteLeft.setPreferredSize(new Dimension(80,0));
@@ -61,9 +62,6 @@ public class FrameJoueur extends JFrame
 		/* ---------------------------- */
 		this.pnlMain.add(this.pnlTitle , BorderLayout.NORTH);
 		this.pnlMain.add(this.pnlJoueur, BorderLayout.CENTER);
-		
-		
-		
 		this.pnlMain.add(this.pnlCoteLeft, BorderLayout.WEST);
 		this.pnlMain.add(this.pnlCoteRight, BorderLayout.EAST);
 		
@@ -71,6 +69,7 @@ public class FrameJoueur extends JFrame
 		this.pnlMain.add(this.pnlStatutB, BorderLayout.SOUTH); //mettre le message au tour du blanc
 		this.pnlMain.setBackground(Color.WHITE);
 		this.add(this.pnlMain);
+		this.add(this.pnlFooter, BorderLayout.SOUTH);
 		
 
 		this.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );

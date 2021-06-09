@@ -10,7 +10,7 @@ import java.io.*;
 /*--------------------------------------------*/
 /* Classe PanelImage                          */
 /*--------------------------------------------*/
-public class PanelAction extends JPanel
+public class PanelAction extends JPanel implements ActionListener
 {
 	private Controleur  ctrl;
 
@@ -21,6 +21,10 @@ public class PanelAction extends JPanel
 	private JPanel pnlMessage;
 	private JPanel pnlSubtitle;
 
+
+	private JButton btnConqerir;
+	private JButton btnLiberer;
+
 	private Image imgFond;
 
 
@@ -30,8 +34,8 @@ public class PanelAction extends JPanel
 		this.setBackground(Color.WHITE);
 
 		//FONT
-		this.lblStatut = new JLabel("C’est au tour du seigneur Noir ! =^∇^*=", JLabel.CENTER);
-		this.lblSubtitle = new JLabel("Choisissez la planète à conquérir ou libérer.", JLabel.CENTER);
+		this.lblStatut = new JLabel("Conquérir", JLabel.RIGHT);
+		this.lblSubtitle = new JLabel("Jouer le tour", JLabel.CENTER); //⎯⎯⎯⎯⎯⎯
 		String fName = "./assets/fonts/Montserrat/Montserrat-Bold.ttf";
 		String f2Name = "./assets/fonts/FreePixel.ttf";
 		InputStream fFont = PanelAction.class.getResourceAsStream(fName);
@@ -43,7 +47,7 @@ public class PanelAction extends JPanel
 			Font smallFont = font2.deriveFont(Font.PLAIN, 16);
 			
 			this.lblStatut.setFont(bigFont);
-			this.lblStatut.setForeground(Color.WHITE);
+			this.lblStatut.setForeground(Color.BLACK);
 			this.lblSubtitle.setFont(smallFont);
 			this.lblSubtitle.setForeground(Color.BLACK);
 		}
@@ -51,23 +55,31 @@ public class PanelAction extends JPanel
 		catch (FontFormatException e){ e.printStackTrace(); }
 
 		//Rectangle
-		this.imgFond = Toolkit.getDefaultToolkit().getImage( "assets/msgStatut/Rectangle.png" );
+		ImageIcon icon = new ImageIcon("assets/msgStatut/Bouton.png");
 
+		this.btnConqerir = new JButton("Conquérir", icon);
+		this.btnConqerir.setPreferredSize(new Dimension(280,70));
+		this.btnConqerir.addActionListener(this);
+		this.btnLiberer = new JButton("Libérer");
+		this.btnLiberer.setPreferredSize(new Dimension(280,70));
+		this.btnLiberer.addActionListener(this);
 		
-		this.pnlMessage = new JPanel( new BorderLayout(0,40) );
-		this.pnlMessage.add( this.lblStatut, BorderLayout.CENTER );
+		this.pnlMessage = new JPanel( new BorderLayout(0,0) );
+		this.pnlMessage.add( this.btnConqerir, BorderLayout.CENTER );
+		this.pnlMessage.add( this.btnLiberer, BorderLayout.EAST );
 		this.pnlMessage.add( this.lblSubtitle, BorderLayout.SOUTH );
 		this.pnlMessage.setOpaque(false);
-		this.pnlMain = new JPanel( new FlowLayout(0,0,65) );
+		this.pnlMain = new JPanel( new FlowLayout(0,0,0) );
 		this.pnlMain.add(this.pnlMessage);
 		this.pnlMain.setOpaque(false);
 
 		this.add(pnlMain);
 	}
 
-	public void paintComponent(Graphics g) {
-        super.paintComponent( g );
-		g.drawImage( this.imgFond, 290, 50, this );
-    }
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }
