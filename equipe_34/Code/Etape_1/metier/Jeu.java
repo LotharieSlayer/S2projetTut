@@ -61,7 +61,7 @@ public class Jeu
             {
                 char action, systemeSolaire;
 
-                int cpt = 0 ;
+                /*int cpt = 0 ;
                 String affichage = " ";
                 while (cpt < 4)
                 {
@@ -75,7 +75,8 @@ public class Jeu
                     System.out.println();
                     cpt ++;
                     
-                }
+                }*/
+                System.out.println(toString());
 
                 if(this.numPlaneteLibere > -1){
                     action = 'R'; //Action de replacer
@@ -105,6 +106,7 @@ public class Jeu
             this.numTour++;
         }
         System.out.println("Partie terminé !");
+        System.out.println(toString());
         gagnant = determinerGagnant();
         System.out.println("Le Seigneur du Temps qui a remporté la partie est " + gagnant.getNom());
         System.out.println("Félicitations !");
@@ -265,5 +267,23 @@ public class Jeu
         {
             return joueurB;
         }
+    }
+    
+    public String toString()
+    {
+        String s         = "";
+        int cpt          = 0 ;
+        while (cpt < 4)
+        {
+            s += String.format("%s", this.galaxie.getSystemesSolaires().get(cpt).getNom()) + "\n"    + 
+             "        Nombre de planètes                  :   " + String.format("%d",this.galaxie.getSystemesSolaires().get(cpt).getNbPlanete())             + " planètes"   + "\n" + 
+             "        Le Joueur A contrôle                :   " + String.format("%d", this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurA())     + " planète(s)" + "\n" +
+             "        Le joueur B contrôle                :   " + String.format("%d", this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurB())     + " planète(s)" + "\n" +
+             "        Nombre de Planète(s) Disponible(s)  :   " + String.format("%d", (this.galaxie.getSystemesSolaires().get(cpt).getNbPlanete() - 
+                (this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurA() + this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurB() ) ) ) + " planète(s)" + "\n" ;
+
+            cpt ++;        
+        }
+        return s;
     }
 }
