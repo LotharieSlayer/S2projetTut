@@ -1,0 +1,9 @@
+-encoding utf8
+
+./Controleur.java
+
+./metier/Jeu.java
+./metier/Galaxie.java
+./metier/Joueur.java
+./metier/Planete.java
+./metier/SystemeSolaire.java
