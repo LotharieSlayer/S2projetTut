@@ -215,8 +215,6 @@ public class Jeu
 
             if(couleurSeigneur == COULEURA)
             {
-                System.out.println(numSystemSolaire);
-                System.out.println(this.numPlaneteLibere);
 
                 if(numSystemSolaire < this.numPlaneteLibere)
                 {
