@@ -12,9 +12,11 @@
 ./sources/ihm/PanelCentre.java
 ./sources/ihm/PanelJoueur.java
 ./sources/ihm/PanelSelectSysteme.java
+./sources/ihm/PanelSysteme.java
 ./sources/ihm/PanelJoueur.java
 ./sources/ihm/PanelAnneaux.java
 ./sources/ihm/PanelAction.java
 ./sources/ihm/PanelStatutBlanc.java
 ./sources/ihm/PanelStatutNoir.java
 ./sources/ihm/PanelTitle.java
+./sources/ihm/PlaneteButton.java

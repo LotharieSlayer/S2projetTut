@@ -30,8 +30,15 @@ public class PanelSelectSysteme extends JPanel
 	private String fichier;
 	private Image imgSysteme;
 
+	private JButton btn1;
+	private JButton btn2;
+	private JButton btn3;
+	private JButton btn4;
+	private JButton btn5;
+	private JButton btn6;
+	private JButton btn7;
 
-	private JLabel lblPlanete = new JLabel();
+	private JPanel pnlPlanetes;
 
 	/*--------------*/
 	/* Constructeur */
@@ -41,53 +48,30 @@ public class PanelSelectSysteme extends JPanel
 	{
 		this.ctrl = ctrl;
 		this.setBackground(Color.WHITE);
-		this.setLayout ( new BorderLayout() );
+		this.setLayout ( null );
 
 
 		/*-------------------------------*/
 		/* Création des composants       */
 		/*-------------------------------*/
-	
-		//FONT
-		String fName = "./fonts/Montserrat/Montserrat-Bold.ttf";
-		InputStream fFont = PanelSelectSysteme.class.getResourceAsStream(fName);
-		try {
-			Font font = Font.createFont(Font.TRUETYPE_FONT, fFont);
-			Font bigFont = font.deriveFont(Font.PLAIN, 42);
-			
-			this.lblPlanete.setText(" Trialum ");
-			this.lblPlanete.setHorizontalAlignment( JLabel.CENTER );
-			this.lblPlanete.setFont(bigFont);
-			this.lblPlanete.setForeground(Color.BLACK);
-		}
-		catch (IOException e){ e.printStackTrace(); }
-		catch (FontFormatException e){ e.printStackTrace(); }
-
 
 		/*----------------------------------------------*/
 		/* Positionnement des Composants                */
 		/*----------------------------------------------*/
 
-		
- 		//Panel Haut (Image selon objet Planète)
-		// try {
-		// 	BufferedImage image = ImageIO.read(new File("assets/systemes/Trialum.png"));
-		// 	JLabel lblImage = new JLabel(new ImageIcon(image));
-		// 	panelHaut.add(lblImage);
-		// } catch (IOException e) { e.printStackTrace(); }
 
-		
 		//Systeme
-		this.imgSysteme = Toolkit.getDefaultToolkit().getImage( "./images/systemes/Trialum.png" );
+		this.imgSysteme = Toolkit.getDefaultToolkit().getImage( "./images/systemes/Triatum.png" );
 
-		// Panel Bas (Titre de la planète)
-		this.add( this.lblPlanete, BorderLayout.SOUTH );
+		//Planetes
+		this.btn1 = PlaneteButton.planete(50, 50, "./images/planetes/bleu.png" );
+		this.add(this.btn1);
 
 	}
 
 	
 	public void paintComponent(Graphics g) {
         super.paintComponent( g );
-		g.drawImage( this.imgSysteme, 15, 5, this );
+		g.drawImage( this.imgSysteme, 20, 5, this );
     }
 }

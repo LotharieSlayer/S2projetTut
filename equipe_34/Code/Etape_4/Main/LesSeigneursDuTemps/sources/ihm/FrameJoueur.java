@@ -7,6 +7,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.BorderLayout;
 import javax.swing.*;
+import java.io.*;
 
 
 public class FrameJoueur extends JFrame
