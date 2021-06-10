@@ -1,13 +1,22 @@
 -encoding utf8
 
-./Controleur.java
+./sources/Controleur.java
 
-./ihm/FrameJoueur.java
-./ihm/PanelCentre.java
-./ihm/PanelJoueur.java
-./ihm/PanelSelectSysteme.java
-./ihm/PanelTitle.java
-./ihm/PanelStatutNoir.java
-./ihm/PanelStatutBlanc.java
-./ihm/PanelAction.java
-./ihm/PanelAnneaux.java
+./sources/metier/Jeu.java
+./sources/metier/Galaxie.java
+./sources/metier/Joueur.java
+./sources/metier/Planete.java
+./sources/metier/SystemeSolaire.java
+
+./sources/ihm/FrameJoueur.java
+./sources/ihm/PanelCentre.java
+./sources/ihm/PanelJoueur.java
+./sources/ihm/PanelSelectSysteme.java
+./sources/ihm/PanelSysteme.java
+./sources/ihm/PanelJoueur.java
+./sources/ihm/PanelAnneaux.java
+./sources/ihm/PanelAction.java
+./sources/ihm/PanelStatutBlanc.java
+./sources/ihm/PanelStatutNoir.java
+./sources/ihm/PanelTitle.java
+./sources/ihm/PlaneteButton.java

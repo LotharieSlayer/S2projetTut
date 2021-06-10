@@ -20,6 +20,9 @@ public class PanelSysteme extends JPanel
 	private PanelSelectSysteme     panelSelectSysteme;
 	private JLabel				   lblPlanete = new JLabel();
 
+	private static int PlaceSystemeID = 0;
+	private int NumPlaceSysteme;
+
 	public PanelSysteme( Controleur ctrl)
 	{
 		this.ctrl = ctrl;
@@ -36,10 +39,11 @@ public class PanelSysteme extends JPanel
 			Font font = Font.createFont(Font.TRUETYPE_FONT, fFont);
 			Font bigFont = font.deriveFont(Font.PLAIN, 42);
 			
-			this.lblPlanete.setText(" Triatum ");
+			this.lblPlanete.setText(ctrl.getGalaxie().getSystemesSolaires().get(this.PlaceSystemeID).getNom());
 			this.lblPlanete.setHorizontalAlignment(JLabel.CENTER);
 			this.lblPlanete.setFont(bigFont);
 			this.lblPlanete.setForeground(Color.BLACK);
+			this.NumPlaceSysteme = PanelSysteme.PlaceSystemeID++;
 		}
 		catch (IOException e){ e.printStackTrace(); }
 		catch (FontFormatException e){ e.printStackTrace(); }
