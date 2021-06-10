@@ -24,7 +24,7 @@ public class PanelTitle extends JPanel
 	{
 		this.ctrl = ctrl;
 		this.setBackground(Color.WHITE);
-		this.fichier = "image/logo.png";
+		this.fichier = "./images/logo/logo.png";
 		this.ouvrirImage();
 	}
 

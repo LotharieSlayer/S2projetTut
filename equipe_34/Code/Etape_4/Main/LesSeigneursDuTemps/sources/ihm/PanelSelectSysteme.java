@@ -17,7 +17,6 @@ import java.awt.event.AdjustmentEvent;
 import java.io.*;
 import javax.imageio.ImageIO;
 
-import equipe_34.lesSeigneursDuTemps.metier.*;
 
 import javax.swing.*;
 
@@ -27,7 +26,6 @@ import javax.swing.*;
 public class PanelSelectSysteme extends JPanel
 {
 	// Attributs d'instance
-	private Planete    pl;
 	private Controleur ctrl;
 	private String fichier;
 	private Image imgSysteme;
@@ -51,7 +49,7 @@ public class PanelSelectSysteme extends JPanel
 		/*-------------------------------*/
 	
 		//FONT
-		String fName = "./assets/fonts/Montserrat/Montserrat-Bold.ttf";
+		String fName = "./fonts/Montserrat/Montserrat-Bold.ttf";
 		InputStream fFont = PanelSelectSysteme.class.getResourceAsStream(fName);
 		try {
 			Font font = Font.createFont(Font.TRUETYPE_FONT, fFont);
@@ -80,7 +78,7 @@ public class PanelSelectSysteme extends JPanel
 
 		
 		//Systeme
-		this.imgSysteme = Toolkit.getDefaultToolkit().getImage( "assets/systemes/Trialum.png" );
+		this.imgSysteme = Toolkit.getDefaultToolkit().getImage( "./images/systemes/Trialum.png" );
 
 		// Panel Bas (Titre de la planète)
 		this.add( this.lblPlanete, BorderLayout.SOUTH );

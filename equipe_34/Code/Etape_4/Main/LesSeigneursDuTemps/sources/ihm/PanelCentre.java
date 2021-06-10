@@ -17,13 +17,9 @@ import java.awt.event.AdjustmentEvent;
 import java.io.*;
 import javax.imageio.ImageIO;
 
-import equipe_34.lesSeigneursDuTemps.metier.*;
 
 import javax.swing.*;
 
-/*--------------------------------------------------------------*/
-/* PanelSelctCouleur                                            */
-/*--------------------------------------------------------------*/
 public class PanelCentre extends JPanel
 {
 	// Attributs d'instance
@@ -37,11 +33,6 @@ public class PanelCentre extends JPanel
 	/* Constructeur */
 	/*--------------*/
 
-	// Ce Panel est constitué de deux sous-Panel que je définie directement,
-	// dans le constructeur sans passer par des nouvelles classes.
-	//
-	// Le type correspond à une des trois constante de classe ROUGE VERT BLEU
-
 	public PanelCentre(Controleur ctrl)
 	{
 		this.ctrl = ctrl;
@@ -53,7 +44,7 @@ public class PanelCentre extends JPanel
 		/* Création des composants       */
 		/*-------------------------------*/
 
-		String fName = "./assets/fonts/FreePixel.ttf";
+		String fName = "./fonts/FreePixel.ttf";
 		InputStream fFont = PanelCentre.class.getResourceAsStream(fName);
 		try {
 			Font font = Font.createFont(Font.TRUETYPE_FONT, fFont);
@@ -78,7 +69,7 @@ public class PanelCentre extends JPanel
 		
 		//Panel Haut (Image selon objet Planète)
 		try {
-			BufferedImage image = ImageIO.read(new File("assets/systemes/Centre.png"));
+			BufferedImage image = ImageIO.read(new File("./images/systemes/Centre.png"));
 			JLabel lblImage = new JLabel(new ImageIcon(image));
 			panelHaut.add(lblImage);
 		} catch (IOException e) { e.printStackTrace(); }

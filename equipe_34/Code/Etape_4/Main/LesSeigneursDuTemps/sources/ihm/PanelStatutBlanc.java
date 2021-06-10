@@ -36,8 +36,8 @@ public class PanelStatutBlanc extends JPanel
 		//FONT
 		this.lblStatut = new JLabel("C’est au tour du seigneur Blanc ! (=^.^=)", JLabel.CENTER);
 		this.lblSubtitle = new JLabel("Choisissez la planète à conquérir ou libérer.", JLabel.CENTER);
-		String fName = "./assets/fonts/Montserrat/Montserrat-Bold.ttf";
-		String f2Name = "./assets/fonts/FreePixel.ttf";
+		String fName = "./fonts/Montserrat/Montserrat-Bold.ttf";
+		String f2Name = "./fonts/FreePixel.ttf";
 		InputStream fFont = PanelStatutBlanc.class.getResourceAsStream(fName);
 		InputStream f2Font = PanelStatutBlanc.class.getResourceAsStream(f2Name);
 		try {
@@ -55,7 +55,7 @@ public class PanelStatutBlanc extends JPanel
 		catch (FontFormatException e){ e.printStackTrace(); }
 
 		//Rectangle
-		this.imgFond = Toolkit.getDefaultToolkit().getImage( "assets/msgStatut/RectangleB.png" );
+		this.imgFond = Toolkit.getDefaultToolkit().getImage( "./images/msgStatut/RectangleB.png" );
 
 		
 		this.pnlMessage = new JPanel( new BorderLayout(0,40) );
