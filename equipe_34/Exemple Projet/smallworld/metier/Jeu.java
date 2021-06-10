@@ -26,7 +26,7 @@ public class Jeu implements java.io.Serializable
 	private String[]          tabMessage;
 
 
-	public Jeu (String sc1)
+	public Jeu ()
 	{
 		this.ensTerritoire = Territoire.initMap();
 		this.tabJoueur     = new Joueur[2];
