@@ -98,6 +98,7 @@ public class FrameJoueur extends JFrame
 	public void maj(Controleur ctrl)
 	{
 		this.setTour(ctrl);
+		this.pnlJoueur.maj(ctrl);
 	}
 
 	public void setTour(Controleur ctrl)

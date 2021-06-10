@@ -27,10 +27,10 @@ public class PanelJoueur extends JPanel
 		this.setBackground(Color.WHITE);
 		this.setLayout( new GridLayout( 1, 5 ) );
 
-		this.panelSelect1 = new PanelSysteme(this.ctrl);
-		this.panelSelect2 = new PanelSysteme(this.ctrl);
-		this.panelSelect3 = new PanelSysteme(this.ctrl);
-		this.panelSelect4 = new PanelSysteme(this.ctrl);
+		this.panelSelect1 = new PanelSysteme(this.ctrl, 0);
+		this.panelSelect2 = new PanelSysteme(this.ctrl, 1);
+		this.panelSelect3 = new PanelSysteme(this.ctrl, 2);
+		this.panelSelect4 = new PanelSysteme(this.ctrl, 3);
 
 		this.pnlCentre = new PanelCentre(this.ctrl);
 		this.pnlCentre.setLayout( new GridLayout(2,0));
@@ -41,6 +41,14 @@ public class PanelJoueur extends JPanel
 		this.add(this.panelSelect4);
 
 		this.add(this.pnlCentre);
+	}
+
+	public void maj(Controleur ctrl)
+	{
+		this.panelSelect1.maj(ctrl, 0);
+		this.panelSelect2.maj(ctrl, 1);
+		this.panelSelect3.maj(ctrl, 2);
+		this.panelSelect4.maj(ctrl, 3);
 	}
 
 }

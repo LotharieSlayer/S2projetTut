@@ -20,16 +20,13 @@ public class PanelSysteme extends JPanel
 	private PanelSelectSysteme     panelSelectSysteme;
 	private JLabel				   lblPlanete = new JLabel();
 
-	private static int PlaceSystemeID = 0;
-	private int NumPlaceSysteme;
-
-	public PanelSysteme( Controleur ctrl)
+	public PanelSysteme( Controleur ctrl, int NumPlaceSysteme)
 	{
 		this.ctrl = ctrl;
 		this.setBackground(Color.WHITE);
 		this.setLayout( new BorderLayout() );
 
-		this.panelSelectSysteme = new PanelSelectSysteme(this.ctrl);
+		this.panelSelectSysteme = new PanelSelectSysteme(this.ctrl, NumPlaceSysteme);
 
 			
 		//FONT
@@ -39,11 +36,11 @@ public class PanelSysteme extends JPanel
 			Font font = Font.createFont(Font.TRUETYPE_FONT, fFont);
 			Font bigFont = font.deriveFont(Font.PLAIN, 42);
 			
-			this.lblPlanete.setText(ctrl.getGalaxie().getSystemesSolaires().get(this.PlaceSystemeID).getNom());
+			this.lblPlanete.setText(ctrl.getGalaxie().getSystemesSolaires().get(NumPlaceSysteme).getNom());
 			this.lblPlanete.setHorizontalAlignment(JLabel.CENTER);
 			this.lblPlanete.setFont(bigFont);
 			this.lblPlanete.setForeground(Color.BLACK);
-			this.NumPlaceSysteme = PanelSysteme.PlaceSystemeID++;
+
 		}
 		catch (IOException e){ e.printStackTrace(); }
 		catch (FontFormatException e){ e.printStackTrace(); }
@@ -52,6 +49,12 @@ public class PanelSysteme extends JPanel
 
 		this.add(this.panelSelectSysteme, BorderLayout.CENTER);
 		this.add(this.lblPlanete, BorderLayout.SOUTH);
+	}
+
+	public void maj(Controleur ctrl, int NumPlaceSysteme)
+	{
+		this.panelSelectSysteme.maj(ctrl, NumPlaceSysteme);
+		this.lblPlanete.setText(ctrl.getGalaxie().getSystemesSolaires().get(NumPlaceSysteme).getNom());
 	}
 
 }
