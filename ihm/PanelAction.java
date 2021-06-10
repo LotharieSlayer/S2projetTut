@@ -15,7 +15,6 @@ public class PanelAction extends JPanel implements ActionListener
 	private Controleur  ctrl;
 
 	//private JLabel lblTimer;
-	private JLabel lblStatut;
 	private JLabel lblSubtitle;
 	private JPanel pnlMain;
 	private JPanel pnlMessage;
@@ -34,46 +33,34 @@ public class PanelAction extends JPanel implements ActionListener
 		this.setBackground(Color.WHITE);
 
 		//FONT
-		this.lblStatut = new JLabel("Conquérir", JLabel.RIGHT);
-		this.lblSubtitle = new JLabel("Jouer le tour", JLabel.CENTER); //⎯⎯⎯⎯⎯⎯
-		String fName = "./assets/fonts/Montserrat/Montserrat-Bold.ttf";
-		String f2Name = "./assets/fonts/FreePixel.ttf";
+		this.lblSubtitle = new JLabel("Jouer le tour :", JLabel.RIGHT);
+		String fName = "./assets/fonts/FreePixel.ttf";
 		InputStream fFont = PanelAction.class.getResourceAsStream(fName);
-		InputStream f2Font = PanelAction.class.getResourceAsStream(f2Name);
 		try {
 			Font font = Font.createFont(Font.TRUETYPE_FONT, fFont);
-			Font bigFont = font.deriveFont(Font.PLAIN, 45);
-			Font font2 = Font.createFont(Font.TRUETYPE_FONT, f2Font);
-			Font smallFont = font2.deriveFont(Font.PLAIN, 16);
-			
-			this.lblStatut.setFont(bigFont);
-			this.lblStatut.setForeground(Color.BLACK);
+			Font smallFont = font.deriveFont(Font.PLAIN, 16);
 			this.lblSubtitle.setFont(smallFont);
 			this.lblSubtitle.setForeground(Color.BLACK);
+			this.add(this.lblSubtitle);
 		}
 		catch (IOException e){ e.printStackTrace(); }
 		catch (FontFormatException e){ e.printStackTrace(); }
 
-		//Rectangle
-		ImageIcon icon = new ImageIcon("assets/msgStatut/Bouton.png");
 
-		this.btnConqerir = new JButton("Conquérir", icon);
-		this.btnConqerir.setPreferredSize(new Dimension(280,70));
-		this.btnConqerir.addActionListener(this);
-		this.btnLiberer = new JButton("Libérer");
-		this.btnLiberer.setPreferredSize(new Dimension(280,70));
-		this.btnLiberer.addActionListener(this);
-		
-		this.pnlMessage = new JPanel( new BorderLayout(0,0) );
-		this.pnlMessage.add( this.btnConqerir, BorderLayout.CENTER );
-		this.pnlMessage.add( this.btnLiberer, BorderLayout.EAST );
-		this.pnlMessage.add( this.lblSubtitle, BorderLayout.SOUTH );
-		this.pnlMessage.setOpaque(false);
-		this.pnlMain = new JPanel( new FlowLayout(0,0,0) );
-		this.pnlMain.add(this.pnlMessage);
-		this.pnlMain.setOpaque(false);
+		this.btnConqerir = new JButton(new ImageIcon("assets/action/Bouton_conquerir.png"));
+		this.btnConqerir.setBackground(Color.BLACK);
+		this.btnConqerir.setOpaque(false);
+		this.btnConqerir.setBorderPainted(false);
+		this.btnConqerir.setFocusPainted(false);
+		this.add(this.btnConqerir);
 
-		this.add(pnlMain);
+		this.btnLiberer = new JButton(new ImageIcon("assets/action/Bouton_liberer.png"));
+		this.btnLiberer.setBackground(Color.BLACK);
+		this.btnLiberer.setOpaque(false);
+		this.btnLiberer.setBorderPainted(false);
+		this.btnLiberer.setFocusPainted(false);
+		this.add(this.btnLiberer);
+
 	}
 
 	public void actionPerformed(ActionEvent e) {

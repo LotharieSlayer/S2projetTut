@@ -17,9 +17,6 @@ import equipe_34.lesSeigneursDuTemps.metier.*;
 
 import javax.swing.*;
 
-/*--------------------------------------------------------------*/
-/* PanelSelctCouleur                                            */
-/*--------------------------------------------------------------*/
 public class PanelCentre extends JPanel
 {
 	// Attributs d'instance
@@ -32,11 +29,6 @@ public class PanelCentre extends JPanel
 	/*--------------*/
 	/* Constructeur */
 	/*--------------*/
-
-	// Ce Panel est constitué de deux sous-Panel que je définie directement,
-	// dans le constructeur sans passer par des nouvelles classes.
-	//
-	// Le type correspond à une des trois constante de classe ROUGE VERT BLEU
 
 	public PanelCentre(Controleur ctrl)
 	{
