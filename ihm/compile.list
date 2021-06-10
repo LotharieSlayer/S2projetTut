@@ -1,8 +1,12 @@
 -encoding utf8
 
+./Controleur.java
 
 ./FrameJoueur.java
 ./PanelCentre.java
 ./PanelJoueur.java
 ./PanelSelectSysteme.java
 ./PanelTitle.java
+./PanelStatutNoir.java
+./PanelStatutBlanc.java
+./PanelAction.java
