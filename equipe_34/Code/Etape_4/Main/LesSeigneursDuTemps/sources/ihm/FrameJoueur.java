@@ -44,8 +44,11 @@ public class FrameJoueur extends JFrame
 
 		this.pnlTitle = new PanelTitle(ctrl);
 		this.pnlTitle.setPreferredSize(new Dimension(1600,150));
+
+	
 		this.pnlStatutN = new PanelStatutNoir(ctrl);
 		this.pnlStatutN.setPreferredSize(new Dimension(1600,225));
+
 		this.pnlStatutB = new PanelStatutBlanc(ctrl);
 		this.pnlStatutB.setPreferredSize(new Dimension(1600,225));
 		
@@ -78,9 +81,11 @@ public class FrameJoueur extends JFrame
 		this.pnlMain.add(this.pnlJoueur, BorderLayout.CENTER);
 		this.pnlMain.add(this.pnlCoteLeft, BorderLayout.WEST);
 		this.pnlMain.add(this.pnlCoteRight, BorderLayout.EAST);
-		
-		//this.pnlMain.add(this.pnlStatutN, BorderLayout.SOUTH); //mettre le message au tour du noir
+
+		 //mettre le message au tour du noir
 		this.pnlMain.add(this.pnlStatutB, BorderLayout.SOUTH); //mettre le message au tour du blanc
+		this.pnlMain.add(this.pnlStatutN, BorderLayout.SOUTH);
+
 		this.pnlMain.setBackground(Color.WHITE);
 		this.add(this.pnlMain);
 		this.add(this.pnlFooter, BorderLayout.SOUTH);
@@ -89,5 +94,24 @@ public class FrameJoueur extends JFrame
 		this.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 		this.setVisible(true);
 	}
+	public void maj(Controleur ctrl)
+	{
+		this.setTour(ctrl);
+	}
 
+	public void setTour(Controleur ctrl)
+	{
+		if(ctrl.getTour() % 2 != 0)
+		{
+			this.pnlMain.add(this.pnlStatutN, BorderLayout.SOUTH);
+			this.pnlStatutN.setVisible(true);
+			this.pnlStatutB.setVisible(false);
+		}
+		else
+		{
+			this.pnlMain.add(this.pnlStatutB, BorderLayout.SOUTH); 
+			this.pnlStatutN.setVisible(false);
+			this.pnlStatutB.setVisible(true);
+		}
+	}
 }

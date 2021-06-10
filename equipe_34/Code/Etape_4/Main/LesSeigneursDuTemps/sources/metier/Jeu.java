@@ -30,9 +30,9 @@ public class Jeu
     public Jeu()
     {
         System.out.println("Comment s'apelle le joueur A ?");
-        this.nomJoueurA = Clavier.lireString();
+        this.nomJoueurA = "Francis";
         System.out.println("Comment s'apelle le joueur B ?");
-        this.nomJoueurB = Clavier.lireString();
+        this.nomJoueurB = "Michel";
 
         this.joueurA = new Joueur(this.nomJoueurA, COULEURA);
         this.joueurB = new Joueur(this.nomJoueurB, COULEURB);
@@ -41,10 +41,13 @@ public class Jeu
 
         this.galaxie.debutDePartie();
         //afficherGalaxie();
-        
-        while(this.joueurA.getNbAnneaux() != 0 || this.joueurB.getNbAnneaux() != 0)
+    }
+
+    public void action ( String couleurSeigneur, char action, char systemeSolaire)
+	{
+        if(this.joueurA.getNbAnneaux() != 0 || this.joueurB.getNbAnneaux() != 0)
         {
-            String couleurSeigneur, nomSeigneur;
+            String nomSeigneur;
             debutTour = false;
             if(this.numTour % 2 != 0)
             {
@@ -59,8 +62,6 @@ public class Jeu
                 
             while(this.debutTour == false)
             {
-                char action, systemeSolaire;
-
                 /*int cpt = 0 ;
                 String affichage = " ";
                 while (cpt < 4)
@@ -85,17 +86,17 @@ public class Jeu
                 else
                 {
                     System.out.println("Voulez-vous conquérir ou libérer une planète Seigneur " + nomSeigneur + " ? (C/l)");
-                    action = Clavier.lire_char();
+                    //action = Clavier.lire_char();
                     System.out.println("Donnez la première lettre du Système Solaire où effectué l'action :");
                 }
-                systemeSolaire = Clavier.lire_char();
+                //systemeSolaire = Clavier.lire_char();
 
                 if((action == 'C' || action == 'c' || action == 'L' || action == 'l' || action == 'R') && 
                    ((systemeSolaire == 'T' || systemeSolaire == 'U' || systemeSolaire == 'M' || systemeSolaire == 'Q') ||
                    (systemeSolaire == 't' || systemeSolaire == 'u' || systemeSolaire == 'm' || systemeSolaire == 'q')))
                 {
                     debutTour= true;
-                    action(couleurSeigneur, action, systemeSolaire);
+                    actionDeux(couleurSeigneur, action, systemeSolaire);
                 }
                 else if(action == 'C' || action == 'c' || action == 'L' || action == 'l'){
                     System.out.println("Le système solaire sélectionné est incorrecte !");
@@ -105,15 +106,17 @@ public class Jeu
             }
             this.numTour++;
         }
-        System.out.println("Partie terminé !");
-        System.out.println(toString());
-        gagnant = determinerGagnant();
-        System.out.println("Le Seigneur du Temps qui a remporté la partie est " + gagnant.getNom());
-        System.out.println("Félicitations !");
-    }
-
-    public void action ( String couleurSeigneur, char action, char systemeSolaire)
-	{
+        else
+        {
+            System.out.println("Partie terminé !");
+            System.out.println(toString());
+            gagnant = determinerGagnant();
+            System.out.println("Le Seigneur du Temps qui a remporté la partie est " + gagnant.getNom());
+            System.out.println("Félicitations !");
+        }
+	}
+    public void actionDeux(String couleurSeigneur, char action, char systemeSolaire)
+    {
         int numSystemSolaire = 0;
         String nomSystemeSolaire = " ";
 
@@ -254,7 +257,7 @@ public class Jeu
                 }
             }
         }
-	}
+    }
     public Joueur determinerGagnant()
     {
         if(this.galaxie.getSystemesSolaires().get(3).getNBPlaneteJoueurA() > this.galaxie.getSystemesSolaires().get(3).getNBPlaneteJoueurB())
@@ -266,6 +269,10 @@ public class Jeu
             return joueurB;
         }
     }
+
+    public Galaxie getGalaxie(){ return galaxie; }
+
+    public int getTour(){ return this.numTour; }
     
     public String toString()
     {

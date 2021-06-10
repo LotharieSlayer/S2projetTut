@@ -65,11 +65,12 @@ public class PanelAction extends JPanel implements ActionListener
 		this.btnLiberer.setFocusPainted(false);
 		this.add(this.btnLiberer);
 
+		this.btnConqerir.addActionListener( this );
+		this.btnLiberer.addActionListener( this );
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
+		this.ctrl.action("Noir", 'C', 'T');
 	}
 
 
