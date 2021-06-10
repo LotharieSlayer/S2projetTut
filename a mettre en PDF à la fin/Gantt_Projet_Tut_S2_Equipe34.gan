@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Projet Tutoré S2 équipe 34" company="" webLink="http://ProjetTutoréS2Equipe34" view-date="2021-06-04" view-index="0" gantt-divider-location="300" resource-divider-location="300" version="2.8.11" locale="fr">
+    <description/>
+    <view zooming-state="default:2" id="gantt-chart">
+        <field id="tpd3" name="Nom" width="167" order="0"/>
+        <field id="tpd4" name="Date de début" width="65" order="1"/>
+        <field id="tpd5" name="Date de fin" width="64" order="2"/>
+        <option id="color.recent">
+            <![CDATA[#000000 #66ffcc #9999ff #99ff99 #65ffcc #65ffcc #e1e1e1 #e1e1e1 #ffff66 #ff3333]]>
+        </option>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Nom" width="210" order="0"/>
+        <field id="1" name="Rôle par défaut" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="43" name="Code CUI" color="#9999ff" meeting="false" start="2021-06-07" duration="2" complete="0" thirdDate="2021-06-08" thirdDate-constraint="0" expand="true">
+            <depend id="19" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="6" name="Correction des bugs" color="#9999ff" meeting="false" start="2021-06-08" duration="1" complete="0" thirdDate="2021-05-21" thirdDate-constraint="0" expand="true">
+            <depend id="19" type="2" difference="0" hardness="Strong"/>
+            <depend id="26" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="19" name="Code avec GUI" color="#66ffcc" meeting="false" start="2021-06-09" duration="1" complete="0" thirdDate="2021-05-21" thirdDate-constraint="0" expand="true">
+            <depend id="23" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="23" name="Correction des bugs" color="#65ffcc" meeting="false" start="2021-06-10" duration="1" complete="0" thirdDate="2021-05-27" thirdDate-constraint="0" expand="true"/>
+        <task id="26" name="Diagramme UML" color="#66ffcc" meeting="false" start="2021-06-09" duration="2" complete="0" thirdDate="2021-05-26" thirdDate-constraint="0" expand="true">
+            <depend id="59" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="20" name="Correction des bugs" color="#99ff99" meeting="false" start="2021-06-08" duration="1" complete="0" thirdDate="2021-05-21" thirdDate-constraint="0" expand="true">
+            <depend id="19" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="10" name="Code de l'IHM" color="#99ff99" meeting="false" start="2021-06-07" duration="1" complete="0" thirdDate="2021-05-21" thirdDate-constraint="0" expand="true">
+            <depend id="20" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="4" name="Photoshop et Hiérarchisation des images" color="#99ff99" meeting="false" start="2021-06-07" duration="1" complete="0" thirdDate="2021-05-21" thirdDate-constraint="0" expand="true">
+            <depend id="20" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="7" name="Figma" color="#99ff99" meeting="false" start="2021-06-07" duration="1" complete="0" thirdDate="2021-05-21" thirdDate-constraint="0" expand="true">
+            <depend id="20" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="59" name="Tests des scénarios" color="#66ffcc" meeting="false" start="2021-06-11" duration="1" complete="0" thirdDate="2021-06-03" thirdDate-constraint="0" expand="true">
+            <depend id="42" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="42" name="Présentation de la soutenance" color="#ffff66" meeting="false" start="2021-06-14" duration="1" complete="0" thirdDate="2021-06-01" thirdDate-constraint="0" expand="true"/>
+        <task id="60" name="Gestion du Grantt" color="#000000" meeting="false" start="2021-06-07" duration="6" complete="0" thirdDate="2021-06-01" thirdDate-constraint="0" expand="true"/>
+    </tasks>
+    <resources>
+        <resource id="0" name="Tom Daras" function="1" contacts="" phone=""/>
+        <resource id="1" name="Lothaire Guée" function="1" contacts="" phone=""/>
+        <resource id="2" name="Lucas Ramananarivo" function="1" contacts="" phone=""/>
+        <resource id="3" name="Etienne Chevrollier" function="1" contacts="" phone=""/>
+    </resources>
+    <allocations>
+        <allocation task-id="43" resource-id="0" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="6" resource-id="0" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="60" resource-id="0" function="1" responsible="true" load="100.0"/>
+        <allocation task-id="26" resource-id="0" function="1" responsible="true" load="100.0"/>
+        <allocation task-id="42" resource-id="0" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="7" resource-id="1" function="1" responsible="true" load="100.0"/>
+        <allocation task-id="4" resource-id="1" function="1" responsible="true" load="100.0"/>
+        <allocation task-id="10" resource-id="1" function="1" responsible="true" load="100.0"/>
+        <allocation task-id="20" resource-id="1" function="1" responsible="true" load="100.0"/>
+        <allocation task-id="19" resource-id="1" function="1" responsible="true" load="100.0"/>
+        <allocation task-id="23" resource-id="1" function="1" responsible="true" load="100.0"/>
+        <allocation task-id="43" resource-id="2" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="6" resource-id="2" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="42" resource-id="2" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="43" resource-id="3" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="6" resource-id="3" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="42" resource-id="3" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="19" resource-id="3" function="1" responsible="false" load="100.0"/>
+    </allocations>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+    <roles>
+        <role id="1" name="Participant"/>
+    </roles>
+</project>
