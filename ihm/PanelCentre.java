@@ -1,3 +1,7 @@
+package equipe_34.lesSeigneursDuTemps.ihm;
+
+import equipe_34.lesSeigneursDuTemps.Controleur;
+
 import java.awt.*;
 import java.awt.image.*;
 import java.awt.GridLayout;
@@ -13,7 +17,6 @@ import java.awt.event.AdjustmentEvent;
 import java.io.*;
 import javax.imageio.ImageIO;
 
-import equipe_34.lesSeigneursDuTemps.metier.*;
 
 import javax.swing.*;
 
@@ -66,7 +69,7 @@ public class PanelCentre extends JPanel
 		
 		//Panel Haut (Image selon objet Planète)
 		try {
-			BufferedImage image = ImageIO.read(new File("assets/systemes/Centre.png"));
+			BufferedImage image = ImageIO.read(new File("ihm/assets/systemes/Centre.png"));
 			JLabel lblImage = new JLabel(new ImageIcon(image));
 			panelHaut.add(lblImage);
 		} catch (IOException e) { e.printStackTrace(); }

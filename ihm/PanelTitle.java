@@ -1,3 +1,7 @@
+package equipe_34.lesSeigneursDuTemps.ihm;
+
+import equipe_34.lesSeigneursDuTemps.Controleur;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -20,7 +24,7 @@ public class PanelTitle extends JPanel
 	{
 		this.ctrl = ctrl;
 		this.setBackground(Color.WHITE);
-		this.fichier = "image/logo.png";
+		this.fichier = "./ihm/image/logo.png";
 		this.ouvrirImage();
 	}
 

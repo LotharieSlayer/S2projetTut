@@ -1,3 +1,7 @@
+package equipe_34.lesSeigneursDuTemps.ihm;
+
+import equipe_34.lesSeigneursDuTemps.Controleur;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -51,7 +55,7 @@ public class PanelStatutNoir extends JPanel
 		catch (FontFormatException e){ e.printStackTrace(); }
 
 		//Rectangle
-		this.imgFond = Toolkit.getDefaultToolkit().getImage( "assets/msgStatut/Rectangle.png" );
+		this.imgFond = Toolkit.getDefaultToolkit().getImage( "ihm/assets/msgStatut/Rectangle.png" );
 
 		
 		this.pnlMessage = new JPanel( new BorderLayout(0,40) );
