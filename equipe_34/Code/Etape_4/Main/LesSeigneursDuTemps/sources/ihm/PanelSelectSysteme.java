@@ -102,7 +102,7 @@ public class PanelSelectSysteme extends JPanel
 			
 				break;
 				
-			case "Mervelleum":
+			case "Mervelléum":
 
 				//Planete 1
 				this.btn1 = PlaneteButton.planete(70, 75, "./images/planetes/bleu.png" );
