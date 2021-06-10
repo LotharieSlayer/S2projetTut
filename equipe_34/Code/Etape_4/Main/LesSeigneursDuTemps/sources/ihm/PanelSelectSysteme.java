@@ -43,6 +43,8 @@ public class PanelSelectSysteme extends JPanel
 
 	private JPanel pnlPlanetes;
 
+	private String nomFichier;
+
 	/*--------------*/
 	/* Constructeur */
 	/*--------------*/
@@ -62,13 +64,107 @@ public class PanelSelectSysteme extends JPanel
 		/* Positionnement des Composants                */
 		/*----------------------------------------------*/
 
+		switch(ctrl.getGalaxie().getSystemesSolaires().get(this.PlaceSystemeID).getNom())
+		{
+			case "Triälum":
+				this.nomFichier = "Trialum";
+				break;
+			case "Mervelléum":
+				this.nomFichier = "Mervelleum";
+				break;
+			case "Uninium":
+				this.nomFichier = "Uninium";
+				break;
+			case "Quintum":
+				this.nomFichier = "Quintum";
+				break;
+		}
 
 		//Systeme
-		this.imgSysteme = Toolkit.getDefaultToolkit().getImage( "./images/systemes/" + ctrl.getGalaxie().getSystemesSolaires().get(this.PlaceSystemeID).getNom() + ".png" );
+		this.imgSysteme = Toolkit.getDefaultToolkit().getImage( "./images/systemes/" + this.nomFichier + ".png" );
 
 		//Planetes
-		this.btn1 = PlaneteButton.planete(50, 50, "./images/planetes/bleu.png" );
-		this.add(this.btn1);
+		switch(ctrl.getGalaxie().getSystemesSolaires().get(this.PlaceSystemeID).getNom())
+		{
+			case "Triälum":
+					
+				//Planete 1
+				this.btn1 = PlaneteButton.planete(70, 75, "./images/planetes/bleu.png" );
+				this.add(this.btn1);
+				
+				//Planete 2
+				this.btn2 = PlaneteButton.planete(200, 75, "./images/planetes/jaune.png" );
+				this.add(this.btn2);
+
+				//Planete 3
+				this.btn3 = PlaneteButton.planete(150, 175, "./images/planetes/vert.png" );
+				this.add(this.btn3);
+			
+				break;
+				
+			case "Mervelleum":
+
+				//Planete 1
+				this.btn1 = PlaneteButton.planete(70, 75, "./images/planetes/bleu.png" );
+				this.add(this.btn1);
+				
+				//Planete 2
+				this.btn2 = PlaneteButton.planete(200, 75, "./images/planetes/jaune.png" );
+				this.add(this.btn2);
+
+				//Planete 3
+				this.btn3 = PlaneteButton.planete(150, 175, "./images/planetes/vert.png" );
+				this.add(this.btn3);
+
+				//Planete 4
+				this.btn4 = PlaneteButton.planete(175, 175, "./images/planetes/orange.png" );
+				this.add(this.btn4);
+
+				//Planete 5
+				this.btn5 = PlaneteButton.planete(100, 100, "./images/planetes/fuchsia.png" );
+				this.add(this.btn5);
+
+				//Planete 6
+				this.btn6 = PlaneteButton.planete(50, 150, "./images/planetes/rouge.png" );
+				this.add(this.btn6);
+
+				//Planete 7
+				this.btn7 = PlaneteButton.planete(50, 100, "./images/planetes/rose.png" );
+				this.add(this.btn7);
+				
+				break;
+
+			case "Uninium":
+
+				//Planete 1
+				this.btn1 = PlaneteButton.planete(125, 125, "./images/planetes/rose.png" );
+				this.add(this.btn1);
+			
+				break;
+			case "Quintum":
+				//Planete 1
+				this.btn1 = PlaneteButton.planete(70, 75, "./images/planetes/rouge.png" );
+				this.add(this.btn1);
+				
+				//Planete 2
+				this.btn2 = PlaneteButton.planete(200, 75, "./images/planetes/jaune.png" );
+				this.add(this.btn2);
+
+				//Planete 3
+				this.btn3 = PlaneteButton.planete(150, 175, "./images/planetes/rose.png" );
+				this.add(this.btn3);
+
+				//Planete 4
+				this.btn4 = PlaneteButton.planete(175, 175, "./images/planetes/bleu.png" );
+				this.add(this.btn4);
+
+				//Planete 5
+				this.btn5 = PlaneteButton.planete(175, 200, "./images/planetes/vert.png" );
+				this.add(this.btn5);
+				break;
+		}
+
+		
 
 		this.NumPlaceSysteme = PanelSelectSysteme.PlaceSystemeID++;
 
