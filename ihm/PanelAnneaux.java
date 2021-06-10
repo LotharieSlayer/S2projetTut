@@ -1,3 +1,7 @@
+package equipe_34.lesSeigneursDuTemps.ihm;
+
+import equipe_34.lesSeigneursDuTemps.Controleur;
+
 import java.awt.*;
 import java.awt.image.*;
 import java.awt.GridLayout;
@@ -12,8 +16,6 @@ import java.awt.event.AdjustmentEvent;
 
 import java.io.*;
 import javax.imageio.ImageIO;
-
-import equipe_34.lesSeigneursDuTemps.metier.*;
 
 import javax.swing.*;
 
@@ -82,7 +84,7 @@ public class PanelAnneaux extends JPanel
 		for(int i=0; i<8; i++){
 			//Anneaux Blanc
 			try {
-				BufferedImage image = ImageIO.read(new File("assets/action/anneau_blanc.png"));
+				BufferedImage image = ImageIO.read(new File("ihm/assets/action/anneau_blanc.png"));
 				JLabel lblImage = new JLabel(new ImageIcon(image));
 				pnlAnneauxBlanc.add(lblImage);
 			} catch (IOException e) { e.printStackTrace(); }
@@ -91,7 +93,7 @@ public class PanelAnneaux extends JPanel
 		for(int i=0; i<8; i++){
 			//Anneaux Noir
 			try {
-				BufferedImage image = ImageIO.read(new File("assets/action/anneau_noir.png"));
+				BufferedImage image = ImageIO.read(new File("ihm/assets/action/anneau_noir.png"));
 				JLabel lblImage = new JLabel(new ImageIcon(image));
 				pnlAnneauxNoir.add(lblImage);
 			} catch (IOException e) { e.printStackTrace(); }

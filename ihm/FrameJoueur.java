@@ -1,3 +1,7 @@
+package equipe_34.lesSeigneursDuTemps.ihm;
+
+import equipe_34.lesSeigneursDuTemps.Controleur;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;

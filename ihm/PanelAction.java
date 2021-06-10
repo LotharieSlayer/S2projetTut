@@ -1,3 +1,7 @@
+package equipe_34.lesSeigneursDuTemps.ihm;
+
+import equipe_34.lesSeigneursDuTemps.Controleur;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -47,14 +51,14 @@ public class PanelAction extends JPanel implements ActionListener
 		catch (FontFormatException e){ e.printStackTrace(); }
 
 
-		this.btnConqerir = new JButton(new ImageIcon("assets/action/Bouton_conquerir.png"));
+		this.btnConqerir = new JButton(new ImageIcon("ihm/assets/action/Bouton_conquerir.png"));
 		this.btnConqerir.setBackground(Color.BLACK);
 		this.btnConqerir.setOpaque(false);
 		this.btnConqerir.setBorderPainted(false);
 		this.btnConqerir.setFocusPainted(false);
 		this.add(this.btnConqerir);
 
-		this.btnLiberer = new JButton(new ImageIcon("assets/action/Bouton_liberer.png"));
+		this.btnLiberer = new JButton(new ImageIcon("ihm/assets/action/Bouton_liberer.png"));
 		this.btnLiberer.setBackground(Color.BLACK);
 		this.btnLiberer.setOpaque(false);
 		this.btnLiberer.setBorderPainted(false);

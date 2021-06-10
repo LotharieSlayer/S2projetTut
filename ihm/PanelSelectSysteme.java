@@ -1,3 +1,7 @@
+package equipe_34.lesSeigneursDuTemps.ihm;
+
+import equipe_34.lesSeigneursDuTemps.Controleur;
+
 import java.awt.*;
 import java.awt.image.*;
 import java.awt.GridLayout;
@@ -13,7 +17,6 @@ import java.awt.event.AdjustmentEvent;
 import java.io.*;
 import javax.imageio.ImageIO;
 
-import equipe_34.lesSeigneursDuTemps.metier.*;
 
 import javax.swing.*;
 
@@ -23,7 +26,6 @@ import javax.swing.*;
 public class PanelSelectSysteme extends JPanel
 {
 	// Attributs d'instance
-	private Planete    pl;
 	private Controleur ctrl;
 	private String fichier;
 	private Image imgSysteme;
@@ -76,7 +78,7 @@ public class PanelSelectSysteme extends JPanel
 
 		
 		//Systeme
-		this.imgSysteme = Toolkit.getDefaultToolkit().getImage( "assets/systemes/Trialum.png" );
+		this.imgSysteme = Toolkit.getDefaultToolkit().getImage( "ihm/assets/systemes/Trialum.png" );
 
 		// Panel Bas (Titre de la planète)
 		this.add( this.lblPlanete, BorderLayout.SOUTH );

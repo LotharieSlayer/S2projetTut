@@ -1,0 +1,13 @@
+-encoding utf8
+
+./Controleur.java
+
+./ihm/FrameJoueur.java
+./ihm/PanelCentre.java
+./ihm/PanelJoueur.java
+./ihm/PanelSelectSysteme.java
+./ihm/PanelTitle.java
+./ihm/PanelStatutNoir.java
+./ihm/PanelStatutBlanc.java
+./ihm/PanelAction.java
+./ihm/PanelAnneaux.java
