@@ -14,10 +14,10 @@ public class PanelJoueur extends JPanel
 	private Controleur  ctrl;
 	private JPanel		pnlMain;
 
-	private PanelSysteme     panelSelectTrialum;
-	private PanelSysteme     panelSelectUninium;
-	private PanelSysteme     panelSelectMervelleum;
-	private PanelSysteme     panelSelectQuintum;
+	private PanelSysteme     panelSelect1;
+	private PanelSysteme     panelSelect2;
+	private PanelSysteme     panelSelect3;
+	private PanelSysteme     panelSelect4;
 	private PanelCentre            pnlCentre;
 
 
@@ -27,18 +27,18 @@ public class PanelJoueur extends JPanel
 		this.setBackground(Color.WHITE);
 		this.setLayout( new GridLayout( 1, 5 ) );
 
-		this.panelSelectTrialum = new PanelSysteme(this.ctrl);
-		this.panelSelectUninium = new PanelSysteme(this.ctrl);
-		this.panelSelectMervelleum = new PanelSysteme(this.ctrl);
-		this.panelSelectQuintum = new PanelSysteme(this.ctrl);
+		this.panelSelect1 = new PanelSysteme(this.ctrl);
+		this.panelSelect2 = new PanelSysteme(this.ctrl);
+		this.panelSelect3 = new PanelSysteme(this.ctrl);
+		this.panelSelect4 = new PanelSysteme(this.ctrl);
 
 		this.pnlCentre = new PanelCentre(this.ctrl);
 		this.pnlCentre.setLayout( new GridLayout(2,0));
 
-		this.add(this.panelSelectTrialum);
-		this.add(this.panelSelectUninium);
-		this.add(this.panelSelectMervelleum);
-		this.add(this.panelSelectQuintum);
+		this.add(this.panelSelect1);
+		this.add(this.panelSelect2);
+		this.add(this.panelSelect3);
+		this.add(this.panelSelect4);
 
 		this.add(this.pnlCentre);
 	}

@@ -30,6 +30,9 @@ public class PanelSelectSysteme extends JPanel
 	private String fichier;
 	private Image imgSysteme;
 
+	private static int PlaceSystemeID = 0;
+	private int NumPlaceSysteme;
+
 	private JButton btn1;
 	private JButton btn2;
 	private JButton btn3;
@@ -61,11 +64,13 @@ public class PanelSelectSysteme extends JPanel
 
 
 		//Systeme
-		this.imgSysteme = Toolkit.getDefaultToolkit().getImage( "./images/systemes/Triatum.png" );
+		this.imgSysteme = Toolkit.getDefaultToolkit().getImage( "./images/systemes/" + ctrl.getGalaxie().getSystemesSolaires().get(this.PlaceSystemeID).getNom() + ".png" );
 
 		//Planetes
 		this.btn1 = PlaneteButton.planete(50, 50, "./images/planetes/bleu.png" );
 		this.add(this.btn1);
+
+		this.NumPlaceSysteme = PanelSelectSysteme.PlaceSystemeID++;
 
 	}
 
