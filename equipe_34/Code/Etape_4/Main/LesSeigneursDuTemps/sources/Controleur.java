@@ -20,6 +20,7 @@ public class Controleur
 	}
 
 	public Galaxie getGalaxie(){ return this.metier.getGalaxie(); }
+	public Jeu getJeu(){ return this.metier; }
 	public int getTour()       { return this.metier.getTour()   ; }
 	
 	public void action ( String couleurSeigneur, char action, char systemeSolaire )

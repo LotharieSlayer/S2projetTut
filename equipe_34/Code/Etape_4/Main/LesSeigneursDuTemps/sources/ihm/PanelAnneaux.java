@@ -79,20 +79,8 @@ public class PanelAnneaux extends JPanel
 
 		//Panel Gauche (Titre de la planète)
 		pnlBlanc.add ( this.lblNoir );
-		
-		for(int i=0; i<8; i++)
-		{
-			//Anneaux Blanc
-			try 
-			{
-				BufferedImage image    = ImageIO.read(new File("./images/action/anneau_blanc.png"));
-				JLabel        lblImage = new JLabel(new ImageIcon(image));
-				pnlAnneauxBlanc.add(lblImage);
-			} 
-			catch (IOException e) { e.printStackTrace();}
-		}
 
-		for(int i=0; i<8; i++)
+		for(int i=0; i< ctrl.getJeu().getJoueurB().getNbAnneaux(); i++)
 		{
 			//Anneaux Noir
 			try 
@@ -104,6 +92,18 @@ public class PanelAnneaux extends JPanel
 			catch (IOException e) { e.printStackTrace();}
 		}
 		
+		for(int i=0; i< ctrl.getJeu().getJoueurA().getNbAnneaux(); i++)
+		{
+			//Anneaux Blanc
+			try 
+			{
+				BufferedImage image    = ImageIO.read(new File("./images/action/anneau_blanc.png"));
+				JLabel        lblImage = new JLabel(new ImageIcon(image));
+				pnlAnneauxBlanc.add(lblImage);
+			} 
+			catch (IOException e) { e.printStackTrace();}
+		}
+		
 		pnlNoir.add(lblNoir)         ;
 		pnlNoir.add(pnlAnneauxNoir)  ;
 		pnlBlanc.add(lblBlanc)       ;
@@ -111,5 +111,37 @@ public class PanelAnneaux extends JPanel
 
 		this.add ( pnlNoir, BorderLayout.NORTH   );
 		this.add ( pnlBlanc, BorderLayout.SOUTH  );
+	}
+
+	public void maj()
+	{
+
+		for(int i=0; i< ctrl.getJeu().getJoueurB().getNbAnneaux(); i++)
+		{
+			//Anneaux Noir
+			try 
+			{
+				BufferedImage image    = ImageIO.read(new File("./images/action/anneau_noir.png"));
+				JLabel        lblImage = new JLabel(new ImageIcon(image));
+				this.pnlAnneauxNoir.add(lblImage);
+			} 
+			catch (IOException e) { e.printStackTrace();}
+		}
+
+		for(int i=0; i< ctrl.getJeu().getJoueurA().getNbAnneaux(); i++)
+		{
+			//Anneaux Blanc
+			try 
+			{
+				BufferedImage image    = ImageIO.read(new File("./images/action/anneau_blanc.png"));
+				JLabel        lblImage = new JLabel(new ImageIcon(image));
+				this.pnlAnneauxBlanc.add(lblImage);
+			} 
+			catch (IOException e) { e.printStackTrace();}
+		}
+		
+		this.repaint();
+
+
 	}
 }

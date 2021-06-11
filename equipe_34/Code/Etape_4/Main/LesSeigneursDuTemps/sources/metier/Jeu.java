@@ -265,6 +265,9 @@ public class Jeu
 
     public Galaxie getGalaxie(){ return galaxie;      }
     public int     getTour()   { return this.numTour; }
+
+    public Joueur     getJoueurA()   { return this.joueurA; }
+    public Joueur     getJoueurB()   { return this.joueurB; }
     
     public String toString()
     {
