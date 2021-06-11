@@ -100,6 +100,7 @@ public class FrameJoueur extends JFrame
 	{
 		this.setTour(ctrl);
 		this.pnlJoueur.maj(ctrl);
+		this.pnlAnneaux.maj(ctrl);
 	}
 
 	public void setTour(Controleur ctrl)

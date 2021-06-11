@@ -30,6 +30,12 @@ public class PanelAnneaux extends JPanel
 	private JLabel     lblNoir ;
 	private JLabel     lblBlanc;
 
+	private JPanel pnlAnneauxBlanc = new JPanel( new GridLayout(1,8) );
+	private JPanel pnlAnneauxNoir  = new JPanel( new GridLayout(1,8) );
+
+	private JPanel pnlBlanc = new JPanel();
+	private JPanel pnlNoir  = new JPanel();
+
 	/*--------------*/
 	/* Constructeur */
 	/*--------------*/
@@ -45,14 +51,10 @@ public class PanelAnneaux extends JPanel
 		/* Création des composants       */
 		/*-------------------------------*/
 
-		JPanel pnlBlanc = new JPanel();
-		JPanel pnlNoir  = new JPanel();
-		JPanel pnlAnneauxBlanc = new JPanel( new GridLayout(1,8) );
-		JPanel pnlAnneauxNoir  = new JPanel( new GridLayout(1,8) );
-		pnlBlanc.setBackground ( Color.WHITE );
+		this.pnlBlanc.setBackground ( Color.WHITE );
 		pnlNoir.setBackground  ( Color.WHITE );
-		pnlAnneauxBlanc.setBackground ( Color.WHITE );
-		pnlAnneauxNoir.setBackground  ( Color.WHITE );
+		this.pnlAnneauxBlanc.setBackground ( Color.WHITE );
+		this.pnlAnneauxNoir.setBackground  ( Color.WHITE );
 
 
 		String      fName = "./fonts/FreePixel.ttf";
@@ -74,49 +76,10 @@ public class PanelAnneaux extends JPanel
 		/* Positionnement des Composants                */
 		/*----------------------------------------------*/
 
-		JPanel pnlAnneaux  = new JPanel();
-		pnlAnneaux.setBackground ( Color.WHITE );
-
 		//Panel Gauche (Titre de la planète)
-		pnlBlanc.add ( this.lblNoir );
+		this.pnlBlanc.add ( this.lblNoir );
 
-		for(int i=0; i< ctrl.getJeu().getJoueurB().getNbAnneaux(); i++)
-		{
-			//Anneaux Noir
-			try 
-			{
-				BufferedImage image    = ImageIO.read(new File("./images/action/anneau_noir.png"));
-				JLabel        lblImage = new JLabel(new ImageIcon(image));
-				pnlAnneauxNoir.add(lblImage);
-			} 
-			catch (IOException e) { e.printStackTrace();}
-		}
-		
 		for(int i=0; i< ctrl.getJeu().getJoueurA().getNbAnneaux(); i++)
-		{
-			//Anneaux Blanc
-			try 
-			{
-				BufferedImage image    = ImageIO.read(new File("./images/action/anneau_blanc.png"));
-				JLabel        lblImage = new JLabel(new ImageIcon(image));
-				pnlAnneauxBlanc.add(lblImage);
-			} 
-			catch (IOException e) { e.printStackTrace();}
-		}
-		
-		pnlNoir.add(lblNoir)         ;
-		pnlNoir.add(pnlAnneauxNoir)  ;
-		pnlBlanc.add(lblBlanc)       ;
-		pnlBlanc.add(pnlAnneauxBlanc);
-
-		this.add ( pnlNoir, BorderLayout.NORTH   );
-		this.add ( pnlBlanc, BorderLayout.SOUTH  );
-	}
-
-	public void maj()
-	{
-
-		for(int i=0; i< ctrl.getJeu().getJoueurB().getNbAnneaux(); i++)
 		{
 			//Anneaux Noir
 			try 
@@ -127,8 +90,8 @@ public class PanelAnneaux extends JPanel
 			} 
 			catch (IOException e) { e.printStackTrace();}
 		}
-
-		for(int i=0; i< ctrl.getJeu().getJoueurA().getNbAnneaux(); i++)
+		
+		for(int i=0; i< ctrl.getJeu().getJoueurB().getNbAnneaux(); i++)
 		{
 			//Anneaux Blanc
 			try 
@@ -139,6 +102,52 @@ public class PanelAnneaux extends JPanel
 			} 
 			catch (IOException e) { e.printStackTrace();}
 		}
+		
+		this.pnlNoir.add(lblNoir)         ;
+		this.pnlNoir.add(this.pnlAnneauxNoir)  ;
+		this.pnlBlanc.add(lblBlanc)       ;
+		this.pnlBlanc.add(this.pnlAnneauxBlanc);
+
+		this.add ( this.pnlNoir, BorderLayout.NORTH   );
+		this.add ( this.pnlBlanc, BorderLayout.SOUTH  );
+	}
+
+	public void maj(Controleur ctrl)
+	{
+		this.pnlAnneauxNoir.removeAll();
+		this.pnlAnneauxBlanc.removeAll();
+
+		//Panel Gauche (Titre de la planète)
+		this.pnlBlanc.add ( this.lblNoir );
+
+		for(int i=0; i< ctrl.getJeu().getJoueurA().getNbAnneaux(); i++)
+		{
+			//Anneaux Noir
+			try 
+			{
+				BufferedImage image    = ImageIO.read(new File("./images/action/anneau_noir.png"));
+				JLabel        lblImage = new JLabel(new ImageIcon(image));
+				this.pnlAnneauxNoir.add(lblImage);
+			} 
+			catch (IOException e) { e.printStackTrace();}
+		}
+		
+		for(int i=0; i< ctrl.getJeu().getJoueurB().getNbAnneaux(); i++)
+		{
+			//Anneaux Blanc
+			try 
+			{
+				BufferedImage image    = ImageIO.read(new File("./images/action/anneau_blanc.png"));
+				JLabel        lblImage = new JLabel(new ImageIcon(image));
+				this.pnlAnneauxBlanc.add(lblImage);
+			} 
+			catch (IOException e) { e.printStackTrace();}
+		}
+		
+		this.pnlNoir.add(lblNoir)         ;
+		this.pnlNoir.add(this.pnlAnneauxNoir)  ;
+		this.pnlBlanc.add(lblBlanc)       ;
+		this.pnlBlanc.add(this.pnlAnneauxBlanc);
 		
 		this.repaint();
 
