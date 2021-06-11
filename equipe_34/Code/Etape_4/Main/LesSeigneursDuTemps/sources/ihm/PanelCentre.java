@@ -50,7 +50,7 @@ public class PanelCentre extends JPanel
 		{
 			Font font       = Font.createFont(Font.TRUETYPE_FONT, fFont);
 			Font smallFont  = font.deriveFont(Font.PLAIN, 24           );	
-			this.lblPlanete = new JLabel ( " Centre ", JLabel.CENTER   );
+			this.lblPlanete = new JLabel ( " Centre ", SwingConstants.SOUTH_EAST  );
 			this.lblPlanete.setFont(smallFont); 
 		}
 		catch (IOException e)        { e.printStackTrace(); }
@@ -70,8 +70,8 @@ public class PanelCentre extends JPanel
 		try 
 		{
 			BufferedImage image    = ImageIO.read(new File("./images/systemes/Centre.png"));
-			JLabel        lblImage = new JLabel(new ImageIcon(image));
-			panelHaut.add(lblImage);
+			JLabel        lblImage = new JLabel(new ImageIcon(image), SwingConstants.SOUTH_EAST );
+			panelBas.add(lblImage);
 		} 
 		catch (IOException e) { e.printStackTrace(); }
 
