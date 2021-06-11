@@ -84,20 +84,20 @@ public class Jeu
                 }
                 else
                 {
-                    System.out.println("Voulez-vous conquérir ou libérer une planète Seigneur " + nomSeigneur + " ? (C/l)");
+                    System.out.println("Voulez-vous conquérir ou libérer une planète Seigneur " + nomSeigneur + " ? (C/L/D)");
                     action = Clavier.lire_char();
                     System.out.println("Donnez la première lettre du Système Solaire où effectué l'action :");
                 }
                 systemeSolaire = Clavier.lire_char();
 
-                if((action == 'C' || action == 'c' || action == 'L' || action == 'l' || action == 'R') && 
+                if((action == 'C' || action == 'c' || action == 'L' || action == 'l' || action == 'R' || action == 'd' || action == 'D') && 
                    ((systemeSolaire == 'T' || systemeSolaire == 'U' || systemeSolaire == 'M' || systemeSolaire == 'Q') ||
                    (systemeSolaire == 't' || systemeSolaire == 'u' || systemeSolaire == 'm' || systemeSolaire == 'q')))
                 {
                     debutTour= true;
                     action(couleurSeigneur, action, systemeSolaire);
                 }
-                else if(action == 'C' || action == 'c' || action == 'L' || action == 'l'){
+                else if(action == 'C' || action == 'c' || action == 'L' || action == 'l' || action == 'd' || action == 'D'){
                     System.out.println("Le système solaire sélectionné est incorrecte !");
                 }
                 else
@@ -254,7 +254,49 @@ public class Jeu
                 }
             }
         }
+        else if(action == 'd' || action == 'D')
+        {
+
+            if(couleurSeigneur == COULEURA)
+            {
+                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurB, true) == true)
+                {
+                    if(numSystemSolaire == 3)
+                    {
+                        this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurB();
+                    }
+                    else
+                    {
+                        this.galaxie.getSystemesSolaires().get(numSystemSolaire + 1).ajouterPlaneteJoueurB();
+                    }
+                }
+                else
+                {
+                    this.debutTour=false;
+                }
+            }
+            if(couleurSeigneur == COULEURB)
+            {
+                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurA, true) == true)
+                {
+                    if(numSystemSolaire == 3)
+                    {  
+                        this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurA();
+                    }
+                    else
+                    {
+                        this.galaxie.getSystemesSolaires().get(numSystemSolaire + 1).ajouterPlaneteJoueurA();
+                    }
+                }
+                else
+                {
+                    this.debutTour=false;
+                } 
+                
+            }
+        }
 	}
+    
     public Joueur determinerGagnant()
     {
         if(this.galaxie.getSystemesSolaires().get(3).getNBPlaneteJoueurA() > this.galaxie.getSystemesSolaires().get(3).getNBPlaneteJoueurB())
