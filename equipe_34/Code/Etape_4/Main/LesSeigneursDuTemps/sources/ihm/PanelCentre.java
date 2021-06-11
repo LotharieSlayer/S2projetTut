@@ -37,7 +37,7 @@ public class PanelCentre extends JPanel
 	{
 		this.ctrl = ctrl;
 		this.setBackground(Color.WHITE);
-		this.setLayout ( new GridLayout(1,0) );
+		this.setLayout ( new GridLayout(2,0) );
 
 
 		/*-------------------------------*/
