@@ -14,6 +14,8 @@ public class Galaxie
     private final int Mervelleum = 7;
     private final int Quintum    = 5;
 
+    private char systemeSolaireSelectionne;
+
     public void debutDePartie()
     {
 
@@ -43,7 +45,7 @@ public class Galaxie
         systemesSolaires.get(3).ajouterPlanete(new Planete("Makyo"       , systemesSolaires.get(3)));
         systemesSolaires.get(3).ajouterPlanete(new Planete("Freezer n°79", systemesSolaires.get(3)));
         systemesSolaires.get(3).ajouterPlanete(new Planete("Meat"        , systemesSolaires.get(3)));
-        systemesSolaires.get(3).ajouterPlanete(new Planete("Zun"         , systemesSolaires.get(3)));
+        systemesSolaires.get(3).ajouterPlanete(new Planete("Terre"         , systemesSolaires.get(3)));
 
         for (int cpt = 0; cpt < 10; cpt++)
         {
@@ -80,5 +82,63 @@ public class Galaxie
             systemesSolaires.set(position, systemesSolaires.get(position + 1));
             systemesSolaires.set(position + 1, tmp);
         }
-    }  
+    }
+
+    public void setPlanete(String planete)
+    {
+        switch(planete)
+        {
+            case "Namek":
+                this.systemeSolaireSelectionne = 'T';
+                break;
+            case "Vegeta":
+                this.systemeSolaireSelectionne = 'T';
+                break;
+            case "Bidal":
+                this.systemeSolaireSelectionne = 'T';
+                break;
+            case "Allia":
+                this.systemeSolaireSelectionne = 'U';
+                break;
+            case "Imegga":
+                this.systemeSolaireSelectionne = 'M';
+                break;
+            case "Kaiokaï":
+                this.systemeSolaireSelectionne = 'M';
+                break;
+            case "Plant":
+                this.systemeSolaireSelectionne = 'M';
+                break;
+            case "Yardrat":
+                this.systemeSolaireSelectionne = 'M';
+                break;
+            case "Zun":
+                this.systemeSolaireSelectionne = 'M';
+                break;
+            case "Kaioshinkaï":
+                this.systemeSolaireSelectionne = 'M';
+                break;
+            case "Alpha HZ":
+                this.systemeSolaireSelectionne = 'M';
+                break;
+            case "Konatz":
+                this.systemeSolaireSelectionne = 'Q';
+                break;
+            case "Makyo":
+                this.systemeSolaireSelectionne = 'Q';
+                break;
+            case "Freezer n°79":
+                this.systemeSolaireSelectionne = 'Q';
+                break;
+            case "Meat":
+                this.systemeSolaireSelectionne = 'Q';
+                break;
+            case "Terre":
+                this.systemeSolaireSelectionne = 'Q';
+                break;
+            case " ":
+                this.systemeSolaireSelectionne = ' ';
+        }
+    }
+    public char getSystemeSolaireSelectionne(){ return this.systemeSolaireSelectionne; } 
 }

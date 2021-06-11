@@ -70,5 +70,26 @@ public class PanelAction extends JPanel implements ActionListener
 		this.btnLiberer.addActionListener ( this );
 	}
 
-	public void actionPerformed(ActionEvent e) {this.ctrl.action("Noir", 'C', 'T');}
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == this.btnConqerir)
+		{
+			if(this.ctrl.getGalaxie().getSystemeSolaireSelectionne() != ' ')
+			{
+				this.ctrl.action("Noir", 'C', this.ctrl.getGalaxie().getSystemeSolaireSelectionne());
+				this.ctrl.getGalaxie().setPlanete(" ");
+			}
+			else
+				System.out.println("Erreur, Planète non sélectionné");
+		}		
+		if(e.getSource() == this.btnLiberer)
+		{
+			if(this.ctrl.getGalaxie().getSystemeSolaireSelectionne() != ' ')
+			{
+				this.ctrl.action("Noir", 'C', this.ctrl.getGalaxie().getSystemeSolaireSelectionne());
+				this.ctrl.getGalaxie().setPlanete(" ");
+			}
+			else
+				System.out.println("Erreur, Planète non sélectionné");
+		}	
+	}
 }

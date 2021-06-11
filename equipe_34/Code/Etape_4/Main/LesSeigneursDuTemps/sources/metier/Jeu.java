@@ -65,22 +65,6 @@ public class Jeu
                 
             while(this.debutTour == false)
             {
-                /*int cpt = 0 ;
-                String affichage = " ";
-                while (cpt < 4)
-                {
-                    System.out.println(this.galaxie.getSystemesSolaires().get(cpt).getNom()); 
-                    System.out.println("        Nombre de planètes                  :   " + this.galaxie.getSystemesSolaires().get(cpt).getNbPlanete()                       + " planètes" ); 
-                    System.out.println("        Le Joueur A contrôle                :   " + this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurA()                + " planète(s)");
-                    System.out.println("        Le joueur B contrôle                :   " + this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurB()                + " planète(s)");
-                    System.out.println("        Nombre de Planète(s) Disponible(s)  :   " + (this.galaxie.getSystemesSolaires().get(cpt).getNbPlanete() - 
-                        (this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurA() + this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurB() ) ) + " planète(s)" );
-
-                    System.out.println();
-                    cpt ++;
-                    
-                }*/
-                System.out.println(toString());
 
                 if(this.numPlaneteLibere > -1)
                 {
@@ -93,7 +77,6 @@ public class Jeu
                     //action = Clavier.lire_char();
                     System.out.println("Donnez la première lettre du Système Solaire où effectué l'action :");
                 }
-                //systemeSolaire = Clavier.lire_char();
 
                 if((action == 'C' || action == 'c' || action == 'L' || action == 'l' || action == 'R') && 
                    ((systemeSolaire == 'T' || systemeSolaire == 'U' || systemeSolaire == 'M' || systemeSolaire == 'Q') ||
