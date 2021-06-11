@@ -10,7 +10,6 @@ public class PlaneteButton
     public static JButton planete(int x, int y, String image)
     {
         Icon icon              = new ImageIcon(image);
-        System.out.println(icon.toString());
         JButton btn            = new JButton(icon);
  
         btn.setBounds(x,y,34,34       );

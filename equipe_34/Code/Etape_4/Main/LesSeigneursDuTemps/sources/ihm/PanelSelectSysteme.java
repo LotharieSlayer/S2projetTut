@@ -35,6 +35,7 @@ public class PanelSelectSysteme extends JPanel
 
 	private int NumPlaceSysteme;
 
+	private JButton btn0 ;
 	private JButton btn1 ;
 	private JButton btn2 ;
 	private JButton btn3 ;
@@ -91,7 +92,8 @@ public class PanelSelectSysteme extends JPanel
 
 		//Systeme
 		this.imgSysteme = Toolkit.getDefaultToolkit().getImage( "./images/systemes/" + this.nomFichier + ".png" );
-
+		
+		this.btn0  = PlaneteButton.planete(0, 0,     "./images/planetes/bleu.png"   );
 		this.btn1  = PlaneteButton.planete(70, 75,   "./images/planetes/bleu.png"   );
 		this.btn2  = PlaneteButton.planete(200, 75,  "./images/planetes/jaune.png"  );
 		this.btn3  = PlaneteButton.planete(150, 175, "./images/planetes/vert.png"   );
@@ -109,11 +111,13 @@ public class PanelSelectSysteme extends JPanel
 		this.btn15 = PlaneteButton.planete(175, 170, "./images/planetes/bleu.png"   );
 		this.btn16 = PlaneteButton.planete(70, 150,  "./images/planetes/vert.png"   );
 
+		this.add(this.btn0);
+
 		//Planetes
 		switch(ctrl.getGalaxie().getSystemesSolaires().get(NumPlaceSysteme).getNom())
 		{
 			case "Triälum":
-					
+
 				//Planete 1
 				this.add(this.btn1 );
 				
@@ -178,6 +182,7 @@ public class PanelSelectSysteme extends JPanel
 
 	public void maj(Controleur ctrl, int NumPlaceSysteme)
 	{
+
 		switch(ctrl.getGalaxie().getSystemesSolaires().get(NumPlaceSysteme).getNom())
 		{
 			case "Triälum":
