@@ -23,11 +23,11 @@ import javax.swing.*;
 public class PanelCentre extends JPanel
 {
 	// Attributs d'instance
-	private Controleur ctrl;
-	private String fichier;
-	private Image image;
+	private Controleur ctrl      ;
+	private String     fichier   ;
+	private Image      image     ;
 
-	private JLabel lblPlanete;
+	private JLabel     lblPlanete;
 
 	/*--------------*/
 	/* Constructeur */
@@ -44,17 +44,16 @@ public class PanelCentre extends JPanel
 		/* Création des composants       */
 		/*-------------------------------*/
 
-		String fName = "./fonts/FreePixel.ttf";
+		String      fName = "./fonts/FreePixel.ttf";
 		InputStream fFont = PanelCentre.class.getResourceAsStream(fName);
-		try {
-			Font font = Font.createFont(Font.TRUETYPE_FONT, fFont);
-			Font smallFont = font.deriveFont(Font.PLAIN, 24);	
-			this.lblPlanete = new JLabel ( " Centre ", JLabel.CENTER );
+		try 
+		{
+			Font font       = Font.createFont(Font.TRUETYPE_FONT, fFont);
+			Font smallFont  = font.deriveFont(Font.PLAIN, 24           );	
+			this.lblPlanete = new JLabel ( " Centre ", JLabel.CENTER   );
 			this.lblPlanete.setFont(smallFont); 
-
-	
 		}
-		catch (IOException e){ e.printStackTrace(); }
+		catch (IOException e)        { e.printStackTrace(); }
 		catch (FontFormatException e){ e.printStackTrace(); }
 
 
@@ -68,17 +67,18 @@ public class PanelCentre extends JPanel
 		panelBas.setBackground  ( Color.WHITE );
 		
 		//Panel Haut (Image selon objet Planète)
-		try {
-			BufferedImage image = ImageIO.read(new File("./images/systemes/Centre.png"));
-			JLabel lblImage = new JLabel(new ImageIcon(image));
+		try 
+		{
+			BufferedImage image    = ImageIO.read(new File("./images/systemes/Centre.png"));
+			JLabel        lblImage = new JLabel(new ImageIcon(image));
 			panelHaut.add(lblImage);
-		} catch (IOException e) { e.printStackTrace(); }
+		} 
+		catch (IOException e) { e.printStackTrace(); }
 
 		//Panel Bas (Titre de la planète)
 		panelBas.add ( this.lblPlanete, BorderLayout.CENTER );
 
-		this.add ( panelHaut );
-		this.add ( panelBas  );
-
+		this.add     ( panelHaut );
+		this.add     ( panelBas  );
 	}
 }

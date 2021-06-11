@@ -16,19 +16,19 @@ import java.io.*;
 /*--------------------------------------------*/
 public class PanelAction extends JPanel implements ActionListener
 {
-	private Controleur  ctrl;
+	private Controleur    ctrl;
 
 	//private JLabel lblTimer;
-	private JLabel lblSubtitle;
-	private JPanel pnlMain;
-	private JPanel pnlMessage;
-	private JPanel pnlSubtitle;
+	private JLabel  lblSubtitle;
+	private JPanel  pnlMain    ;
+	private JPanel  pnlMessage ;
+	private JPanel  pnlSubtitle;
 
 
 	private JButton btnConqerir;
-	private JButton btnLiberer;
+	private JButton btnLiberer ;
 
-	private Image imgFond;
+	private Image   imgFond    ;
 
 
 	public PanelAction(Controleur ctrl)
@@ -40,14 +40,15 @@ public class PanelAction extends JPanel implements ActionListener
 		this.lblSubtitle = new JLabel("Jouer le tour :", JLabel.RIGHT);
 		String fName = "./fonts/FreePixel.ttf";
 		InputStream fFont = PanelAction.class.getResourceAsStream(fName);
-		try {
+		try 
+		{
 			Font font = Font.createFont(Font.TRUETYPE_FONT, fFont);
 			Font smallFont = font.deriveFont(Font.PLAIN, 16);
 			this.lblSubtitle.setFont(smallFont);
 			this.lblSubtitle.setForeground(Color.BLACK);
 			this.add(this.lblSubtitle);
 		}
-		catch (IOException e){ e.printStackTrace(); }
+		catch (IOException e)        { e.printStackTrace(); }
 		catch (FontFormatException e){ e.printStackTrace(); }
 
 
@@ -66,12 +67,8 @@ public class PanelAction extends JPanel implements ActionListener
 		this.add(this.btnLiberer);
 
 		this.btnConqerir.addActionListener( this );
-		this.btnLiberer.addActionListener( this );
+		this.btnLiberer.addActionListener ( this );
 	}
 
-	public void actionPerformed(ActionEvent e) {
-		this.ctrl.action("Noir", 'C', 'T');
-	}
-
-
+	public void actionPerformed(ActionEvent e) {this.ctrl.action("Noir", 'C', 'T');}
 }

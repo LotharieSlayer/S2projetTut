@@ -5,12 +5,12 @@ import equipe_34.lesSeigneursDuTemps.ihm.*;
 
 public class Controleur
 {
-	public Jeu metier;
-	private FrameJoueur   ihm;
+	public  Jeu           metier;
+	private FrameJoueur   ihm   ;
 
     public Controleur()
     {
-		this.metier = new Jeu ();
+		this.metier = new Jeu         (      );
 		this.ihm    = new FrameJoueur ( this );
 	}
     
@@ -20,7 +20,7 @@ public class Controleur
 	}
 
 	public Galaxie getGalaxie(){ return this.metier.getGalaxie(); }
-	public int getTour(){ return this.metier.getTour(); }
+	public int getTour()       { return this.metier.getTour()   ; }
 	
 	public void action ( String couleurSeigneur, char action, char systemeSolaire )
 	{

@@ -7,23 +7,19 @@ import java.awt.event.*;
 
 public class PlaneteButton
 {
-
     public static JButton planete(int x, int y, String image)
     {
         Icon icon              = new ImageIcon(image);
         System.out.println(icon.toString());
         JButton btn            = new JButton(icon);
-
-        btn.setBounds(x,y,34,34);
-        btn.setOpaque(false);
+ 
+        btn.setBounds(x,y,34,34       );
+        btn.setOpaque(false           );
         btn.setContentAreaFilled(false); //Transparence
-        btn.setBorderPainted(false);
-        btn.setFocusPainted(false);
+        btn.setBorderPainted(false    );
+        btn.setFocusPainted(false     );
         btn.setPreferredSize(new Dimension (icon.getIconWidth(), icon.getIconHeight()));
 
         return btn;
     }
-
-
-
 }

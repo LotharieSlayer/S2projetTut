@@ -10,16 +10,17 @@ import iut.algo.Clavier;
 
 public class Jeu
 {
-    private String nomJoueurA;
-    private String nomJoueurB;
-    private Joueur joueurA;
-    private Joueur joueurB;
-    private Joueur gagnant;
+    private String  nomJoueurA;
+    private String  nomJoueurB;
+
+    private Joueur  joueurA;
+    private Joueur  joueurB;
+    private Joueur  gagnant;
 
     private Galaxie galaxie;
 
-    private int numTour = 1;
-    private int numPlaneteLibere = - 1; // - 1 Signifiant qu'il n'y a aucune planète libéré
+    private int     numTour = 1;
+    private int     numPlaneteLibere = - 1; // - 1 Signifiant qu'il n'y a aucune planète libéré
 
     private boolean debutTour;
 
@@ -31,11 +32,12 @@ public class Jeu
     {
         System.out.println("Comment s'apelle le joueur A ?");
         this.nomJoueurA = "Francis";
+
         System.out.println("Comment s'apelle le joueur B ?");
         this.nomJoueurB = "Michel";
 
-        this.joueurA = new Joueur(this.nomJoueurA, COULEURA);
-        this.joueurB = new Joueur(this.nomJoueurB, COULEURB);
+        this.joueurA = new Joueur (this.nomJoueurA, COULEURA);
+        this.joueurB = new Joueur (this.nomJoueurB, COULEURB);
 
         this.galaxie = new Galaxie();
 
@@ -49,15 +51,16 @@ public class Jeu
         {
             String nomSeigneur;
             debutTour = false;
+
             if(this.numTour % 2 != 0)
             {
-                couleurSeigneur = COULEURA;
-                nomSeigneur = this.nomJoueurA;
+                couleurSeigneur = COULEURA       ;
+                nomSeigneur     = this.nomJoueurA;
             }
             else
             {
-                couleurSeigneur = COULEURB;
-                nomSeigneur = this.nomJoueurB;
+                couleurSeigneur = COULEURB       ;
+                nomSeigneur     = this.nomJoueurB;
             } 
                 
             while(this.debutTour == false)
@@ -79,7 +82,8 @@ public class Jeu
                 }*/
                 System.out.println(toString());
 
-                if(this.numPlaneteLibere > -1){
+                if(this.numPlaneteLibere > -1)
+                {
                     action = 'R'; //Action de replacer
                     System.out.println("Donnez la première lettre du Système Solaire où conquérir la planète :");
                 }
@@ -102,37 +106,40 @@ public class Jeu
                     System.out.println("Le système solaire sélectionné est incorrecte !");
                 }
                 else
+                {
                     System.out.println("L'action sélectionné est incorrecte");
+                } 
             }
             this.numTour++;
         }
         else
         {
             System.out.println("Partie terminé !");
-            System.out.println(toString());
-            gagnant = determinerGagnant();
+            System.out.println(toString()        );
+            gagnant = determinerGagnant()         ;
             System.out.println("Le Seigneur du Temps qui a remporté la partie est " + gagnant.getNom());
-            System.out.println("Félicitations !");
+            System.out.println("Félicitations !" );
         }
 	}
+
     public void actionDeux(String couleurSeigneur, char action, char systemeSolaire)
     {
-        int numSystemSolaire = 0;
+        int numSystemSolaire     = 0  ;
         String nomSystemeSolaire = " ";
 
         switch(systemeSolaire)
         {
             case 'T':
-                nomSystemeSolaire="Triälum";
+                nomSystemeSolaire="Triälum"   ;
                 break;
             case 't':
-                nomSystemeSolaire="Triälum";
+                nomSystemeSolaire="Triälum"   ;
                 break;
             case 'U':
-                nomSystemeSolaire="Uninium";
+                nomSystemeSolaire="Uninium"   ;
                 break;
             case 'u':
-                nomSystemeSolaire="Uninium";
+                nomSystemeSolaire="Uninium"   ;
                 break;
             case 'M':
                 nomSystemeSolaire="Mervelléum";
@@ -141,10 +148,10 @@ public class Jeu
                 nomSystemeSolaire="Mervelléum";
                 break;
             case 'Q':
-                nomSystemeSolaire="Quintum";
+                nomSystemeSolaire="Quintum"   ;
                 break;
             case 'q':
-                nomSystemeSolaire="Quintum";
+                nomSystemeSolaire="Quintum"   ;
                 break;
         }
 
@@ -163,7 +170,7 @@ public class Jeu
                 {
                     if(numSystemSolaire == 3)
                     {  
-                        this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurA();
+                        this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurA    ();
                     }
                     else
                     {
@@ -181,7 +188,7 @@ public class Jeu
                 {
                     if(numSystemSolaire == 3)
                     {
-                        this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurB();
+                        this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurB    ();
                     }
                     else
                     {
@@ -248,7 +255,9 @@ public class Jeu
                         this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurB();
                     }
                     else
+                    {
                         this.debutTour=false;
+                    }      
                 }
                 else
                 {
@@ -258,6 +267,7 @@ public class Jeu
             }
         }
     }
+
     public Joueur determinerGagnant()
     {
         if(this.galaxie.getSystemesSolaires().get(3).getNBPlaneteJoueurA() > this.galaxie.getSystemesSolaires().get(3).getNBPlaneteJoueurB())
@@ -270,9 +280,8 @@ public class Jeu
         }
     }
 
-    public Galaxie getGalaxie(){ return galaxie; }
-
-    public int getTour(){ return this.numTour; }
+    public Galaxie getGalaxie(){ return galaxie;      }
+    public int     getTour()   { return this.numTour; }
     
     public String toString()
     {

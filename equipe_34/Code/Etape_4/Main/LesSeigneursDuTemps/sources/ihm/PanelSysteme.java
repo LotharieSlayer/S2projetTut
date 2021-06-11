@@ -14,11 +14,11 @@ import javax.imageio.ImageIO;
 /*--------------------------------------------*/
 public class PanelSysteme extends JPanel
 {
-	private Controleur  ctrl;
-	private JPanel		pnlMain;
+	private Controleur         ctrl   ;
+	private JPanel		       pnlMain;
 
-	private PanelSelectSysteme     panelSelectSysteme;
-	private JLabel				   lblPlanete = new JLabel();
+	private PanelSelectSysteme panelSelectSysteme       ;
+	private JLabel			   lblPlanete = new JLabel();
 
 	public PanelSysteme( Controleur ctrl, int NumPlaceSysteme)
 	{
@@ -30,10 +30,11 @@ public class PanelSysteme extends JPanel
 
 			
 		//FONT
-		String fName = "./fonts/Montserrat/Montserrat-Bold.ttf";
+		String      fName = "./fonts/Montserrat/Montserrat-Bold.ttf"           ;
 		InputStream fFont = PanelSelectSysteme.class.getResourceAsStream(fName);
-		try {
-			Font font = Font.createFont(Font.TRUETYPE_FONT, fFont);
+		try 
+		{
+			Font font    = Font.createFont(Font.TRUETYPE_FONT, fFont);
 			Font bigFont = font.deriveFont(Font.PLAIN, 42);
 			
 			this.lblPlanete.setText(ctrl.getGalaxie().getSystemesSolaires().get(NumPlaceSysteme).getNom());
@@ -42,10 +43,8 @@ public class PanelSysteme extends JPanel
 			this.lblPlanete.setForeground(Color.BLACK);
 
 		}
-		catch (IOException e){ e.printStackTrace(); }
+		catch (IOException e)        { e.printStackTrace(); }
 		catch (FontFormatException e){ e.printStackTrace(); }
-
-
 
 		this.add(this.panelSelectSysteme, BorderLayout.CENTER);
 		this.add(this.lblPlanete, BorderLayout.SOUTH);
@@ -56,5 +55,4 @@ public class PanelSysteme extends JPanel
 		this.panelSelectSysteme.maj(ctrl, NumPlaceSysteme);
 		this.lblPlanete.setText(ctrl.getGalaxie().getSystemesSolaires().get(NumPlaceSysteme).getNom());
 	}
-
 }

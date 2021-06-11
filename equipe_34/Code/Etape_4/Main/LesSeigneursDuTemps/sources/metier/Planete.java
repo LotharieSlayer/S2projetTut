@@ -5,13 +5,13 @@ import java.util.*;
 public class Planete 
 {
 
-    private String nom;
-    private SystemeSolaire systemeSolaire;
-    private Joueur seigneurProprietaire;
+    private String         nom                 ;
+    private SystemeSolaire systemeSolaire      ;
+    private Joueur         seigneurProprietaire;
 
 	public Planete(String nom, SystemeSolaire systemeSolaire)
 	{
-        this.nom = nom;
+        this.nom            = nom           ;
         this.systemeSolaire = systemeSolaire;
     }
 
@@ -20,18 +20,10 @@ public class Planete
         this.systemeSolaire = systemeSolaire;
     }
 
-    public String getNom(){ return this.nom; }
+    public String         getNom()                               { return this.nom                 ; }
+    public Joueur         getProprietaire()                      { return this.seigneurProprietaire; }
+    public SystemeSolaire getSystemeSolaire()                    { return this.systemeSolaire      ; }
 
-    public Joueur getProprietaire(){ return this.seigneurProprietaire; }
-
-    public SystemeSolaire getSystemeSolaire(){ return this.systemeSolaire; }
-
-    public void changerProprietaire(Joueur seigneurProprietaire){
-        this.seigneurProprietaire = seigneurProprietaire;
-    }
-
-    public void libererProprietaire()
-    {
-        this.seigneurProprietaire = null;
-    }
+    public void changerProprietaire(Joueur seigneurProprietaire) {this.seigneurProprietaire = seigneurProprietaire;}
+    public void libererProprietaire()                            {this.seigneurProprietaire = null;}
 }

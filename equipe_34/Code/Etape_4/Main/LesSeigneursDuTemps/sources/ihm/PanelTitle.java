@@ -13,16 +13,16 @@ import java.awt.image.*;
 /*--------------------------------------------*/
 public class PanelTitle extends JPanel
 {
-	private Controleur  ctrl;
+	private Controleur  ctrl   ;
 
 	//private JLabel lblTimer;
-	private Image image;
-	private String fichier;
+	private Image       image  ;
+	private String      fichier;
 
 
 	public PanelTitle(Controleur ctrl)
 	{
-		this.ctrl = ctrl;
+		this.ctrl    = ctrl;
 		this.setBackground(Color.WHITE);
 		this.fichier = "./images/logo/logo.png";
 		this.ouvrirImage();
@@ -35,7 +35,7 @@ public class PanelTitle extends JPanel
 
 	public void ouvrirImage()
 	{
-		this.image = Toolkit.getDefaultToolkit().getImage( this.fichier );
+		this.image         = Toolkit.getDefaultToolkit().getImage( this.fichier );
 
 		MediaTracker track = new MediaTracker( this );
 

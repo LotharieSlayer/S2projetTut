@@ -29,7 +29,7 @@ public class FrameJoueur extends JFrame
     {
 		this.setLocation(160,50);
 		
-		this.setSize(1600,900);
+		this.setSize(1600,900)  ;
 		this.setResizable(false);
 		this.setTitle ( "Les Seigneurs du Temps" );
 
@@ -38,7 +38,7 @@ public class FrameJoueur extends JFrame
 		/* ----------------------- */
 
 		// PANEL DU HAUT
-		this.pnlMain = new JPanel( new BorderLayout() );
+		this.pnlMain   = new JPanel( new BorderLayout()  );
 		this.pnlFooter = new JPanel( new GridLayout(1,3) );
 		this.pnlFooter.setPreferredSize(new Dimension(1600, 160));
 
@@ -78,10 +78,10 @@ public class FrameJoueur extends JFrame
 		/* ---------------------------- */
 		/* Postionnement des composants */
 		/* ---------------------------- */
-		this.pnlMain.add(this.pnlTitle , BorderLayout.NORTH);
-		this.pnlMain.add(this.pnlJoueur, BorderLayout.CENTER);
-		this.pnlMain.add(this.pnlCoteLeft, BorderLayout.WEST);
-		this.pnlMain.add(this.pnlCoteRight, BorderLayout.EAST);
+		this.pnlMain.add(this.pnlTitle ,    BorderLayout.NORTH );
+		this.pnlMain.add(this.pnlJoueur,    BorderLayout.CENTER);
+		this.pnlMain.add(this.pnlCoteLeft,  BorderLayout.WEST  );
+		this.pnlMain.add(this.pnlCoteRight, BorderLayout.EAST  );
 
 		 //mettre le message au tour du noir
 		this.pnlMain.add(this.pnlStatutB, BorderLayout.SOUTH); //mettre le message au tour du blanc
@@ -95,6 +95,7 @@ public class FrameJoueur extends JFrame
 		this.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 		this.setVisible(true);
 	}
+
 	public void maj(Controleur ctrl)
 	{
 		this.setTour(ctrl);
@@ -106,14 +107,14 @@ public class FrameJoueur extends JFrame
 		if(ctrl.getTour() % 2 != 0)
 		{
 			this.pnlMain.add(this.pnlStatutN, BorderLayout.SOUTH);
-			this.pnlStatutN.setVisible(true);
+			this.pnlStatutN.setVisible(true );
 			this.pnlStatutB.setVisible(false);
 		}
 		else
 		{
 			this.pnlMain.add(this.pnlStatutB, BorderLayout.SOUTH); 
 			this.pnlStatutN.setVisible(false);
-			this.pnlStatutB.setVisible(true);
+			this.pnlStatutB.setVisible(true );
 		}
 	}
 }
