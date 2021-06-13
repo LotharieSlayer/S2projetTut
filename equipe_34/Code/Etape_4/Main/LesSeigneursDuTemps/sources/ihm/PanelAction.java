@@ -25,8 +25,9 @@ public class PanelAction extends JPanel implements ActionListener
 	private JPanel  pnlSubtitle;
 
 
-	private JButton btnConqerir;
-	private JButton btnLiberer ;
+	private JButton btnConqerir		;
+	private JButton btnLiberer 		;
+	private JButton btnConAdversaire;
 
 	private Image   imgFond    ;
 
@@ -66,8 +67,16 @@ public class PanelAction extends JPanel implements ActionListener
 		this.btnLiberer.setFocusPainted(false);
 		this.add(this.btnLiberer);
 
-		this.btnConqerir.addActionListener( this );
-		this.btnLiberer.addActionListener ( this );
+		this.btnConAdversaire = new JButton(new ImageIcon("./images/action/Bouton_conAdversaire.png"));
+		this.btnConAdversaire.setBackground(Color.BLACK);
+		this.btnConAdversaire.setOpaque(false);
+		this.btnConAdversaire.setBorderPainted(false);
+		this.btnConAdversaire.setFocusPainted(false);
+		this.add(this.btnConAdversaire);
+
+		this.btnConqerir.addActionListener		( this );
+		this.btnLiberer.addActionListener 		( this );
+		this.btnConAdversaire.addActionListener ( this );
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -80,7 +89,8 @@ public class PanelAction extends JPanel implements ActionListener
 			}
 			else
 				System.out.println("Erreur, Planète non sélectionné");
-		}		
+		}	
+		
 		if(e.getSource() == this.btnLiberer)
 		{
 			if(this.ctrl.getGalaxie().getSystemeSolaireSelectionne() != ' ')
@@ -90,6 +100,11 @@ public class PanelAction extends JPanel implements ActionListener
 			}
 			else
 				System.out.println("Erreur, Planète non sélectionné");
+		}	
+
+		if(e.getSource() == this.btnConAdversaire)
+		{
+			System.out.println("Conquérir pour l'adversaire.");
 		}	
 	}
 }

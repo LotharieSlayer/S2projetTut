@@ -34,7 +34,7 @@ public class PanelStatutNoir extends JPanel
 		this.setBackground(Color.WHITE);
 
 		//FONT
-		this.lblStatut   = new JLabel("C’est au tour du seigneur Noir ! =^∇^*=",       JLabel.CENTER);
+		this.lblStatut   = new JLabel("C’est au tour du Seigneur Noir ! =^∇^*=",       JLabel.CENTER);
 		this.lblSubtitle = new JLabel("Choisissez la planète à conquérir ou libérer.", JLabel.CENTER);
 		String fName  = "./fonts/Montserrat/Montserrat-Bold.ttf";
 		String f2Name = "./fonts/FreePixel.ttf";
