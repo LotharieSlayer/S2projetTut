@@ -35,6 +35,8 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 
 	private int NumPlaceSysteme;
 
+	private String[] etat = new String[16];
+
 	private JButton btn0 ;
 	private JButton btn1 ;
 	private JButton btn2 ;
@@ -52,6 +54,7 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 	private JButton btn14;
 	private JButton btn15;
 	private JButton btn16;
+	private String select = "";
 
 	private JPanel pnlPlanetes;
 
@@ -62,6 +65,7 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 	public PanelSelectSysteme(Controleur ctrl, int NumPlaceSysteme) 
 	{
 		this.ctrl = ctrl;
+		this.NumPlaceSysteme = NumPlaceSysteme;
 		this.setBackground(Color.WHITE);
 		this.setLayout ( null );
 
@@ -218,22 +222,118 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 
 	public void maj(Controleur ctrl, int NumPlaceSysteme)
 	{
+		this.ctrl = ctrl;
+		this.NumPlaceSysteme = NumPlaceSysteme;
+
+		int nbPlanetes = 0;
+		int planeteDeDepart = 0;
 
 		switch(ctrl.getGalaxie().getSystemesSolaires().get(NumPlaceSysteme).getNom())
 		{
 			case "Triälum":
 				this.nomFichier = "Trialum"   ;
+				nbPlanetes = 3;
 				break;
 			case "Uninium":
 				this.nomFichier = "Uninium"   ;
+				nbPlanetes = 1;
+				planeteDeDepart = 3;
 				break;
 			case "Mervelléum":
 				this.nomFichier = "Mervelleum";
+				nbPlanetes = 7;
+				planeteDeDepart = 4;
 				break;
 			case "Quintum":
 				this.nomFichier = "Quintum"   ;
+				nbPlanetes = 5;
+				planeteDeDepart = 11;
 				break;
 		}
+
+		for (int i=0; i<16;i++) {
+			this.etat[i] = "";
+		}
+
+		for (int i=0; i<nbPlanetes;i++) {
+			if(ctrl.getGalaxie().getSystemesSolaires().get(NumPlaceSysteme).getPlanetes().get(i).getProprietaire() == this.ctrl.getJoueurA())
+			{
+				this.etat[i + planeteDeDepart] = "noir/";
+			}
+			else if(ctrl.getGalaxie().getSystemesSolaires().get(NumPlaceSysteme).getPlanetes().get(i).getProprietaire() == this.ctrl.getJoueurB())
+			{
+				this.etat[i + planeteDeDepart] = "blanc/";
+			}
+		}
+
+		switch(this.ctrl.getGalaxie().getPlaneteSelectionne())
+		{
+			case "Namek":
+				this.etat[0] = "select/";
+				break;
+			case "Vegeta":
+				this.etat[1] = "select/";
+				break;
+			case "Bidal":
+				this.etat[2] = "select/";
+				break;
+			case "Allia":
+				this.etat[3] = "select/";
+				break;
+			case "Imegga":
+				this.etat[4] = "select/";
+				break;
+			case "Kaiokaï":
+				this.etat[5] = "select/";
+				break;
+			case "Plant":
+				this.etat[6] = "select/";
+				break;
+			case "Yardrat":
+				this.etat[7] = "select/";
+				break;
+			case "Zun":
+				this.etat[8] = "select/";
+				break;
+			case "Kaioshinkaï":
+				this.etat[9] = "select/";
+				break;
+			case "Alpha HZ":
+				this.etat[10] = "select/";
+				break;
+			case "Konatz":
+				this.etat[11] = "select/";
+				break;
+			case "Makyo":
+				this.etat[12] = "select/";
+				break;
+			case "Freezer n°79":
+				this.etat[13] = "select/";
+				break;
+			case "Meat":
+				this.etat[14] = "select/";
+				break;
+			case "Terre":
+				this.etat[15] = "select/";
+				break;
+		}
+
+		this.btn1.setIcon(new ImageIcon("./images/planetes/" + this.etat[0] + "bleu.png"));
+		this.btn2.setIcon(new ImageIcon("./images/planetes/" + this.etat[1] + "jaune.png"));
+		this.btn3.setIcon(new ImageIcon("./images/planetes/" + this.etat[2] + "vert.png"));
+		this.btn4.setIcon(new ImageIcon("./images/planetes/" + this.etat[3] + "rose.png"));
+		this.btn5.setIcon(new ImageIcon("./images/planetes/" + this.etat[4] + "rouge.png"));
+		this.btn6.setIcon(new ImageIcon("./images/planetes/" + this.etat[5] + "jaune.png"));
+		this.btn7.setIcon(new ImageIcon("./images/planetes/" + this.etat[6] + "rose.png"));
+		this.btn8.setIcon(new ImageIcon("./images/planetes/" + this.etat[7] + "bleu.png"));
+		this.btn9.setIcon(new ImageIcon("./images/planetes/" + this.etat[8] + "fuchsia.png"));
+		this.btn10.setIcon(new ImageIcon("./images/planetes/" + this.etat[9] + "vert.png"));
+		this.btn11.setIcon(new ImageIcon("./images/planetes/" + this.etat[10] + "orange.png"));
+		this.btn12.setIcon(new ImageIcon("./images/planetes/" + this.etat[11] + "rouge.png"));
+		this.btn13.setIcon(new ImageIcon("./images/planetes/" + this.etat[12] + "jaune.png"));
+		this.btn14.setIcon(new ImageIcon("./images/planetes/" + this.etat[13] + "rose.png"));
+		this.btn15.setIcon(new ImageIcon("./images/planetes/" + this.etat[14] + "bleu.png"));
+		this.btn16.setIcon(new ImageIcon("./images/planetes/" + this.etat[15] + "vert.png"));
 
 		//Systeme
 		this.imgSysteme = Toolkit.getDefaultToolkit().getImage( "./images/systemes/" + this.nomFichier + ".png" );
@@ -446,9 +546,9 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 		if(e.getSource() == this.btn16)
 		{
 			planeteSelectionne = "Terre";
-		}											
-		this.ctrl.getGalaxie().setPlanete(planeteSelectionne);
-		System.out.println(planeteSelectionne);
+		}	
+		this.ctrl.getGalaxie().setPlanete(planeteSelectionne);							
+		this.ctrl.majIHM();
 	}
 
 	public void paintComponent(Graphics g) 

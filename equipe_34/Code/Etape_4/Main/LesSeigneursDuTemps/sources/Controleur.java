@@ -21,12 +21,16 @@ public class Controleur
 
 	public Galaxie getGalaxie(){ return this.metier.getGalaxie(); }
 	public Jeu getJeu(){ return this.metier; }
+
+	public Joueur getJoueurA(){ return this.metier.getJoueurA(); }
+	public Joueur getJoueurB(){ return this.metier.getJoueurB(); }
+
 	public int getTour()       { return this.metier.getTour()   ; }
 	
 	public void action ( String couleurSeigneur, char action, char systemeSolaire )
 	{
 		this.metier.action (couleurSeigneur, action, systemeSolaire );
-
-		this.ihm.maj( this );
 	}
+
+	public void majIHM(){ this.ihm.maj( this ); }
 }

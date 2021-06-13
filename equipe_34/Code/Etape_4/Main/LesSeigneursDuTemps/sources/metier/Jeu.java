@@ -30,10 +30,8 @@ public class Jeu
 
     public Jeu()
     {
-        System.out.println("Comment s'apelle le joueur A ?");
         this.nomJoueurA = "Francis";
 
-        System.out.println("Comment s'apelle le joueur B ?");
         this.nomJoueurB = "Michel";
 
         this.joueurA = new Joueur (this.nomJoueurA, COULEURA);
@@ -69,13 +67,6 @@ public class Jeu
                 if(this.numPlaneteLibere > -1)
                 {
                     action = 'R'; //Action de replacer
-                    System.out.println("Donnez la première lettre du Système Solaire où conquérir la planète :");
-                }
-                else
-                {
-                    System.out.println("Voulez-vous conquérir ou libérer une planète Seigneur " + nomSeigneur + " ? (C/l)");
-                    //action = Clavier.lire_char();
-                    System.out.println("Donnez la première lettre du Système Solaire où effectué l'action :");
                 }
 
                 if((action == 'C' || action == 'c' || action == 'L' || action == 'l' || action == 'R') && 

@@ -15,6 +15,7 @@ public class Galaxie
     private final int Quintum    = 5;
 
     private char systemeSolaireSelectionne;
+    private String planeteSelectionne = " ";
 
     public void debutDePartie()
     {
@@ -84,9 +85,10 @@ public class Galaxie
         }
     }
 
-    public void setPlanete(String planete)
+    public void setPlanete(String planeteSelectionne)
     {
-        switch(planete)
+        this.planeteSelectionne = planeteSelectionne;
+        switch(planeteSelectionne)
         {
             case "Namek":
                 this.systemeSolaireSelectionne = 'T';
@@ -140,5 +142,6 @@ public class Galaxie
                 this.systemeSolaireSelectionne = ' ';
         }
     }
+    public String getPlaneteSelectionne(){ return this.planeteSelectionne; } 
     public char getSystemeSolaireSelectionne(){ return this.systemeSolaireSelectionne; } 
 }

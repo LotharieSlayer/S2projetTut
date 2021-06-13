@@ -80,11 +80,19 @@ public class PanelAction extends JPanel implements ActionListener
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		String couleur;
+
+		if(this.ctrl.getTour() % 2 != 0){
+			couleur = "Noir";
+		}
+		else
+			couleur = "Blanc";
+
 		if(e.getSource() == this.btnConqerir)
 		{
 			if(this.ctrl.getGalaxie().getSystemeSolaireSelectionne() != ' ')
 			{
-				this.ctrl.action("Noir", 'C', this.ctrl.getGalaxie().getSystemeSolaireSelectionne());
+				this.ctrl.action(couleur, 'C', this.ctrl.getGalaxie().getSystemeSolaireSelectionne());
 				this.ctrl.getGalaxie().setPlanete(" ");
 			}
 			else
@@ -95,7 +103,7 @@ public class PanelAction extends JPanel implements ActionListener
 		{
 			if(this.ctrl.getGalaxie().getSystemeSolaireSelectionne() != ' ')
 			{
-				this.ctrl.action("Noir", 'C', this.ctrl.getGalaxie().getSystemeSolaireSelectionne());
+				this.ctrl.action(couleur, 'C', this.ctrl.getGalaxie().getSystemeSolaireSelectionne());
 				this.ctrl.getGalaxie().setPlanete(" ");
 			}
 			else
@@ -104,7 +112,9 @@ public class PanelAction extends JPanel implements ActionListener
 
 		if(e.getSource() == this.btnConAdversaire)
 		{
-			System.out.println("Conquérir pour l'adversaire.");
-		}	
+			this.ctrl.action(couleur, 'C', this.ctrl.getGalaxie().getSystemeSolaireSelectionne());
+			this.ctrl.getGalaxie().setPlanete(" ");
+		}
+		this.ctrl.majIHM();	
 	}
 }
