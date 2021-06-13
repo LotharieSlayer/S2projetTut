@@ -324,6 +324,7 @@ public class Jeu
 
             cpt ++;        
         }
+        s += "\n" + "                               Centre de la galaxie                               " + "\n";
         return s;
     }
 }
