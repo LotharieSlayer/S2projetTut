@@ -33,6 +33,7 @@ public class PanelAnneaux extends JPanel
 	private JPanel pnlAnneauxBlanc = new JPanel( new GridLayout(1,8) );
 	private JPanel pnlAnneauxNoir  = new JPanel( new GridLayout(1,8) );
 
+	private JPanel pnlMain  = new JPanel( new GridLayout(2,1) );
 	private JPanel pnlBlanc = new JPanel();
 	private JPanel pnlNoir  = new JPanel();
 
@@ -103,13 +104,14 @@ public class PanelAnneaux extends JPanel
 			catch (IOException e) { e.printStackTrace();}
 		}
 		
-		this.pnlNoir.add(lblNoir)         ;
+		this.pnlNoir.add(this.lblNoir)         ;
 		this.pnlNoir.add(this.pnlAnneauxNoir)  ;
-		this.pnlBlanc.add(lblBlanc)       ;
+		this.pnlBlanc.add(this.lblBlanc)       ;
 		this.pnlBlanc.add(this.pnlAnneauxBlanc);
 
-		this.add ( this.pnlNoir, BorderLayout.NORTH   );
-		this.add ( this.pnlBlanc, BorderLayout.SOUTH  );
+		this.pnlMain.add ( this.pnlNoir  );
+		this.pnlMain.add ( this.pnlBlanc );
+		this.add ( this.pnlMain, BorderLayout.SOUTH );
 	}
 
 	public void maj(Controleur ctrl)
