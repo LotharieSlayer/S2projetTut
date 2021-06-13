@@ -103,7 +103,7 @@ public class PanelAction extends JPanel implements ActionListener
 		{
 			if(this.ctrl.getGalaxie().getSystemeSolaireSelectionne() != ' ')
 			{
-				this.ctrl.action(couleur, 'C', this.ctrl.getGalaxie().getSystemeSolaireSelectionne());
+				this.ctrl.action(couleur, 'L', this.ctrl.getGalaxie().getSystemeSolaireSelectionne());
 				this.ctrl.getGalaxie().setPlanete(" ");
 			}
 			else
@@ -112,7 +112,7 @@ public class PanelAction extends JPanel implements ActionListener
 
 		if(e.getSource() == this.btnConAdversaire)
 		{
-			this.ctrl.action(couleur, 'C', this.ctrl.getGalaxie().getSystemeSolaireSelectionne());
+			this.ctrl.action(couleur, 'D', this.ctrl.getGalaxie().getSystemeSolaireSelectionne());
 			this.ctrl.getGalaxie().setPlanete(" ");
 		}
 		this.ctrl.majIHM();	
