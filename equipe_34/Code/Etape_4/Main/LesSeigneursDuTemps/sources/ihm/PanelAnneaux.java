@@ -150,9 +150,5 @@ public class PanelAnneaux extends JPanel
 		this.pnlNoir.add(this.pnlAnneauxNoir)  ;
 		this.pnlBlanc.add(lblBlanc)       ;
 		this.pnlBlanc.add(this.pnlAnneauxBlanc);
-		
-		this.repaint();
-
-
 	}
 }
