@@ -20,7 +20,7 @@ public class Controleur
 		{
 			try
 			{
-				Scanner     sc1 = new Scanner(new FileInputStream(fic + ".data"), "UTF8");
+				Scanner     sc1 = new Scanner(new FileInputStream("./scenarios/" + fic + ".data"), "UTF8");
 				this.metier       = new Jeu (sc1);
 			}catch(Exception e){ e.printStackTrace(); }
 		}
