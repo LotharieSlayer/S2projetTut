@@ -3,6 +3,13 @@ package equipe_34.lesSeigneursDuTemps;
 import equipe_34.lesSeigneursDuTemps.metier.*;
 import equipe_34.lesSeigneursDuTemps.ihm.*;
 
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.Image;
+import java.awt.Taskbar;
+import java.awt.Toolkit;
+import java.net.URL;
+
 public class Controleur
 {
 	public  Jeu           metier;
@@ -12,6 +19,21 @@ public class Controleur
     {
 		this.metier = new Jeu         (      );
 		this.ihm    = new FrameJoueur ( this );
+
+		//loading an image from a file
+		final URL imageResource = Controleur.class.getClassLoader().getResource("./images/logo/icon.png");
+		final Image image = Toolkit.getDefaultToolkit().getImage(imageResource);
+ 		//this is new since JDK 9
+		final Taskbar taskbar = Taskbar.getTaskbar();
+
+		try {
+		//setIcon pour MacOS et Linux
+			taskbar.setIconImage(image);
+		} catch (final UnsupportedOperationException e) {
+			System.out.println("Tentative de setIcon dans la TaskBar Windows");
+		}
+ 		//setIcon pour Windows
+			this.ihm.setIconImage(image);
 	}
     
     public static void main(String[] a)

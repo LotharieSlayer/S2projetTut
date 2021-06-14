@@ -38,7 +38,7 @@ public class FrameJoueur extends JFrame
 		this.setSize(1600,900)  ;
 		this.setResizable(false);
 		this.setTitle ( "Les Seigneurs du Temps" );
-
+		
 		/* ----------------------- */
 		/* Création des composants */
 		/* ----------------------- */
