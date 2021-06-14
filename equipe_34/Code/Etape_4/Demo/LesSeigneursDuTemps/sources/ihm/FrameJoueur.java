@@ -102,7 +102,7 @@ public class FrameJoueur extends JFrame
 		this.pnlJoueur.maj(ctrl);
 		this.pnlAnneaux.maj(ctrl);
 
-		if(this.ctrl.determinerGagnant() != null)
+		if(ctrl.determinerGagnant() != null)
 		{
 			System.out.println("Gagnant");
 		}

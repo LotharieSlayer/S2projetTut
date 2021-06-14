@@ -44,7 +44,7 @@ public class Controleur
 	public Jeu getJeu(){ return this.metier; }
 
 	public Joueur determinerGagnant(){ 
-		if(this.metier.getJoueurA().getNBbAnneaux() == 0 && this.metier.getJoueurB().getNBbAnneaux() == 0)
+		if(this.metier.getJoueurA().getNbAnneaux() == 0 && this.metier.getJoueurB().getNbAnneaux() == 0)
 		{
 			return this.metier.determinerGagnant();
 		}
