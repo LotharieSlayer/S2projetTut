@@ -67,4 +67,5 @@ public class Controleur
 	}
 
 	public void majIHM(){ this.ihm.maj( this ); }
+	public FrameJoueur getIHM(){ return this.ihm; }
 }

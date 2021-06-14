@@ -15,7 +15,7 @@ import java.io.*;
 /* Classe FrameJoueur                         */
 /*--------------------------------------------*/
 
-public class FrameJoueur extends JFrame
+public class FrameJoueur extends JFrame 
 {
 	private JPanel				 pnlMain;
 	private JPanel				 pnlCoteLeft;
@@ -34,6 +34,12 @@ public class FrameJoueur extends JFrame
 	private Icon				 tIcon2; 
 	private Icon				 tIcon3; 
 	private Icon				 tIcon4; 
+	private Icon				 tIcon5; 
+	private Icon				 tIcon6; 
+	private Icon				 tIcon7; 
+	private Icon				 tIcon8; 
+	private Icon				 tIcon9; 
+	
 	
 	/**
 	 * Objet FrameJoueur JFrame (fenetre principal)
@@ -45,6 +51,11 @@ public class FrameJoueur extends JFrame
 		this.tIcon2 = new ImageIcon("./images/msgStatut/RectangleB.png");
 		this.tIcon3 = new ImageIcon("./images/msgStatut/winNoir.gif");
 		this.tIcon4 = new ImageIcon("./images/msgStatut/winBlanc.gif");
+		this.tIcon5 = new ImageIcon("./images/erreurs/1-noPlanetSelected.png");
+		this.tIcon6 = new ImageIcon("./images/erreurs/2-conquerirAfterRelease.png");
+		this.tIcon7 = new ImageIcon("./images/erreurs/3-systemTropProcheOuSystemeLibere.png");
+		this.tIcon8 = new ImageIcon("./images/erreurs/4-planetAlreadyTaken.png");
+		this.tIcon9 = new ImageIcon("./images/erreurs/5-noControlPlanet.png");
 
 		this.setLocation(160,50);
 		
@@ -115,9 +126,19 @@ public class FrameJoueur extends JFrame
 		this.pnlJoueur.maj(ctrl);
 		this.pnlAnneaux.maj(ctrl);
 
-		if(ctrl.determinerGagnant() != null)
+		if(ctrl.determinerGagnant() == ctrl.getJoueurA())
 		{
-			System.out.println("Gagnant");
+			this.pnlAnneaux.setVisible(false);
+			this.pnlAction.setVisible(false);
+			this.pnlMain.add(this.pnlStatut, BorderLayout.SOUTH);
+			this.lblStatut.setIcon( this.tIcon3 );
+		}
+		else if(ctrl.determinerGagnant() == ctrl.getJoueurB())
+		{
+			this.pnlAnneaux.setVisible(false);
+			this.pnlAction.setVisible(false);
+			this.pnlMain.add(this.pnlStatut, BorderLayout.SOUTH);
+			this.lblStatut.setIcon( this.tIcon4 );
 		}
 	}
 
@@ -139,5 +160,32 @@ public class FrameJoueur extends JFrame
 
 
 		}
+	}
+
+	public void afficherErreur(Controleur ctrl,int numMessage){
+		switch(numMessage){
+			case 1:
+				this.pnlMain.add(this.pnlStatut, BorderLayout.SOUTH);
+				this.lblStatut.setIcon( this.tIcon5 );
+				break;
+			case 2:
+				this.pnlMain.add(this.pnlStatut, BorderLayout.SOUTH);
+				this.lblStatut.setIcon( this.tIcon6 );
+				break;
+			case 3:
+				this.pnlMain.add(this.pnlStatut, BorderLayout.SOUTH);
+				this.lblStatut.setIcon( this.tIcon7 );
+				break;
+			case 4:
+				this.pnlMain.add(this.pnlStatut, BorderLayout.SOUTH);
+				this.lblStatut.setIcon( this.tIcon8 );
+				break;
+			case 5:
+				this.pnlMain.add(this.pnlStatut, BorderLayout.SOUTH);
+				this.lblStatut.setIcon( this.tIcon9 );
+				break;
+		}
+		//Wait
+		ctrl.majIHM();
 	}
 }

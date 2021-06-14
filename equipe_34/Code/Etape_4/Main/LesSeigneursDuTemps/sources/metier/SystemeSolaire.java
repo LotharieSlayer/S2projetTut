@@ -40,7 +40,8 @@ public class SystemeSolaire
         {
             planetes.get(cpt).changerProprietaire(seigneurProprietaire);
             seigneurProprietaire.conquerirPlanete();
-            if(AvancerSystemeSolaire == true){ galaxie.avancerSystemeSolaire(this); }
+            galaxie.avancerSystemeSolaire(this); 
+            //AvancerSystemeSolaire == true){ galaxie.avancerSystemeSolaire(this); }
             return true;
         }
         else

@@ -108,6 +108,7 @@ public class PanelAction extends JPanel implements ActionListener
 					this.ctrl.getGalaxie().setPlanete(" ");
 				}
 				else
+					this.ctrl.getIHM().afficherErreur(this.ctrl, 1);
 					System.out.println("Erreur, Planète non sélectionné");
 			}
 			else
