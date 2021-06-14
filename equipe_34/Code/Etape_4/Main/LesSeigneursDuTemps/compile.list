@@ -16,6 +16,6 @@
 ./sources/ihm/PanelJoueur.java
 ./sources/ihm/PanelAnneaux.java
 ./sources/ihm/PanelAction.java
-./sources/ihm/PanelStatut.java
+./sources/ihm/StatutLabel.java
 ./sources/ihm/PanelTitle.java
 ./sources/ihm/PlaneteButton.java
