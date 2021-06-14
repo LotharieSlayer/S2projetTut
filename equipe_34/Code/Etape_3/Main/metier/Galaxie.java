@@ -19,12 +19,13 @@ public class Galaxie
 
         this.systemesSolaires = new ArrayList<SystemeSolaire>();
 
+        //Creation des systemes solaires 
         systemesSolaires.add( new SystemeSolaire("Triälum", Trialum, this));
         systemesSolaires.add( new SystemeSolaire("Uninium", Uninium, this));
         systemesSolaires.add( new SystemeSolaire("Mervelléum", Mervelleum, this));
         systemesSolaires.add( new SystemeSolaire("Quintum", Quintum, this));
 
-        //En attendant de trouver un moyen plus opti
+        //Creation des planetes pour chaque systeme solaire
         systemesSolaires.get(0).ajouterPlanete(new Planete("Namek", systemesSolaires.get(0)));
         systemesSolaires.get(0).ajouterPlanete(new Planete("Vegeta", systemesSolaires.get(0)));
         systemesSolaires.get(0).ajouterPlanete(new Planete("Bidal", systemesSolaires.get(0)));
@@ -45,7 +46,8 @@ public class Galaxie
         systemesSolaires.get(3).ajouterPlanete(new Planete("Meat", systemesSolaires.get(3)));
         systemesSolaires.get(3).ajouterPlanete(new Planete("Zun", systemesSolaires.get(3)));
 
-        for (int cpt = 0; cpt < 10; cpt++)
+         //initialisation des positions des systemes solaires de facons random
+        for (int cpt = 0; cpt < 10; cpt++) 
         {
             int rdm1 = 0, rdm2 = 0;
 
@@ -62,6 +64,8 @@ public class Galaxie
 
     public ArrayList<SystemeSolaire> getSystemesSolaires(){return systemesSolaires;}
 
+    /*methode qui verifie la position de la planete conquerie et 
+    la fais avancer si elle n'est pas deja la plus proche de la galaxie*/
     public void avancerSystemeSolaire(SystemeSolaire systemeSolaireSelectionne)
     {
         int position = 0;
