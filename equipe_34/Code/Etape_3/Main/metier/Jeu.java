@@ -40,13 +40,12 @@ public class Jeu
         this.galaxie = new Galaxie();
 
         this.galaxie.debutDePartie();
-        //afficherGalaxie();
         
-        while(this.joueurA.getNbAnneaux() != 0 || this.joueurB.getNbAnneaux() != 0)
+        while(this.joueurA.getNbAnneaux() != 0 || this.joueurB.getNbAnneaux() != 0) //gere les tours de jeux, pour savoir si c'est au joueur blanc ou noir de jouer
         {
             String couleurSeigneur, nomSeigneur;
             debutTour = false;
-            if(this.numTour % 2 != 0)
+            if(this.numTour % 2 != 0) //impaire donc joueur Noir
             {
                 couleurSeigneur = COULEURA;
                 nomSeigneur = this.nomJoueurA;
@@ -63,17 +62,18 @@ public class Jeu
 
                 System.out.println(toString());
 
-                if(this.numPlaneteLibere > -1){
+                if(this.numPlaneteLibere > -1) //force le joueur a replacer une planete car il viens d'en liberer une
+                {
                     action = 'R'; //Action de replacer
                     System.out.println("Donnez la première lettre du Système Solaire où conquérir la planète :");
                 }
-                else
+                else // affiche les action possible pour l'utilisateur
                 {
                     System.out.println("Voulez-vous conquérir ou libérer une planète Seigneur " + nomSeigneur + " ? (C/L/D)");
                     action = Clavier.lire_char();
                     System.out.println("Donnez la première lettre du Système Solaire où effectué l'action :");
                 }
-                systemeSolaire = Clavier.lire_char();
+                systemeSolaire = Clavier.lire_char();// entre seulement les lettre coorespondante a une action valide 
 
                 if((action == 'C' || action == 'c' || action == 'L' || action == 'l' || action == 'R' || action == 'd' || action == 'D') && 
                    ((systemeSolaire == 'T' || systemeSolaire == 'U' || systemeSolaire == 'M' || systemeSolaire == 'Q') ||
@@ -86,10 +86,11 @@ public class Jeu
                     System.out.println("Le système solaire sélectionné est incorrecte !");
                 }
                 else
-                    System.out.println("L'action sélectionné est incorrecte");
+                    System.out.println("L'action sélectionné est incorrecte");  //message d'erreur
             }
             this.numTour++;
         }
+        //affichage et verification de la fin de partie
         System.out.println("Partie terminé !");
         System.out.println(toString());
         gagnant = determinerGagnant();
@@ -97,11 +98,13 @@ public class Jeu
         System.out.println("Félicitations !");
     }
 
+    //methode deroulement global du jeu
     public void action ( String couleurSeigneur, char action, char systemeSolaire)
 	{
-        int numSystemSolaire = 0;
+        int    numSystemSolaire = 0;
         String nomSystemeSolaire = " ";
 
+        //verifie que la saisie corespond a un systeme solaire
         switch(systemeSolaire)
         {
             case 'T':
@@ -135,6 +138,7 @@ public class Jeu
             numSystemSolaire++;
         }
 
+        //realise l'action conquerir ainsi que les verification necessaire
         if(action == 'C' || action == 'c')
         {
 
@@ -174,6 +178,7 @@ public class Jeu
                     this.debutTour=false;
             }
         }
+        //realise l'action liberer ainsi que les verification necessaire
         else if (action == 'L' || action == 'l')
         {
             if(couleurSeigneur == COULEURA)
@@ -195,6 +200,7 @@ public class Jeu
                 this.debutTour=false;
             }
         }
+        //realise l'action conquerir suite a une planete venant d'etre liberé ainsi que les verification necessaire
         else if(action == 'R')
         {
 
@@ -239,6 +245,7 @@ public class Jeu
                 }
             }
         }
+        //realise l'action donner a l'adversaire ainsi que les verification necessaire
         else if(action == 'd' || action == 'D')
         {
 
@@ -282,7 +289,8 @@ public class Jeu
         }
 	}
     
-    public Joueur determinerGagnant()
+    //methode qui verifie qui est le gagant en comparant le nombre de planete, du systeme solaire le plus proche de la galaxie, appartenant a chaque joueur et retournant seulement celui qui en a le plus
+    public Joueur determinerGagnant()  
     {
         if(this.galaxie.getSystemesSolaires().get(3).getNBPlaneteJoueurA() > this.galaxie.getSystemesSolaires().get(3).getNBPlaneteJoueurB())
         {
@@ -294,7 +302,7 @@ public class Jeu
         }
     }
     
-    public String toString()
+    public String toString()  //methode affiche en CUI
     {
         String s         = "";
         int cpt          = 0 ;
