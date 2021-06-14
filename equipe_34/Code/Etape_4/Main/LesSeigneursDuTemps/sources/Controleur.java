@@ -8,29 +8,15 @@ public class Controleur
 	public  Jeu           metier;
 	private FrameJoueur   ihm   ;
 
-	public Controleur( String fic )
+    public Controleur()
     {
-		if ( fic == null )
-		{
-			this.metier       = new Jeu ();
-		}
-		else
-		{
-			try
-			{
-				Scanner     sc1 = new Scanner(new FileInputStream("./scenarios/" + fic + ".data"), "UTF8");
-				this.metier       = new Jeu (sc1);
-			}catch(Exception e){ e.printStackTrace(); }
-		}
+		this.metier = new Jeu         (      );
+		this.ihm    = new FrameJoueur ( this );
 	}
-
+    
     public static void main(String[] a)
 	{
-		String fic = null;
-
-		if ( a.length > 0 ) fic = a[0];
-
-		new Controleur(fic);
+		new Controleur();
 	}
 
 	public Galaxie getGalaxie(){ return this.metier.getGalaxie(); }

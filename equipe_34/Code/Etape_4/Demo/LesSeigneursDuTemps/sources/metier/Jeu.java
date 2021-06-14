@@ -43,6 +43,18 @@ public class Jeu
         this.galaxie.debutDePartie();
     }
 
+    public Jeu(Scanner sc1)
+    {   
+        this.data = Decomposer(sc1);
+
+        this.joueurA = new Joueur(this.nomJoueurA, COULEURA);
+        this.joueurB = new Joueur(this.nomJoueurB, COULEURB);
+
+        this.galaxie = new Galaxie();
+
+        this.galaxie.debutDePartie(true, this.data, this.joueurA, this.joueurB);
+    }
+
     public void action ( String couleurSeigneur, char action, char systemeSolaire)
 	{
         if(this.joueurA.getNbAnneaux() != 0 || this.joueurB.getNbAnneaux() != 0)
@@ -264,6 +276,25 @@ public class Jeu
         {
             return joueurB;
         }
+    }
+
+    public String[][] Decomposer(Scanner sc1)
+    {
+        String[] noms = sc1.nextLine().split("/");
+        this.nomJoueurA = noms[0];
+        this.nomJoueurB = noms[1];
+
+        String[][] systemes = new String[4][3];
+        int cptSystemes = 0;
+        while(sc1.hasNextLine())
+        {
+            String[] systemesTemp = sc1.nextLine().split(", ");
+            for (int i=0; i<3;i++) {
+                systemes[cptSystemes][i] = systemesTemp[i];
+            }
+            cptSystemes++;
+        }
+        return systemes;
     }
 
     public Galaxie getGalaxie(){ return galaxie;      }
