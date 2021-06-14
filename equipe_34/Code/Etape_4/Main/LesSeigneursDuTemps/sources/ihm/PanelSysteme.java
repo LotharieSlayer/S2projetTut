@@ -8,9 +8,8 @@ import java.awt.*;
 import java.io.*;
 import javax.imageio.ImageIO;
 
-
 /*--------------------------------------------*/
-/* Classe PanelImage                          */
+/* Classe PanelSysteme                        */
 /*--------------------------------------------*/
 public class PanelSysteme extends JPanel
 {
@@ -29,7 +28,7 @@ public class PanelSysteme extends JPanel
 		this.panelSelectSysteme = new PanelSelectSysteme(this.ctrl, NumPlaceSysteme);
 
 			
-		//FONT
+		//Création et attribution de la font sur le JLabel Subtitle
 		String      fName = "./fonts/Montserrat/Montserrat-Bold.ttf"           ;
 		InputStream fFont = PanelSelectSysteme.class.getResourceAsStream(fName);
 		try 
@@ -50,6 +49,10 @@ public class PanelSysteme extends JPanel
 		this.add(this.lblPlanete, BorderLayout.SOUTH);
 	}
 
+	/**
+	 * Méthode qui permet de mettre à jour l'interface.
+	 * @param ctrl Apporte la gestion avec le controleur
+	 */
 	public void maj(Controleur ctrl, int NumPlaceSysteme)
 	{
 		this.panelSelectSysteme.maj(ctrl, NumPlaceSysteme);

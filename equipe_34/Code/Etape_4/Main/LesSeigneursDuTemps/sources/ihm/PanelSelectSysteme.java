@@ -19,6 +19,9 @@ import javax.imageio.ImageIO;
 
 import javax.swing.*;
 
+/*--------------------------------------------*/
+/* Classe PanelSelectSysteme                  */
+/*--------------------------------------------*/
 public class PanelSelectSysteme extends JPanel implements ActionListener
 {
 	// Attributs d'instance

@@ -9,7 +9,7 @@ import java.awt.image.*;
 
 
 /*--------------------------------------------*/
-/* Classe PanelImage                          */
+/* Classe PanelTitle                          */
 /*--------------------------------------------*/
 public class PanelTitle extends JPanel
 {
@@ -19,7 +19,10 @@ public class PanelTitle extends JPanel
 	private Image       image  ;
 	private String      fichier;
 
-
+	/**
+	 * Objet PanelTitle qui permet d'afficher le logo en haut.
+	 * @param ctrl Apporte la gestion avec le controleur
+	 */
 	public PanelTitle(Controleur ctrl)
 	{
 		this.ctrl    = ctrl;
@@ -28,11 +31,18 @@ public class PanelTitle extends JPanel
 		this.ouvrirImage();
 	}
 
+	/**
+	 * Méthode qui permet d'afficher le logo en haut.
+	 * @param g Dessine le logo
+	 */
 	public void paint ( Graphics g )
 	{
 		g.drawImage( this.image, 650 , getInsets().top, null );
 	}
 
+	/**
+	 * Méthode qui permet d'ouvrir l'image.
+	 */
 	public void ouvrirImage()
 	{
 		this.image         = Toolkit.getDefaultToolkit().getImage( this.fichier );

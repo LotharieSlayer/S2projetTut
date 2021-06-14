@@ -19,6 +19,9 @@ import javax.imageio.ImageIO;
 
 import javax.swing.*;
 
+/*--------------------------------------------*/
+/* Classe Anneaux                             */
+/*--------------------------------------------*/
 
 public class PanelAnneaux extends JPanel
 {
@@ -113,7 +116,11 @@ public class PanelAnneaux extends JPanel
 		this.pnlMain.add ( this.pnlBlanc );
 		this.add ( this.pnlMain, BorderLayout.SOUTH );
 	}
-
+	
+	/**
+	 * Méthode qui permet de mettre à jour l'interface.
+	 * @param ctrl Apporte la gestion avec le controleur
+	 */
 	public void maj(Controleur ctrl)
 	{
 		this.pnlAnneauxNoir.removeAll();
@@ -147,8 +154,8 @@ public class PanelAnneaux extends JPanel
 		}
 		
 		this.pnlNoir.add(lblNoir)         ;
-		this.pnlNoir.add(this.pnlAnneauxNoir)  ;
 		this.pnlBlanc.add(lblBlanc)       ;
+		this.pnlNoir.add(this.pnlAnneauxNoir)  ;
 		this.pnlBlanc.add(this.pnlAnneauxBlanc);
 	}
 }

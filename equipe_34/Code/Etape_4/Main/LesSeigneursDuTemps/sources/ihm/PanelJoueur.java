@@ -7,7 +7,7 @@ import java.awt.*;
 
 
 /*--------------------------------------------*/
-/* Classe PanelImage                          */
+/* Classe PanelJoueur                         */
 /*--------------------------------------------*/
 public class PanelJoueur extends JPanel
 {
@@ -20,7 +20,10 @@ public class PanelJoueur extends JPanel
 	private PanelSysteme     panelSelect4;
 	private PanelCentre      pnlCentre   ;
 
-
+	/**
+	 * Objet PanelJoueur qui permet de jouer.
+	 * @param ctrl Apporte la gestion avec le controleur
+	 */
 	public PanelJoueur(Controleur ctrl)
 	{
 		this.ctrl = ctrl;
@@ -43,6 +46,10 @@ public class PanelJoueur extends JPanel
 		this.add(this.pnlCentre   );
 	}
 
+	/**
+	 * Méthode qui permet de mettre à jour l'interface.
+	 * @param ctrl Apporte la gestion avec le controleur
+	 */
 	public void maj(Controleur ctrl)
 	{
 		this.panelSelect1.maj(ctrl, 0);

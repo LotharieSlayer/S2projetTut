@@ -10,6 +10,9 @@ import java.awt.geom.RoundRectangle2D;
 import javax.imageio.ImageIO;
 import java.io.*;
 
+/*--------------------------------------------*/
+/* Classe PanelAction                         */
+/*--------------------------------------------*/
 
 public class PanelAction extends JPanel implements ActionListener
 {

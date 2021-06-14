@@ -17,8 +17,11 @@ import java.awt.event.AdjustmentEvent;
 import java.io.*;
 import javax.imageio.ImageIO;
 
-
 import javax.swing.*;
+
+/*--------------------------------------------*/
+/* Classe PanelCentre                         */
+/*--------------------------------------------*/
 
 public class PanelCentre extends JPanel
 {
@@ -56,17 +59,17 @@ public class PanelCentre extends JPanel
 		catch (IOException e)        { e.printStackTrace(); }
 		catch (FontFormatException e){ e.printStackTrace(); }
 
+		JPanel panelHaut  = new JPanel();
+		JPanel panelBas   = new JPanel();
+		panelHaut.setBackground ( Color.WHITE );
+		panelBas.setBackground  ( Color.WHITE );
+
 
 		/*----------------------------------------------*/
 		/* Positionnement des Composants                */
 		/*----------------------------------------------*/
 
-		JPanel panelHaut  = new JPanel();
-		JPanel panelBas   = new JPanel();
-		panelHaut.setBackground ( Color.WHITE );
-		panelBas.setBackground  ( Color.WHITE );
-		
-		//Panel Haut (Image selon objet Planète)
+		//Panel Haut (Image Centre.png)
 		try 
 		{
 			BufferedImage image    = ImageIO.read(new File("./images/systemes/Centre.png"));
@@ -75,7 +78,7 @@ public class PanelCentre extends JPanel
 		} 
 		catch (IOException e) { e.printStackTrace(); }
 
-		//Panel Bas (Titre de la planète)
+		//Panel Bas (Titre Centre)
 		panelBas.add ( this.lblPlanete, BorderLayout.CENTER );
 
 		this.add     ( panelHaut );

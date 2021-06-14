@@ -4,10 +4,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-
+/*--------------------------------------------*/
+/* Classe PlaneteButton                       */
+/*--------------------------------------------*/
 public class PlaneteButton
 {
-    
+    /**
+	 * Permet l'affichage de chaque bouton.
+	 * @param x Position X en int
+	 * @param y Position Y en int
+	 * @param image L'image de la planète qui sera sur le bouton.
+	 */
     public static JButton planete(int x, int y, String image)
     {
         Icon icon              = new ImageIcon(image);

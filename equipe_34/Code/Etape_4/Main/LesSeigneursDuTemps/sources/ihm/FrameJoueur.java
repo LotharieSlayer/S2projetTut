@@ -9,6 +9,9 @@ import java.awt.BorderLayout;
 import javax.swing.*;
 import java.io.*;
 
+/*--------------------------------------------*/
+/* Classe FrameJoueur                         */
+/*--------------------------------------------*/
 
 public class FrameJoueur extends JFrame
 {
@@ -98,7 +101,7 @@ public class FrameJoueur extends JFrame
 		this.pnlJoueur.maj(ctrl);
 		this.pnlAnneaux.maj(ctrl);
 
-		if(this.ctrl.determinerGagnant() != null)
+		if(ctrl.determinerGagnant() != null)
 		{
 			System.out.println("Gagnant");
 		}
