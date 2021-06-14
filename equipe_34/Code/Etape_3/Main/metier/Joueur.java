@@ -9,14 +9,13 @@ public class Joueur {
     private String couleurSeigneur;
     private int nbAnneaux = 8;
 
-    //private ArrayList<Planete> planetesControlees;
-
 	public Joueur ( String nom, String couleurSeigneur )
 	{
         this.nom = nom;
         this.couleurSeigneur = couleurSeigneur;
     }
     
+    //verifie les condition pour creer un joueur er le cree si elles sont remplies
     public static Joueur creerJoueur ( String nom, String couleurSeigneur )
 	{
 		if ( nom == null || couleurSeigneur != "Noir" && couleurSeigneur != "Blanc")  return null;
@@ -24,14 +23,10 @@ public class Joueur {
 		return new Joueur (nom, couleurSeigneur);
 	}
 
-    public String getNom() { return this.nom; }
-
-    public int getNbAnneaux() { return this.nbAnneaux;}
-
-    public String getCouleur() { return this.couleurSeigneur; }
-
-    public void conquerirPlanete(){ this.nbAnneaux--; };
-
-    public void libererPlanete(){ this.nbAnneaux++; };
-
+    //methode retournant un valeur simple propre a Joueur
+    public String getNom()          { return this.nom; }
+    public int    getNbAnneaux()    { return this.nbAnneaux;}
+    public String getCouleur()      { return this.couleurSeigneur; }
+    public void   conquerirPlanete(){ this.nbAnneaux--; }
+    public void   libererPlanete()  { this.nbAnneaux++; }
 }

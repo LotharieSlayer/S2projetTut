@@ -20,18 +20,14 @@ public class Planete
         this.systemeSolaire = systemeSolaire;
     }
 
-    public String getNom(){ return this.nom; }
-
-    public Joueur getProprietaire(){ return this.seigneurProprietaire; }
-
+    //methode retournant un valeur simple propre à Planete
+    public String         getNom()           { return this.nom; }
+    public Joueur         getProprietaire()  { return this.seigneurProprietaire; }
     public SystemeSolaire getSystemeSolaire(){ return this.systemeSolaire; }
 
-    public void changerProprietaire(Joueur seigneurProprietaire){
-        this.seigneurProprietaire = seigneurProprietaire;
-    }
+    //donne un nouveau proprietaire a la planete
+    public void changerProprietaire(Joueur seigneurProprietaire){this.seigneurProprietaire = seigneurProprietaire;}
 
-    public void libererProprietaire()
-    {
-        this.seigneurProprietaire = null;
-    }
+    //retire le seigneur proprietaire de la planete 
+    public void libererProprietaire(){this.seigneurProprietaire = null;}
 }
