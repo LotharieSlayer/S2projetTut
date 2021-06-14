@@ -63,7 +63,7 @@ public class Controleur
 	
 	public void action ( String couleurSeigneur, char action, char systemeSolaire )
 	{
-		this.metier.action (couleurSeigneur, action, systemeSolaire );
+		this.metier.actionTour (couleurSeigneur, action, systemeSolaire );
 	}
 
 	public void majIHM(){ this.ihm.maj( this ); }

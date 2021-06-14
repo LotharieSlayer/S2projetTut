@@ -50,7 +50,7 @@ public class Jeu
         this.galaxie.debutDePartie(true, this.data, this.joueurA, this.joueurB);
     }
 
-    public void action ( String couleurSeigneur, char action, char systemeSolaire)
+    public void actionTour ( String couleurSeigneur, char action, char systemeSolaire)
 	{
         debutTour = false;
 
@@ -68,7 +68,7 @@ public class Jeu
             (systemeSolaire == 't' || systemeSolaire == 'u' || systemeSolaire == 'm' || systemeSolaire == 'q')))
         {
             debutTour= true;
-            actionDeux(couleurSeigneur, action, systemeSolaire);
+            action(couleurSeigneur, action, systemeSolaire);
             action = ' ';
         }
         else if(action == 'C' || action == 'c' || action == 'L' || action == 'l' || action == 'd' || action == 'D'){
@@ -77,7 +77,7 @@ public class Jeu
         this.numTour++;
 	}
 
-    public void actionDeux(String couleurSeigneur, char action, char systemeSolaire)
+    public void action(String couleurSeigneur, char action, char systemeSolaire)
     {
         int numSystemSolaire     = 0  ;
         String nomSystemeSolaire = " ";
