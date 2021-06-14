@@ -23,7 +23,8 @@ public class FrameJoueur extends JFrame
 
 	private PanelJoueur          pnlJoueur;
 	private PanelTitle 			 pnlTitle;
-	private JPanel				 pnlStatut;
+	private PanelStatutNoir		 pnlStatutN;
+	private PanelStatutBlanc	 pnlStatutB;
 	private PanelAnneaux		 pnlAnneaux;
 	private PanelAction			 pnlAction;
 	
@@ -46,7 +47,8 @@ public class FrameJoueur extends JFrame
 		this.pnlMain 		= new JPanel( new BorderLayout()  ); 	// this 	w/ Panel du haut
 		this.pnlFooter 		= new JPanel( new GridLayout(1,3) ); 	// this 	w/ Panel du bas
 		this.pnlTitle 		= new PanelTitle(ctrl);					// Main 	w/ Panel titre
-		this.pnlStatut	 	= PanelStatut.panel("./images/msgStatut/RectangleB.png"); // Main 	w/ Panel tour, erreurs, winner
+		this.pnlStatutN 	= new PanelStatutNoir(ctrl);			// Main 	w/ Panel tour du seigneur noir
+		this.pnlStatutB 	= new PanelStatutBlanc(ctrl);			// Main 	w/ Panel tour du seigneur blanc
 		this.pnlJoueur  	= new PanelJoueur  (ctrl);				// Main 	w/ Panel joueur où on joue
 		this.pnlAnneaux 	= new PanelAnneaux(ctrl);				// Footer	w/ Panel des anneaux restants pour chaque joueurs 
 		this.pnlAction 		= new PanelAction(ctrl);				// Footer 	w/ Panel des actions
@@ -56,8 +58,8 @@ public class FrameJoueur extends JFrame
 		// Size panels
 		this.pnlFooter.setPreferredSize(new Dimension(1600, 160));
 		this.pnlTitle.setPreferredSize(new Dimension(1600,150));
-		this.pnlStatut.setPreferredSize(new Dimension(1600,225));
-		this.pnlStatut.setBounds(0,30,0,0);
+		this.pnlStatutN.setPreferredSize(new Dimension(1600,225));
+		this.pnlStatutB.setPreferredSize(new Dimension(1600,225));
 		this.pnlCoteLeft.setPreferredSize(new Dimension(80,0));
 		this.pnlCoteRight.setPreferredSize(new Dimension(80,0));
 
@@ -75,7 +77,8 @@ public class FrameJoueur extends JFrame
 		this.pnlMain.add(this.pnlCoteLeft,  BorderLayout.WEST  );
 		this.pnlMain.add(this.pnlCoteRight, BorderLayout.EAST  );
 
-		this.pnlMain.add(this.pnlStatut, BorderLayout.SOUTH);
+		this.pnlMain.add(this.pnlStatutB, BorderLayout.SOUTH);
+		this.pnlMain.add(this.pnlStatutN, BorderLayout.SOUTH);
 
 		this.pnlFooter.add(this.pnlAnneaux, BorderLayout.WEST);
 		this.pnlFooter.add(this.pnlAction, BorderLayout.EAST);
@@ -112,15 +115,15 @@ public class FrameJoueur extends JFrame
 	{
 		if(ctrl.getTour() % 2 != 0)
 		{
-			this.pnlMain.add(this.pnlStatut, BorderLayout.SOUTH);/* 
+			this.pnlMain.add(this.pnlStatutN, BorderLayout.SOUTH);
 			this.pnlStatutN.setVisible(true );
-			this.pnlStatutB.setVisible(false); */
+			this.pnlStatutB.setVisible(false);
 		}
 		else
 		{
-			this.pnlMain.add(this.pnlStatut, BorderLayout.SOUTH); /* 
+			this.pnlMain.add(this.pnlStatutB, BorderLayout.SOUTH); 
 			this.pnlStatutN.setVisible(false);
-			this.pnlStatutB.setVisible(true ); */
+			this.pnlStatutB.setVisible(true );
 		}
 	}
 }
