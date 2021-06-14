@@ -7,6 +7,7 @@ import java.awt.event.*;
 
 public class PlaneteButton
 {
+    
     public static JButton planete(int x, int y, String image)
     {
         Icon icon              = new ImageIcon(image);

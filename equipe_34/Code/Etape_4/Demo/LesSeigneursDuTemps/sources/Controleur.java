@@ -3,6 +3,10 @@ package equipe_34.lesSeigneursDuTemps;
 import equipe_34.lesSeigneursDuTemps.metier.*;
 import equipe_34.lesSeigneursDuTemps.ihm.*;
 
+import java.util.Scanner;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
 public class Controleur
 {
 	public  Jeu           metier;
@@ -13,6 +17,7 @@ public class Controleur
 		if ( fic == null )
 		{
 			this.metier       = new Jeu ();
+			this.ihm    = new FrameJoueur ( this );
 		}
 		else
 		{
@@ -20,6 +25,8 @@ public class Controleur
 			{
 				Scanner     sc1 = new Scanner(new FileInputStream("./scenarios/" + fic + ".data"), "UTF8");
 				this.metier       = new Jeu (sc1);
+				this.ihm    = new FrameJoueur ( this );
+				this.ihm.maj( this );
 			}catch(Exception e){ e.printStackTrace(); }
 		}
 	}

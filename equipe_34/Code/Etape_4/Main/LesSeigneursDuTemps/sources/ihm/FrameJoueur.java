@@ -25,6 +25,10 @@ public class FrameJoueur extends JFrame
 	private PanelAnneaux		 pnlAnneaux;
 	private PanelAction			 pnlAction;
 	
+	/**
+	 * Objet FrameJoueur JFrame (fenetre principal)
+	 * @param ctrl Apporte la gestion avec le controleur
+	 */
     public FrameJoueur(Controleur ctrl)
     {
 		this.setLocation(160,50);
@@ -37,57 +41,45 @@ public class FrameJoueur extends JFrame
 		/* Création des composants */
 		/* ----------------------- */
 
-		// PANEL DU HAUT
-		this.pnlMain   = new JPanel( new BorderLayout()  );
-		this.pnlFooter = new JPanel( new GridLayout(1,3) );
+		this.pnlMain 		= new JPanel( new BorderLayout()  ); 	// this 	w/ Panel du haut
+		this.pnlFooter 		= new JPanel( new GridLayout(1,3) ); 	// this 	w/ Panel du bas
+		this.pnlTitle 		= new PanelTitle(ctrl);					// Main 	w/ Panel titre
+		this.pnlStatutN 	= new PanelStatutNoir(ctrl);			// Main 	w/ Panel tour du seigneur noir
+		this.pnlStatutB 	= new PanelStatutBlanc(ctrl);			// Main 	w/ Panel tour du seigneur blanc
+		this.pnlJoueur  	= new PanelJoueur  (ctrl);				// Main 	w/ Panel joueur où on joue
+		this.pnlAnneaux 	= new PanelAnneaux(ctrl);				// Footer	w/ Panel des anneaux restants pour chaque joueurs 
+		this.pnlAction 		= new PanelAction(ctrl);				// Footer 	w/ Panel des actions
+		this.pnlCoteLeft 	= new JPanel();
+		this.pnlCoteRight 	= new JPanel();
+
+		// Size panels
 		this.pnlFooter.setPreferredSize(new Dimension(1600, 160));
-
-
-		this.pnlTitle = new PanelTitle(ctrl);
 		this.pnlTitle.setPreferredSize(new Dimension(1600,150));
-
-	
-		this.pnlStatutN = new PanelStatutNoir(ctrl);
 		this.pnlStatutN.setPreferredSize(new Dimension(1600,225));
-
-		this.pnlStatutB = new PanelStatutBlanc(ctrl);
 		this.pnlStatutB.setPreferredSize(new Dimension(1600,225));
-		
-		this.pnlCoteLeft = new JPanel();
 		this.pnlCoteLeft.setPreferredSize(new Dimension(80,0));
-		this.pnlCoteLeft.setBackground(Color.WHITE);
-
-		this.pnlCoteRight = new JPanel();
 		this.pnlCoteRight.setPreferredSize(new Dimension(80,0));
+
+		this.pnlCoteLeft.setBackground(Color.WHITE);
+		this.pnlMain.setBackground(Color.WHITE);
 		this.pnlCoteRight.setBackground(Color.WHITE);
 
-		// PANEL DU BAS
-		// this.pnlFooterMilieu = new JPanel();
-		// this.pnlFooterMilieu.setPreferredSize(new Dimension(1000,0));
-		// this.pnlFooterMilieu.setBackground(Color.WHITE);
-		// this.pnlFooter.add(this.pnlFooterMilieu, BorderLayout.CENTER);
-
-		this.pnlAnneaux = new PanelAnneaux(ctrl);
-		this.pnlFooter.add(this.pnlAnneaux, BorderLayout.WEST); //PANEL ANNEAUX
-		
-		this.pnlAction = new PanelAction(ctrl);
-		this.pnlFooter.add(this.pnlAction, BorderLayout.EAST);
-
-		this.pnlJoueur  = new PanelJoueur  (ctrl);
 
 		/* ---------------------------- */
 		/* Postionnement des composants */
 		/* ---------------------------- */
+
 		this.pnlMain.add(this.pnlTitle ,    BorderLayout.NORTH );
 		this.pnlMain.add(this.pnlJoueur,    BorderLayout.CENTER);
 		this.pnlMain.add(this.pnlCoteLeft,  BorderLayout.WEST  );
 		this.pnlMain.add(this.pnlCoteRight, BorderLayout.EAST  );
 
-		 //mettre le message au tour du noir
-		this.pnlMain.add(this.pnlStatutB, BorderLayout.SOUTH); //mettre le message au tour du blanc
+		this.pnlMain.add(this.pnlStatutB, BorderLayout.SOUTH);
 		this.pnlMain.add(this.pnlStatutN, BorderLayout.SOUTH);
 
-		this.pnlMain.setBackground(Color.WHITE);
+		this.pnlFooter.add(this.pnlAnneaux, BorderLayout.WEST);
+		this.pnlFooter.add(this.pnlAction, BorderLayout.EAST);
+
 		this.add(this.pnlMain);
 		this.add(this.pnlFooter, BorderLayout.SOUTH);
 		
@@ -96,6 +88,10 @@ public class FrameJoueur extends JFrame
 		this.setVisible(true);
 	}
 
+	/**
+	 * Méthode qui permet de mettre à jour l'interface.
+	 * @param ctrl Apporte la gestion avec le controleur
+	 */
 	public void maj(Controleur ctrl)
 	{
 		this.setTour(ctrl);
@@ -103,6 +99,10 @@ public class FrameJoueur extends JFrame
 		this.pnlAnneaux.maj(ctrl);
 	}
 
+	/**
+	 * Méthode qui permet de dire à qui est le tour en affichant le message.
+	 * @param ctrl Apporte la gestion avec le controleur
+	 */
 	public void setTour(Controleur ctrl)
 	{
 		if(ctrl.getTour() % 2 != 0)

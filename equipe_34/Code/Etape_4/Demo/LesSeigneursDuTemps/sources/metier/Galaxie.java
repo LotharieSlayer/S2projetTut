@@ -63,12 +63,14 @@ public class Galaxie
                 {
                     systemesSolaires.get(i).ajouterPlaneteJoueurA();
                     systemesSolaires.get(i).getPlanetes().get(j).changerProprietaire(seigneurA);
+                    seigneurA.conquerirPlanete();
                     j++;
                 }
                 while(k < Integer.parseInt(sData[i][2]))
                 {
                     systemesSolaires.get(i).ajouterPlaneteJoueurB();
                     systemesSolaires.get(i).getPlanetes().get(j+k).changerProprietaire(seigneurB);
+                    seigneurB.conquerirPlanete();
                     k++;
                 }
             }

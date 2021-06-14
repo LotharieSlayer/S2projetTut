@@ -19,6 +19,8 @@ public class Jeu
 
     private Galaxie galaxie;
 
+    private String[][] data;
+
     private int     numTour = 1;
     private int     numPlaneteLibere = - 1; // - 1 Signifiant qu'il n'y a aucune planète libéré
 
@@ -40,7 +42,7 @@ public class Jeu
 
         this.galaxie = new Galaxie();
 
-        this.galaxie.debutDePartie();
+        this.galaxie.debutDePartie(false, this.data, this.joueurA, this.joueurB );
     }
 
     public Jeu(Scanner sc1)
@@ -133,7 +135,7 @@ public class Jeu
                 break;
         }
 
-        while(nomSystemeSolaire != this.galaxie.getSystemesSolaires().get(numSystemSolaire).getNom())
+        while(!nomSystemeSolaire.equals(this.galaxie.getSystemesSolaires().get(numSystemSolaire).getNom()))
         {
             numSystemSolaire++;
         }
