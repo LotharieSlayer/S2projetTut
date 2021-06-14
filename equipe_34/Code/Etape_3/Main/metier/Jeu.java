@@ -61,21 +61,6 @@ public class Jeu
             {
                 char action, systemeSolaire;
 
-                /*int cpt = 0 ;
-                String affichage = " ";
-                while (cpt < 4)
-                {
-                    System.out.println(this.galaxie.getSystemesSolaires().get(cpt).getNom()); 
-                    System.out.println("        Nombre de planètes                  :   " + this.galaxie.getSystemesSolaires().get(cpt).getNbPlanete()                       + " planètes" ); 
-                    System.out.println("        Le Joueur A contrôle                :   " + this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurA()                + " planète(s)");
-                    System.out.println("        Le joueur B contrôle                :   " + this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurB()                + " planète(s)");
-                    System.out.println("        Nombre de Planète(s) Disponible(s)  :   " + (this.galaxie.getSystemesSolaires().get(cpt).getNbPlanete() - 
-                        (this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurA() + this.galaxie.getSystemesSolaires().get(cpt).getNBPlaneteJoueurB() ) ) + " planète(s)" );
-
-                    System.out.println();
-                    cpt ++;
-                    
-                }*/
                 System.out.println(toString());
 
                 if(this.numPlaneteLibere > -1){
