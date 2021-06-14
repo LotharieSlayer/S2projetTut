@@ -43,6 +43,15 @@ public class Controleur
 	public Galaxie getGalaxie(){ return this.metier.getGalaxie(); }
 	public Jeu getJeu(){ return this.metier; }
 
+	public Joueur determinerGagnant(){ 
+		if(this.metier.getJoueurA().getNBbAnneaux() == 0 && this.metier.getJoueurB().getNBbAnneaux() == 0)
+		{
+			return this.metier.determinerGagnant();
+		}
+		else
+			return null;
+	}
+
 	public Joueur getJoueurA(){ return this.metier.getJoueurA(); }
 	public Joueur getJoueurB(){ return this.metier.getJoueurB(); }
 

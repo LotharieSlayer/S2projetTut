@@ -25,6 +25,15 @@ public class Controleur
 	public Joueur getJoueurA(){ return this.metier.getJoueurA(); }
 	public Joueur getJoueurB(){ return this.metier.getJoueurB(); }
 
+	public Joueur determinerGagnant(){ 
+		if(this.metier.getJoueurA().getNBbAnneaux() == 0 && this.metier.getJoueurB().getNBbAnneaux() == 0)
+		{
+			return this.metier.determinerGagnant();
+		}
+		else
+			return null;
+	}
+
 	public int getTour()       { return this.metier.getTour()   ; }
 	
 	public void action ( String couleurSeigneur, char action, char systemeSolaire )

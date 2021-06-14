@@ -94,8 +94,6 @@ public class Jeu
         }
         else
         {
-            System.out.println("Partie terminé !");
-            System.out.println(toString()        );
             gagnant = determinerGagnant()         ;
             System.out.println("Le Seigneur du Temps qui a remporté la partie est " + gagnant.getNom());
             System.out.println("Félicitations !" );
