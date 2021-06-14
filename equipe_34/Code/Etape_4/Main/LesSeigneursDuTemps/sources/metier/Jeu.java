@@ -10,9 +10,6 @@ import iut.algo.Clavier;
 
 public class Jeu
 {
-    private String  nomJoueurA;
-    private String  nomJoueurB;
-
     private Joueur  joueurA;
     private Joueur  joueurB;
     private Joueur  gagnant;
@@ -22,7 +19,6 @@ public class Jeu
     private int     numTour = 1;
     private int     numPlaneteLibere = - 1; // - 1 Signifiant qu'il n'y a aucune planète libéré
 
-    private boolean debutTour;
     private boolean actionLibere = false;
 
     private final String COULEURA = "Noir";
@@ -31,64 +27,42 @@ public class Jeu
 
     public Jeu()
     {
-        this.nomJoueurA = "Francis";
-
-        this.nomJoueurB = "Michel";
-
-        this.joueurA = new Joueur (this.nomJoueurA, COULEURA);
-        this.joueurB = new Joueur (this.nomJoueurB, COULEURB);
+        this.joueurA = new Joueur (COULEURA);
+        this.joueurB = new Joueur (COULEURB);
 
         this.galaxie = new Galaxie();
 
         this.galaxie.debutDePartie();
     }
 
-    public void action ( String couleurSeigneur, char action, char systemeSolaire)
+    public void actionTour ( String couleurSeigneur, char action, char systemeSolaire)
 	{
-        if(this.joueurA.getNbAnneaux() != 0 || this.joueurB.getNbAnneaux() != 0)
+        if(this.numTour % 2 != 0)
         {
-            String nomSeigneur;
-            debutTour = false;
-
-            if(this.numTour % 2 != 0)
-            {
-                couleurSeigneur = COULEURA       ;
-                nomSeigneur     = this.nomJoueurA;
-            }
-            else
-            {
-                couleurSeigneur = COULEURB       ;
-                nomSeigneur     = this.nomJoueurB;
-            } 
-  
-            if((action == 'C' || action == 'c' || action == 'L' || action == 'l' || action == 'R'|| action == 'd' || action == 'D' ) && 
-                ((systemeSolaire == 'T' || systemeSolaire == 'U' || systemeSolaire == 'M' || systemeSolaire == 'Q') ||
-                (systemeSolaire == 't' || systemeSolaire == 'u' || systemeSolaire == 'm' || systemeSolaire == 'q')))
-            {
-                debutTour= true;
-                actionDeux(couleurSeigneur, action, systemeSolaire);
-                action = ' ';
-            }
-            else if(action == 'C' || action == 'c' || action == 'L' || action == 'l' || action == 'd' || action == 'D'){
-                System.out.println("Le système solaire sélectionné est incorrecte !");
-            }
-            else
-            {
-                 System.out.println("L'action sélectionné est incorrecte");
-            } 
-            this.numTour++;
+            couleurSeigneur = COULEURA       ;
         }
         else
         {
-            System.out.println("Partie terminé !");
-            System.out.println(toString()        );
-            gagnant = determinerGagnant()         ;
-            System.out.println("Le Seigneur du Temps qui a remporté la partie est " + gagnant.getNom());
-            System.out.println("Félicitations !" );
+            couleurSeigneur = COULEURB       ;
+        } 
+        if((action == 'C' || action == 'c' || action == 'L' || action == 'l' || action == 'R'|| action == 'd' || action == 'D' ) && 
+            ((systemeSolaire == 'T' || systemeSolaire == 'U' || systemeSolaire == 'M' || systemeSolaire == 'Q') ||
+            (systemeSolaire == 't' || systemeSolaire == 'u' || systemeSolaire == 'm' || systemeSolaire == 'q')))
+        {
+            action(couleurSeigneur, action, systemeSolaire);
+            action = ' ';
         }
+        else if(action == 'C' || action == 'c' || action == 'L' || action == 'l' || action == 'd' || action == 'D'){
+            System.out.println("Le système solaire sélectionné est incorrecte !");
+        }
+        else
+        {
+            System.out.println("L'action sélectionné est incorrecte");
+        } 
+        this.numTour++;
 	}
 
-    public void actionDeux(String couleurSeigneur, char action, char systemeSolaire)
+    public void action(String couleurSeigneur, char action, char systemeSolaire)
     {
         int numSystemSolaire     = 0  ;
         String nomSystemeSolaire = " ";
