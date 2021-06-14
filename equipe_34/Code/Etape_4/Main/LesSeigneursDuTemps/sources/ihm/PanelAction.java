@@ -11,19 +11,14 @@ import javax.imageio.ImageIO;
 import java.io.*;
 
 
-/*--------------------------------------------*/
-/* Classe PanelImage                          */
-/*--------------------------------------------*/
 public class PanelAction extends JPanel implements ActionListener
 {
 	private Controleur    ctrl;
 
-	//private JLabel lblTimer;
 	private JLabel  lblSubtitle;
 	private JPanel  pnlMain    ;
 	private JPanel  pnlMessage ;
 	private JPanel  pnlSubtitle;
-
 
 	private JButton btnConqerir		;
 	private JButton btnLiberer 		;
@@ -31,13 +26,16 @@ public class PanelAction extends JPanel implements ActionListener
 
 	private Image   imgFond    ;
 
-
+	/**
+	 * PanelAction, le panel où les actions peuvent etre actionné via les bouttons
+	 * @param ctrl Apporte la gestion avec le controleur
+	 */
 	public PanelAction(Controleur ctrl)
 	{
 		this.ctrl = ctrl;
 		this.setBackground(Color.WHITE);
 
-		//FONT
+		//Création et attribution de la font sur le JLabel Subtitle
 		this.lblSubtitle = new JLabel("Jouer le tour :", JLabel.RIGHT);
 		String fName = "./fonts/FreePixel.ttf";
 		InputStream fFont = PanelAction.class.getResourceAsStream(fName);
@@ -52,7 +50,9 @@ public class PanelAction extends JPanel implements ActionListener
 		catch (IOException e)        { e.printStackTrace(); }
 		catch (FontFormatException e){ e.printStackTrace(); }
 
-
+		/* ------------------------------ */
+		/* Création des boutons d'actions */
+		/* ------------------------------ */
 		this.btnConqerir = new JButton(new ImageIcon("./images/action/Bouton_conquerir.png"));
 		this.btnConqerir.setBackground(Color.BLACK);
 		this.btnConqerir.setOpaque(false);
@@ -74,11 +74,18 @@ public class PanelAction extends JPanel implements ActionListener
 		this.btnConAdversaire.setFocusPainted(false);
 		this.add(this.btnConAdversaire);
 
+		/* ------------------------- */
+		/* Activation des composants */
+		/* ------------------------- */
 		this.btnConqerir.addActionListener		( this );
 		this.btnLiberer.addActionListener 		( this );
 		this.btnConAdversaire.addActionListener ( this );
 	}
 
+	/**
+	 * Une méthode qui permet, une fois les boutons pressés, de jouer au jeu.
+	 * @param e ActionEvent des boutons
+	 */
 	public void actionPerformed(ActionEvent e) {
 		String couleur;
 

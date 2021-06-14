@@ -17,12 +17,8 @@ import java.awt.event.AdjustmentEvent;
 import java.io.*;
 import javax.imageio.ImageIO;
 
-
 import javax.swing.*;
 
-/*--------------------------------------------------------------*/
-/* PanelSelctCouleur                                            */
-/*--------------------------------------------------------------*/
 public class PanelSelectSysteme extends JPanel implements ActionListener
 {
 	// Attributs d'instance
@@ -33,7 +29,7 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 
 	private static int PlaceSystemeID = 0;
 
-	private int NumPlaceSysteme;
+	private int numPlaceSystem;
 
 	private String[] etat = new String[16];
 
@@ -62,10 +58,10 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 	/* Constructeur */
 	/*--------------*/
 
-	public PanelSelectSysteme(Controleur ctrl, int NumPlaceSysteme) 
+	public PanelSelectSysteme(Controleur ctrl, int numPlaceSystem) 
 	{
 		this.ctrl = ctrl;
-		this.NumPlaceSysteme = NumPlaceSysteme;
+		this.numPlaceSystem = numPlaceSystem;
 		this.setBackground(Color.WHITE);
 		this.setLayout ( null );
 
@@ -74,11 +70,7 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 		/* Création des composants       */
 		/*-------------------------------*/
 
-		/*----------------------------------------------*/
-		/* Positionnement des Composants                */
-		/*----------------------------------------------*/
-
-		switch(ctrl.getGalaxie().getSystemesSolaires().get(NumPlaceSysteme).getNom())
+		switch(ctrl.getGalaxie().getSystemesSolaires().get(numPlaceSystem).getNom())
 		{
 			case "Triälum":
 				this.nomFichier = "Trialum"   ;
@@ -101,14 +93,14 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 		this.btn2  = PlaneteButton.planete(200, 75,  "./images/planetes/jaune.png"  );
 		this.btn3  = PlaneteButton.planete(150, 175, "./images/planetes/vert.png"   );
 
-		this.btn4 = PlaneteButton.planete(130, 115, "./images/planetes/rose.png"   );
+		this.btn4  = PlaneteButton.planete(130, 115, "./images/planetes/rose.png"   );
 
 		this.btn5  = PlaneteButton.planete(60, 75,   "./images/planetes/rouge.png"  );
 		this.btn6  = PlaneteButton.planete(140, 40,  "./images/planetes/jaune.png"  );
 		this.btn7  = PlaneteButton.planete(190, 100, "./images/planetes/rose.png"   );
 		this.btn8  = PlaneteButton.planete(180, 170, "./images/planetes/bleu.png"   );
 		this.btn9  = PlaneteButton.planete(125, 190, "./images/planetes/fuchsia.png");
-		this.btn10  = PlaneteButton.planete(60, 165,  "./images/planetes/vert.png"   );
+		this.btn10 = PlaneteButton.planete(60, 165,  "./images/planetes/vert.png"   );
 		this.btn11 = PlaneteButton.planete(130, 120, "./images/planetes/orange.png" );
 
 		this.btn12 = PlaneteButton.planete(60, 75,   "./images/planetes/rouge.png"  );
@@ -117,8 +109,13 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 		this.btn15 = PlaneteButton.planete(175, 170, "./images/planetes/bleu.png"   );
 		this.btn16 = PlaneteButton.planete(70, 150,  "./images/planetes/vert.png"   );
 
+		
+		/*----------------------------------------------*/
+		/* Positionnement des Composants                */
+		/*----------------------------------------------*/
+
 		//Planetes
-		switch(ctrl.getGalaxie().getSystemesSolaires().get(NumPlaceSysteme).getNom())
+		switch(ctrl.getGalaxie().getSystemesSolaires().get(numPlaceSystem).getNom())
 		{
 			case "Triälum":
 
@@ -201,6 +198,10 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 				break;
 		}
 
+		/* ------------------------- */
+		/* Activation des composants */
+		/* ------------------------- */
+
 		this.btn1.addActionListener( this );
 		this.btn2.addActionListener( this );
 		this.btn3.addActionListener( this );
@@ -220,15 +221,20 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 
 	}
 
-	public void maj(Controleur ctrl, int NumPlaceSysteme)
+	/**
+	 * Méthode qui permet de mettre à jour l'interface.
+	 * @param ctrl Apporte la gestion avec le controleur
+	 * @param numPlaceSystem Prend en paramètre la place du système.
+	 */
+	public void maj(Controleur ctrl, int numPlaceSystem)
 	{
 		this.ctrl = ctrl;
-		this.NumPlaceSysteme = NumPlaceSysteme;
+		this.numPlaceSystem = numPlaceSystem;
 
 		int nbPlanetes = 0;
 		int planeteDeDepart = 0;
 
-		switch(ctrl.getGalaxie().getSystemesSolaires().get(NumPlaceSysteme).getNom())
+		switch(ctrl.getGalaxie().getSystemesSolaires().get(numPlaceSystem).getNom())
 		{
 			case "Triälum":
 				this.nomFichier = "Trialum"   ;
@@ -256,11 +262,11 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 		}
 
 		for (int i=0; i<nbPlanetes;i++) {
-			if(ctrl.getGalaxie().getSystemesSolaires().get(NumPlaceSysteme).getPlanetes().get(i).getProprietaire() == this.ctrl.getJoueurA())
+			if(ctrl.getGalaxie().getSystemesSolaires().get(numPlaceSystem).getPlanetes().get(i).getProprietaire() == this.ctrl.getJoueurA())
 			{
 				this.etat[i + planeteDeDepart] = "noir/";
 			}
-			else if(ctrl.getGalaxie().getSystemesSolaires().get(NumPlaceSysteme).getPlanetes().get(i).getProprietaire() == this.ctrl.getJoueurB())
+			else if(ctrl.getGalaxie().getSystemesSolaires().get(numPlaceSystem).getPlanetes().get(i).getProprietaire() == this.ctrl.getJoueurB())
 			{
 				this.etat[i + planeteDeDepart] = "blanc/";
 			}
@@ -339,7 +345,7 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 		this.imgSysteme = Toolkit.getDefaultToolkit().getImage( "./images/systemes/" + this.nomFichier + ".png" );
 
 		//Planetes
-		switch(ctrl.getGalaxie().getSystemesSolaires().get(NumPlaceSysteme).getNom())
+		switch(ctrl.getGalaxie().getSystemesSolaires().get(numPlaceSystem).getNom())
 		{
 			case "Triälum":
 
@@ -480,6 +486,10 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 		this.repaint();
 	}
 
+	/**
+	 * Une méthode qui permet, d'attribuer le nom aux planètes.
+	 * @param e ActionEvent des boutons
+	 */
 	public void actionPerformed(ActionEvent e) {
 		String planeteSelectionne = " ";
 
@@ -551,6 +561,10 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 		this.ctrl.majIHM();
 	}
 
+	/**
+	 * Permet de mettre l'image du système.
+	 * @param g paintComponent
+	 */
 	public void paintComponent(Graphics g) 
 	{
         super.paintComponent( g );
