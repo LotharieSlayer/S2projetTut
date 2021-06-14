@@ -20,10 +20,9 @@ public class Controleur
 		this.metier = new Jeu         (      );
 		this.ihm    = new FrameJoueur ( this );
 
-		//loading an image from a file
+		//Chargement de l'icone dans une image
 		final URL imageResource = Controleur.class.getClassLoader().getResource("./images/logo/icon.png");
 		final Image image = Toolkit.getDefaultToolkit().getImage(imageResource);
- 		//this is new since JDK 9
 		final Taskbar taskbar = Taskbar.getTaskbar();
 
 		try {
@@ -33,7 +32,11 @@ public class Controleur
 			System.out.println("Tentative de setIcon dans la TaskBar Windows");
 		}
  		//setIcon pour Windows
+		try{
 			this.ihm.setIconImage(image);
+		} catch (final UnsupportedOperationException e) {
+			System.out.println("Impossible de charger l'image dans l'icone taskbar, merci de bien vouloir regarder si vous avez gnome sur votre Linux.");
+		}
 	}
     
     public static void main(String[] a)
