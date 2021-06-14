@@ -46,7 +46,7 @@ public class FrameJoueur extends JFrame
 		this.pnlMain 		= new JPanel( new BorderLayout()  ); 	// this 	w/ Panel du haut
 		this.pnlFooter 		= new JPanel( new GridLayout(1,3) ); 	// this 	w/ Panel du bas
 		this.pnlTitle 		= new PanelTitle(ctrl);					// Main 	w/ Panel titre
-		this.pnlStatut	 	= PanelStatut.panel("./images/msgStatut/RectangleB.png"); // Main 	w/ Panel tour, erreurs, winner
+		this.pnlStatut	 	= PanelStatut.panel("./images/msgStatut/RectangleN.png"); // Main 	w/ Panel tour, erreurs, winner
 		this.pnlJoueur  	= new PanelJoueur  (ctrl);				// Main 	w/ Panel joueur où on joue
 		this.pnlAnneaux 	= new PanelAnneaux(ctrl);				// Footer	w/ Panel des anneaux restants pour chaque joueurs 
 		this.pnlAction 		= new PanelAction(ctrl);				// Footer 	w/ Panel des actions
@@ -57,7 +57,6 @@ public class FrameJoueur extends JFrame
 		this.pnlFooter.setPreferredSize(new Dimension(1600, 160));
 		this.pnlTitle.setPreferredSize(new Dimension(1600,150));
 		this.pnlStatut.setPreferredSize(new Dimension(1600,225));
-		this.pnlStatut.setBounds(0,30,0,0);
 		this.pnlCoteLeft.setPreferredSize(new Dimension(80,0));
 		this.pnlCoteRight.setPreferredSize(new Dimension(80,0));
 

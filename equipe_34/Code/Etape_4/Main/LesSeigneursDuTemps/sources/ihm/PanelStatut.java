@@ -4,11 +4,6 @@ import equipe_34.lesSeigneursDuTemps.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.awt.image.*;
-import java.awt.geom.RoundRectangle2D;
-import javax.imageio.ImageIO;
-import java.io.*;
 
 
 /*--------------------------------------------*/
@@ -22,6 +17,7 @@ public class PanelStatut
         JPanel panel           = new JPanel();
         JLabel setIcon         = new JLabel(icon);
  
+		// setIcon.setBounds(0,30,0,0);
 		panel.add(setIcon);
         panel.setOpaque(false);
 
