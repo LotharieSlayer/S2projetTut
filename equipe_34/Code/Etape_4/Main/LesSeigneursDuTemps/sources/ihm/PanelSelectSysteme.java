@@ -75,18 +75,10 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 
 		switch(ctrl.getGalaxie().getSystemesSolaires().get(numPlaceSystem).getNom())
 		{
-			case "Triälum":
-				this.nomFichier = "Trialum"   ;
-				break;
-			case "Mervelléum":
-				this.nomFichier = "Mervelleum";
-				break;
-			case "Uninium":
-				this.nomFichier = "Uninium"   ;
-				break;
-			case "Quintum":
-				this.nomFichier = "Quintum"   ;
-				break;
+			case "Triälum":		this.nomFichier = "Trialum"; 	break;
+			case "Mervelléum":	this.nomFichier = "Mervelleum"; break;
+			case "Uninium":		this.nomFichier = "Uninium";	break;
+			case "Quintum":		this.nomFichier = "Quintum";	break;
 		}
 
 		//Systeme
@@ -122,14 +114,9 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 		{
 			case "Triälum":
 
-				//Planete 1
-				this.add(this.btn1 );
-				
-				//Planete 2
-				this.add(this.btn2 );
-
-				//Planete 3
-				this.add(this.btn3 );
+				this.add(this.btn1 );				//Planete 1
+				this.add(this.btn2 );				//Planete 2
+				this.add(this.btn3 );				//Planete 3
 
 				this.btn4.setVisible(false );
 				this.btn5.setVisible(false );
@@ -151,53 +138,24 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 			
 				break;
 
-			case "Uninium":
-
-				//Planete 1
-				this.add(this.btn4);
-			
-				break;
+			case "Uninium": this.add(this.btn4); break; //Planete 1
 				
 			case "Mervelléum":
-
-				//Planete 1
-				this.add(this.btn5 );
-				
-				//Planete 2
-				this.add(this.btn6 );
-
-				//Planete 3
-				this.add(this.btn7 );
-
-				//Planete 4
-				this.add(this.btn8 );
-
-				//Planete 5
-				this.add(this.btn9 );
-
-				//Planete 6
-				this.add(this.btn10 );
-
-				//Planete 7
-				this.add(this.btn11);
-				
+				this.add(this.btn5 );				//Planete 1
+				this.add(this.btn6 );				//Planete 2
+				this.add(this.btn7 );				//Planete 3
+				this.add(this.btn8 );				//Planete 4
+				this.add(this.btn9 );				//Planete 5
+				this.add(this.btn10 );				//Planete 6
+				this.add(this.btn11);				//Planete 7
 				break;
 
 			case "Quintum":
-				//Planete 1
-				this.add(this.btn12);
-				
-				//Planete 2
-				this.add(this.btn13);
-
-				//Planete 3
-				this.add(this.btn14);
-
-				//Planete 4
-				this.add(this.btn15);
-
-				//Planete 5
-				this.add(this.btn16);
+				this.add(this.btn12);				//Planete 1
+				this.add(this.btn13);				//Planete 2
+				this.add(this.btn14);				//Planete 3
+				this.add(this.btn15);				//Planete 4
+				this.add(this.btn16);				//Planete 5
 				break;
 		}
 
@@ -276,55 +234,23 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 		}
 
 		switch(this.ctrl.getGalaxie().getPlaneteSelectionne())
-		{
-			case "Namek":
-				this.etat[0] = "select/";
-				break;
-			case "Vegeta":
-				this.etat[1] = "select/";
-				break;
-			case "Bidal":
-				this.etat[2] = "select/";
-				break;
-			case "Allia":
-				this.etat[3] = "select/";
-				break;
-			case "Imegga":
-				this.etat[4] = "select/";
-				break;
-			case "Kaiokaï":
-				this.etat[5] = "select/";
-				break;
-			case "Plant":
-				this.etat[6] = "select/";
-				break;
-			case "Yardrat":
-				this.etat[7] = "select/";
-				break;
-			case "Zun":
-				this.etat[8] = "select/";
-				break;
-			case "Kaioshinkaï":
-				this.etat[9] = "select/";
-				break;
-			case "Alpha HZ":
-				this.etat[10] = "select/";
-				break;
-			case "Konatz":
-				this.etat[11] = "select/";
-				break;
-			case "Makyo":
-				this.etat[12] = "select/";
-				break;
-			case "Freezer n°79":
-				this.etat[13] = "select/";
-				break;
-			case "Meat":
-				this.etat[14] = "select/";
-				break;
-			case "Terre":
-				this.etat[15] = "select/";
-				break;
+		{	
+			case "Namek":			this.etat[0]  = "select/"; break;
+			case "Vegeta":			this.etat[1]  = "select/"; break;
+			case "Bidal":			this.etat[2]  = "select/"; break;
+			case "Allia":			this.etat[3]  = "select/"; break;
+			case "Imegga":			this.etat[4]  = "select/"; break;
+			case "Kaiokaï":			this.etat[5]  = "select/"; break;
+			case "Plant":			this.etat[6]  = "select/"; break;
+			case "Yardrat":			this.etat[7]  = "select/"; break;
+			case "Zun":				this.etat[8]  = "select/"; break;
+			case "Kaioshinkaï":		this.etat[9]  = "select/"; break;
+			case "Alpha HZ":		this.etat[10] = "select/"; break;
+			case "Konatz":			this.etat[11] = "select/"; break;
+			case "Makyo":			this.etat[12] = "select/"; break;
+			case "Freezer n°79":	this.etat[13] = "select/"; break;
+			case "Meat":			this.etat[14] = "select/"; break;
+			case "Terre":			this.etat[15] = "select/"; break;
 		}
 
 		this.btn1.setIcon(new ImageIcon("./images/planetes/" + this.etat[0] + "bleu.png"));
@@ -352,14 +278,10 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 		{
 			case "Triälum":
 
-				//Planete 1
-				this.add(this.btn1);
-				
-				//Planete 2
-				this.add(this.btn2);
+				this.add(this.btn1);				//Planete 1
+				this.add(this.btn2);				//Planete 2
+				this.add(this.btn3);				//Planete 3
 
-				//Planete 3
-				this.add(this.btn3);
 
 				this.btn4.setVisible(false );
 				this.btn5.setVisible(false );
@@ -401,33 +323,19 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 
 				this.btn4.setVisible(true);
 
-				//Planete 1
-				this.add(this.btn4);
+				this.add(this.btn4);				//Planete 1
 			
 				break;
 				
 			case "Mervelléum":
 
-				//Planete 1
-				this.add(this.btn5 );
-				
-				//Planete 2
-				this.add(this.btn6 );
-
-				//Planete 3
-				this.add(this.btn7 );
-
-				//Planete 4
-				this.add(this.btn8 );
-
-				//Planete 5
-				this.add(this.btn9 );
-
-				//Planete 6
-				this.add(this.btn10 );
-
-				//Planete 7
-				this.add(this.btn11);
+				this.add(this.btn5 );				//Planete 1	
+				this.add(this.btn6 );				//Planete 2
+				this.add(this.btn7 );				//Planete 3
+				this.add(this.btn8 );				//Planete 4
+				this.add(this.btn9 );				//Planete 5
+				this.add(this.btn10 );				//Planete 6
+				this.add(this.btn11);				//Planete 7
 
 				this.btn1.setVisible(false );
 				this.btn2.setVisible(false );
@@ -451,20 +359,11 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 
 			case "Quintum":
 
-				//Planete 1
-				this.add(this.btn12);
-				
-				//Planete 2
-				this.add(this.btn13);
-
-				//Planete 3
-				this.add(this.btn14);
-
-				//Planete 4
-				this.add(this.btn15);
-
-				//Planete 5
-				this.add(this.btn16);
+				this.add(this.btn12);				//Planete 1		
+				this.add(this.btn13);				//Planete 2
+				this.add(this.btn14);				//Planete 3
+				this.add(this.btn15);				//Planete 4
+				this.add(this.btn16);				//Planete 5
 
 				this.btn1.setVisible(false );
 				this.btn2.setVisible(false );
@@ -496,70 +395,22 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 	public void actionPerformed(ActionEvent e) {
 		String planeteSelectionne = " ";
 
-		if(e.getSource() == this.btn1)
-		{
-			planeteSelectionne = "Namek";
-		}		
-		if(e.getSource() == this.btn2)
-		{
-			planeteSelectionne = "Vegeta";
-		}
-		if(e.getSource() == this.btn3)
-		{
-			planeteSelectionne = "Bidal";
-		}
-		if(e.getSource() == this.btn4)
-		{
-			planeteSelectionne = "Allia";
-		}
-		if(e.getSource() == this.btn5)
-		{
-			planeteSelectionne = "Imegga";
-		}
-		if(e.getSource() == this.btn6)
-		{
-			planeteSelectionne = "Kaiokaï";
-		}
-		if(e.getSource() == this.btn7)
-		{
-			planeteSelectionne = "Plant";
-		}
-		if(e.getSource() == this.btn8)
-		{
-			planeteSelectionne = "Yardrat";
-		}
-		if(e.getSource() == this.btn9)
-		{
-			planeteSelectionne = "Zun";
-		}
-		if(e.getSource() == this.btn10)
-		{
-			planeteSelectionne = "Kaioshinkaï";
-		}
-		if(e.getSource() == this.btn11)
-		{
-			planeteSelectionne = "Alpha HZ";
-		}
-		if(e.getSource() == this.btn12)
-		{
-			planeteSelectionne = "Konatz";
-		}	
-		if(e.getSource() == this.btn13)
-		{
-			planeteSelectionne = "Makyo";
-		}
-		if(e.getSource() == this.btn14)
-		{
-			planeteSelectionne = "Freezer n°79";
-		}
-		if(e.getSource() == this.btn15)
-		{
-			planeteSelectionne = "Meat";
-		}
-		if(e.getSource() == this.btn16)
-		{
-			planeteSelectionne = "Terre";
-		}	
+		if(e.getSource() == this.btn1)	{planeteSelectionne = "Namek"			;}		
+		if(e.getSource() == this.btn2)	{planeteSelectionne = "Vegeta"			;}
+		if(e.getSource() == this.btn3)	{planeteSelectionne = "Bidal"			;}
+		if(e.getSource() == this.btn4)	{planeteSelectionne = "Allia"			;}
+		if(e.getSource() == this.btn5)	{planeteSelectionne = "Imegga"			;}
+		if(e.getSource() == this.btn6)	{planeteSelectionne = "Kaiokaï"			;}
+		if(e.getSource() == this.btn7)	{planeteSelectionne = "Plant"			;}
+		if(e.getSource() == this.btn8)	{planeteSelectionne = "Yardrat"			;}
+		if(e.getSource() == this.btn9)	{planeteSelectionne = "Zun"				;}
+		if(e.getSource() == this.btn10)	{planeteSelectionne = "Kaioshinkaï"		;}
+		if(e.getSource() == this.btn11)	{planeteSelectionne = "Alpha HZ"		;}
+		if(e.getSource() == this.btn12)	{planeteSelectionne = "Konatz"			;}	
+		if(e.getSource() == this.btn13)	{planeteSelectionne = "Makyo"			;}
+		if(e.getSource() == this.btn14)	{planeteSelectionne = "Freezer n°79"	;}
+		if(e.getSource() == this.btn15)	{planeteSelectionne = "Meat"			;}
+		if(e.getSource() == this.btn16)	{planeteSelectionne = "Terre"			;}	
 		this.ctrl.getGalaxie().setPlanete(planeteSelectionne);							
 		this.ctrl.majIHM();
 	}

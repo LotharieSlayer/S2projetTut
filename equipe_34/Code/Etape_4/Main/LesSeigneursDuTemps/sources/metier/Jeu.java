@@ -35,7 +35,7 @@ public class Jeu
         this.galaxie.debutDePartie();
     }
 
-    public void actionTour ( String couleurSeigneur, char action, char systemeSolaire)
+    public void actionTour ( String couleurSeigneur, char action, String planete)
 	{
         if(this.numTour % 2 != 0)
         {
@@ -45,59 +45,26 @@ public class Jeu
         {
             couleurSeigneur = COULEURB       ;
         } 
-        if((action == 'C' || action == 'c' || action == 'L' || action == 'l' || action == 'R'|| action == 'd' || action == 'D' ) && 
-            ((systemeSolaire == 'T' || systemeSolaire == 'U' || systemeSolaire == 'M' || systemeSolaire == 'Q') ||
-            (systemeSolaire == 't' || systemeSolaire == 'u' || systemeSolaire == 'm' || systemeSolaire == 'q')))
-        {
-            action(couleurSeigneur, action, systemeSolaire);
-            action = ' ';
-        }
-        else if(action == 'C' || action == 'c' || action == 'L' || action == 'l' || action == 'd' || action == 'D'){
-            System.out.println("Le système solaire sélectionné est incorrecte !");
-        }
-        else
-        {
-            System.out.println("L'action sélectionné est incorrecte");
-        } 
+        action(couleurSeigneur, action, planete);
+        action = ' ';
+  
         this.numTour++;
 	}
 
-    public void action(String couleurSeigneur, char action, char systemeSolaire)
+    public void action(String couleurSeigneur, char action, String planete)
     {
         int numSystemSolaire     = 0  ;
+        int numPlanete     = 0  ;
+
         String nomSystemeSolaire = " ";
 
-        switch(systemeSolaire)
-        {
-            case 'T':
-                nomSystemeSolaire="Triälum"   ;
-                break;
-            case 't':
-                nomSystemeSolaire="Triälum"   ;
-                break;
-            case 'U':
-                nomSystemeSolaire="Uninium"   ;
-                break;
-            case 'u':
-                nomSystemeSolaire="Uninium"   ;
-                break;
-            case 'M':
-                nomSystemeSolaire="Mervelléum";
-                break;
-            case 'm':
-                nomSystemeSolaire="Mervelléum";
-                break;
-            case 'Q':
-                nomSystemeSolaire="Quintum"   ;
-                break;
-            case 'q':
-                nomSystemeSolaire="Quintum"   ;
-                break;
-        }
-
-        while(nomSystemeSolaire != this.galaxie.getSystemesSolaires().get(numSystemSolaire).getNom())
-        {
-            numSystemSolaire++;
+        for (int i=0;i<this.galaxie.getSystemesSolaires().size();i++) {
+            for (int j=0;j<this.galaxie.getSystemesSolaires().get(i).getPlanetes().size();j++) {
+                if(planete == this.galaxie.getSystemesSolaires().get(i).getPlanetes().get(j).getNom()){ 
+                    numSystemSolaire = i;
+                    numPlanete = j;
+                }
+            }
         }
 
         if(action == 'C' || action == 'c')
@@ -106,7 +73,7 @@ public class Jeu
             if(couleurSeigneur == COULEURA)
             {
                 
-                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurA, true) == true)
+                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurA, numPlanete, true) == true)
                 {
                     if(numSystemSolaire == 3)
                     {  
@@ -120,7 +87,7 @@ public class Jeu
             }
             if(couleurSeigneur == COULEURB)
             {
-                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurB, true) == true)
+                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurB, numPlanete, true) == true)
                 {
                     if(numSystemSolaire == 3)
                     {
@@ -137,7 +104,7 @@ public class Jeu
         {
             if(couleurSeigneur == COULEURA)
             {
-                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).libererPlanete(joueurA) == true)
+                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).libererPlanete(joueurA, numPlanete) == true)
                 {
                     this.galaxie.getSystemesSolaires().get(numSystemSolaire ).libererPlaneteJoueurA();
                     this.numPlaneteLibere = numSystemSolaire;
@@ -147,7 +114,7 @@ public class Jeu
             }
             if(couleurSeigneur == COULEURB)
             {
-                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).libererPlanete(joueurB) == true)
+                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).libererPlanete(joueurB, numPlanete) == true)
                 {
                     this.galaxie.getSystemesSolaires().get(numSystemSolaire ).libererPlaneteJoueurB();
                     this.numPlaneteLibere = numSystemSolaire;
@@ -164,7 +131,7 @@ public class Jeu
 
                 if(numSystemSolaire < this.numPlaneteLibere)
                 {
-                    if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurA, false) == true)
+                    if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurA, numPlanete, false) == true)
                     {
                         this.numPlaneteLibere = -1;
                         this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurA();
@@ -181,7 +148,7 @@ public class Jeu
             {
                 if(numSystemSolaire < this.numPlaneteLibere)
                 {
-                    if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurB, false) == true)
+                    if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurB, numPlanete, false) == true)
                     {
                         this.numPlaneteLibere = -1;
                         this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurB();
@@ -199,7 +166,7 @@ public class Jeu
 
             if(couleurSeigneur == COULEURA)
             {
-                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurB, true) == true)
+                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurB, numPlanete, true) == true)
                 {
                     if(numSystemSolaire == 3)
                     {
@@ -213,7 +180,7 @@ public class Jeu
             }
             if(couleurSeigneur == COULEURB)
             {
-                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurA, true) == true)
+                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurA, numPlanete, true) == true)
                 {
                     if(numSystemSolaire == 3)
                     {  
@@ -238,6 +205,36 @@ public class Jeu
         {
             return joueurB;
         }
+    }
+
+    public int     getNumPlanete(String planete){
+
+        int numSystemSolaire     = 0  ;
+        int numPlanete     = 0  ;
+
+        for (int i=0;i<this.galaxie.getSystemesSolaires().size();i++) {
+            for (int j=0;j<this.galaxie.getSystemesSolaires().get(i).getPlanetes().size();j++) {
+                if(planete == this.galaxie.getSystemesSolaires().get(i).getPlanetes().get(j).getNom()){ 
+                    numPlanete = j;
+                }
+            }
+        }
+        return numPlanete;
+    }
+
+    public int     getNumSystemeSolaire(String planete){
+
+        int numSystemeSolaire     = 0  ;
+        int numPlanete     = 0  ;
+
+        for (int i=0;i<this.galaxie.getSystemesSolaires().size();i++) {
+            for (int j=0;j<this.galaxie.getSystemesSolaires().get(i).getPlanetes().size();j++) {
+                if(planete == this.galaxie.getSystemesSolaires().get(i).getPlanetes().get(j).getNom()){ 
+                    numSystemeSolaire = i;
+                }
+            }
+        }
+        return numSystemeSolaire;
     }
 
     public Galaxie getGalaxie(){ return galaxie;      }

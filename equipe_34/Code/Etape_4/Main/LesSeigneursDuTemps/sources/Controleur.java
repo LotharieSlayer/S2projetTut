@@ -14,6 +14,7 @@ public class Controleur
 {
 	public  Jeu           metier;
 	private FrameJoueur   ihm   ;
+	private int 		  numErreur;
 
     public Controleur()
     {
@@ -59,12 +60,18 @@ public class Controleur
 			return null;
 	}
 
-	public int getTour()       { return this.metier.getTour()   ; }
+	public int getTour()       						{ return this.metier.getTour()   ; }
+
+	public void setErreur( int numErreur) 			{  this.numErreur = numErreur; }
+	public int getErreur() 							{  return this.numErreur; }
+	public int getNumPlanete(String planete)		{  return this.metier.getNumPlanete(planete);}
+	public int getNumSystemeSolaire(String planete)	{  return this.metier.getNumSystemeSolaire(planete);}
 	
-	public void action ( String couleurSeigneur, char action, char systemeSolaire )
+	public void action ( String couleurSeigneur, char action, String planete )
 	{
-		this.metier.actionTour (couleurSeigneur, action, systemeSolaire );
+		this.metier.actionTour (couleurSeigneur, action, planete);
 	}
 
 	public void majIHM(){ this.ihm.maj( this ); }
+	public FrameJoueur getIHM(){ return this.ihm; }
 }
