@@ -153,10 +153,5 @@ public class PanelAnneaux extends JPanel
 		}
 		this.pnlAnneauxNoir.revalidate();
 		this.pnlAnneauxBlanc.revalidate();
-
-		this.pnlNoir.add(this.lblNoir)         ;
-		this.pnlBlanc.add(this.lblBlanc)       ;
-		this.pnlNoir.add(this.pnlAnneauxNoir)  ;
-		this.pnlBlanc.add(this.pnlAnneauxBlanc);
 	}
 }
