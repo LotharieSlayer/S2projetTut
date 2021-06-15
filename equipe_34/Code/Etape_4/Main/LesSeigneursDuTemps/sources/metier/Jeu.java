@@ -1,11 +1,9 @@
 package equipe_34.lesSeigneursDuTemps.metier;
 
 import equipe_34.lesSeigneursDuTemps.*;
-import java.util.Scanner;
-
-import javax.lang.model.util.ElementScanner14;
 
 import java.util.ArrayList;
+
 import iut.algo.Clavier;
 
 public class Jeu

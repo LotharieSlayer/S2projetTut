@@ -3,8 +3,6 @@ package equipe_34.lesSeigneursDuTemps.metier;
 import equipe_34.lesSeigneursDuTemps.*;
 import java.util.ArrayList;
 
-import javax.lang.model.util.ElementScanner14;
-
 public class SystemeSolaire 
 {
 
