@@ -195,7 +195,7 @@ public class FrameJoueur extends JFrame
 				break;
 			case 7:
 				this.pnlMain.add(this.pnlStatut, BorderLayout.SOUTH);
-				this.lblStatut.setIcon( this.tIcon10 );
+				this.lblStatut.setIcon( this.tIcon11 );
 				break;
 		}
 		ctrl.setErreur(0);

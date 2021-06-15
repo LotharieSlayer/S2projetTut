@@ -93,7 +93,7 @@ public class PanelAction extends JPanel implements ActionListener
 		String couleur;
 
 		couleur = this.ctrl.getJoueurActif().getCouleur();
-		
+
 		if(e.getSource() == this.btnConqerir)
 		{
 			if(this.ctrl.getJeu().getActionLibere() == false)
@@ -165,7 +165,8 @@ public class PanelAction extends JPanel implements ActionListener
 						else
 							this.ctrl.setErreur(4);
 					}
-					this.ctrl.setErreur(7);
+					else
+						this.ctrl.setErreur(7);
 				}
 				else
 					this.ctrl.setErreur(1);
