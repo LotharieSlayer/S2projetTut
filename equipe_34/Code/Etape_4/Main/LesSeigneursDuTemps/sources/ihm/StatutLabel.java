@@ -2,8 +2,9 @@ package equipe_34.lesSeigneursDuTemps.ihm;
 
 import equipe_34.lesSeigneursDuTemps.*;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JLabel;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 
 /*--------------------------------------------*/
 /* Classe StatutLabel                         */

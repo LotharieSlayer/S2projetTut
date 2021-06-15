@@ -2,19 +2,21 @@ package equipe_34.lesSeigneursDuTemps.ihm;
 
 import equipe_34.lesSeigneursDuTemps.*;
 
-import java.awt.*;
-import java.awt.image.*;
+import java.awt.image.BufferedImage;
+import java.awt.Image;
 import java.awt.GridLayout;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.FontFormatException;
 
 import java.awt.event.ActionListener;
-import java.awt.event.AdjustmentListener;
 import java.awt.event.ActionEvent;
-import java.awt.event.AdjustmentEvent;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.File;
+import java.io.InputStream;
+
 import javax.imageio.ImageIO;
 
 import javax.swing.*;
@@ -112,7 +114,7 @@ public class PanelAnneaux extends JPanel
 		this.pnlBlanc.add(this.lblBlanc)       ;
 		this.pnlBlanc.add(this.pnlAnneauxBlanc);
 
-		this.pnlMain.add ( this.pnlNoir  );
+		this.pnlMain.add ( this.pnlNoir );
 		this.pnlMain.add ( this.pnlBlanc );
 		this.add ( this.pnlMain, BorderLayout.SOUTH );
 	}

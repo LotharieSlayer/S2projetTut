@@ -2,10 +2,14 @@ package equipe_34.lesSeigneursDuTemps.ihm;
 
 import equipe_34.lesSeigneursDuTemps.*;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.awt.image.*;
+import javax.swing.JPanel;
+
+import java.awt.Insets;
+import java.awt.MediaTracker;
+import java.awt.Toolkit;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
 
 
 /*--------------------------------------------*/

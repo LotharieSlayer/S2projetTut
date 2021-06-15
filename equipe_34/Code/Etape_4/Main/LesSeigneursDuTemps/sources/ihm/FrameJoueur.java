@@ -6,11 +6,13 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.BorderLayout;
-import java.awt.*;
+import java.awt.Frame;
 
-import javax.swing.*;
-import java.io.*;
-import java.util.concurrent.TimeUnit;
+import javax.swing.JPanel;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 /*--------------------------------------------*/
 /* Classe FrameJoueur                         */
@@ -27,9 +29,10 @@ public class FrameJoueur extends JFrame
 
 	private PanelJoueur          pnlJoueur;
 	private PanelTitle 			 pnlTitle;
-	private JLabel				 lblStatut;
 	private PanelAnneaux		 pnlAnneaux;
 	private PanelAction			 pnlAction;
+
+	private JLabel				 lblStatut;
 
 	private Icon				 tIcon1; 
 	private Icon				 tIcon2; 

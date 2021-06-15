@@ -1,8 +1,11 @@
 package equipe_34.lesSeigneursDuTemps.ihm;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+import javax.swing.JButton;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
+import java.awt.Dimension;
+
 
 /*--------------------------------------------*/
 /* Classe PlaneteButton                       */

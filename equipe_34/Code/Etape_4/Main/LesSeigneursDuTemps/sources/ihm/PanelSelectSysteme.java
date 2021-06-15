@@ -2,22 +2,23 @@ package equipe_34.lesSeigneursDuTemps.ihm;
 
 import equipe_34.lesSeigneursDuTemps.*;
 
-import java.awt.*;
-import java.awt.image.*;
 import java.awt.GridLayout;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.Graphics;
 
 import java.awt.event.ActionListener;
-import java.awt.event.AdjustmentListener;
 import java.awt.event.ActionEvent;
-import java.awt.event.AdjustmentEvent;
 
-import java.io.*;
 import javax.imageio.ImageIO;
 
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+import javax.swing.JButton;
+
 
 /*--------------------------------------------*/
 /* Classe PanelSelectSysteme                  */

@@ -2,13 +2,21 @@ package equipe_34.lesSeigneursDuTemps.ihm;
 
 import equipe_34.lesSeigneursDuTemps.*;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.awt.image.*;
-import java.awt.geom.RoundRectangle2D;
-import javax.imageio.ImageIO;
-import java.io.*;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
+
+import java.awt.Image;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontFormatException;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 /*--------------------------------------------*/
 /* Classe PanelAction                         */
