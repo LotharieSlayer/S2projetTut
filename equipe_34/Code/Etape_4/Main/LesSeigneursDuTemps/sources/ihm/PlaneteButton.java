@@ -6,7 +6,6 @@ import javax.swing.ImageIcon;
 
 import java.awt.Dimension;
 
-
 /*--------------------------------------------*/
 /* Classe PlaneteButton                       */
 /*--------------------------------------------*/

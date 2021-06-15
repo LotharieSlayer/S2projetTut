@@ -24,9 +24,10 @@ public class Joueur
 		return new Joueur (couleurSeigneur);
 	}
 
-    public int    getNbAnneaux()    { return this.nbAnneaux;       }
     public String getCouleur()      { return this.couleurSeigneur; }
     public void   conquerirPlanete(){ this.nbAnneaux--;            }
     public void   libererPlanete()  { this.nbAnneaux++;            }
+    public int    getNbAnneaux()    { return this.nbAnneaux;       }
+
 
 }

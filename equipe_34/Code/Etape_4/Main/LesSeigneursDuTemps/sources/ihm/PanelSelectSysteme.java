@@ -284,12 +284,12 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 				this.add(this.btn3);				//Planete 3
 
 
-				this.btn4.setVisible(false );
-				this.btn5.setVisible(false );
-				this.btn6.setVisible(false );
-				this.btn7.setVisible(false );
-				this.btn8.setVisible(false );
-				this.btn9.setVisible(false );
+				this.btn4.setVisible(false);
+				this.btn5.setVisible(false);
+				this.btn6.setVisible(false);
+				this.btn7.setVisible(false);
+				this.btn8.setVisible(false);
+				this.btn9.setVisible(false);
 				this.btn10.setVisible(false);
 				this.btn11.setVisible(false);
 				this.btn12.setVisible(false);
@@ -306,16 +306,16 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 
 			case "Uninium":
 
-				this.btn1.setVisible(false );
-				this.btn2.setVisible(false );
-				this.btn3.setVisible(false );
-				this.btn5.setVisible(false );
-				this.btn6.setVisible(false );
-				this.btn7.setVisible(false );
-				this.btn8.setVisible(false );
-				this.btn9.setVisible(false );
+				this.btn1.setVisible(false);
+				this.btn2.setVisible(false);
+				this.btn3.setVisible(false);
+				this.btn5.setVisible(false);
+				this.btn6.setVisible(false);
+				this.btn7.setVisible(false);
+				this.btn8.setVisible(false);
+				this.btn9.setVisible(false);
 				this.btn10.setVisible(false);
-				this.btn11.setVisible(false );
+				this.btn11.setVisible(false);
 				this.btn12.setVisible(false);
 				this.btn13.setVisible(false);
 				this.btn14.setVisible(false);
@@ -330,17 +330,17 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 				
 			case "Mervelléum":
 
-				this.add(this.btn5 );				//Planete 1	
-				this.add(this.btn6 );				//Planete 2
-				this.add(this.btn7 );				//Planete 3
-				this.add(this.btn8 );				//Planete 4
-				this.add(this.btn9 );				//Planete 5
-				this.add(this.btn10 );				//Planete 6
+				this.add(this.btn5);				//Planete 1	
+				this.add(this.btn6);				//Planete 2
+				this.add(this.btn7);				//Planete 3
+				this.add(this.btn8);				//Planete 4
+				this.add(this.btn9);				//Planete 5
+				this.add(this.btn10);				//Planete 6
 				this.add(this.btn11);				//Planete 7
 
-				this.btn1.setVisible(false );
-				this.btn2.setVisible(false );
-				this.btn3.setVisible(false );
+				this.btn1.setVisible(false);
+				this.btn2.setVisible(false);
+				this.btn3.setVisible(false);
 				this.btn4.setVisible(false);
 				this.btn12.setVisible(false);
 				this.btn13.setVisible(false);
@@ -348,13 +348,13 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 				this.btn15.setVisible(false);
 				this.btn16.setVisible(false);
 
-				this.btn5.setVisible(true  );
-				this.btn6.setVisible(true  );
-				this.btn7.setVisible(true  );
-				this.btn8.setVisible(true  );
-				this.btn9.setVisible(true  );
-				this.btn10.setVisible(true  );
-				this.btn11.setVisible(true );
+				this.btn5.setVisible(true);
+				this.btn6.setVisible(true);
+				this.btn7.setVisible(true);
+				this.btn8.setVisible(true);
+				this.btn9.setVisible(true);
+				this.btn10.setVisible(true);
+				this.btn11.setVisible(true);
 				
 				break;
 
@@ -366,23 +366,23 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 				this.add(this.btn15);				//Planete 4
 				this.add(this.btn16);				//Planete 5
 
-				this.btn1.setVisible(false );
-				this.btn2.setVisible(false );
-				this.btn3.setVisible(false );
-				this.btn4.setVisible(false );
-				this.btn5.setVisible(false );
-				this.btn6.setVisible(false );
-				this.btn7.setVisible(false );
-				this.btn8.setVisible(false );
-				this.btn9.setVisible(false );
+				this.btn1.setVisible(false);
+				this.btn2.setVisible(false);
+				this.btn3.setVisible(false);
+				this.btn4.setVisible(false);
+				this.btn5.setVisible(false);
+				this.btn6.setVisible(false);
+				this.btn7.setVisible(false);
+				this.btn8.setVisible(false);
+				this.btn9.setVisible(false);
 				this.btn10.setVisible(false);
 				this.btn11.setVisible(false);
 
-				this.btn12.setVisible(true );
-				this.btn13.setVisible(true );
-				this.btn14.setVisible(true );
-				this.btn15.setVisible(true );
-				this.btn16.setVisible(true );
+				this.btn12.setVisible(true);
+				this.btn13.setVisible(true);
+				this.btn14.setVisible(true);
+				this.btn15.setVisible(true);
+				this.btn16.setVisible(true);
 				
 				break;
 		}

@@ -128,9 +128,6 @@ public class PanelAnneaux extends JPanel
 		this.pnlAnneauxNoir.removeAll();
 		this.pnlAnneauxBlanc.removeAll();
 
-		//Panel Gauche (Titre de la planète)
-		this.pnlBlanc.add ( this.lblNoir );
-
 		for(int i=0; i< ctrl.getJeu().getJoueurA().getNbAnneaux(); i++)
 		{
 			//Anneaux Noir
@@ -154,9 +151,11 @@ public class PanelAnneaux extends JPanel
 			} 
 			catch (IOException e) { e.printStackTrace();}
 		}
-		
-		this.pnlNoir.add(lblNoir)         ;
-		this.pnlBlanc.add(lblBlanc)       ;
+		this.pnlAnneauxNoir.revalidate();
+		this.pnlAnneauxBlanc.revalidate();
+
+		this.pnlNoir.add(this.lblNoir)         ;
+		this.pnlBlanc.add(this.lblBlanc)       ;
 		this.pnlNoir.add(this.pnlAnneauxNoir)  ;
 		this.pnlBlanc.add(this.pnlAnneauxBlanc);
 	}
