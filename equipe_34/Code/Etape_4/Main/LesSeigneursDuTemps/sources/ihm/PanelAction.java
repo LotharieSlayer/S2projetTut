@@ -108,8 +108,7 @@ public class PanelAction extends JPanel implements ActionListener
 					this.ctrl.getGalaxie().setPlanete(" ");
 				}
 				else
-					this.ctrl.getIHM().afficherErreur(this.ctrl, 1);
-					System.out.println("Erreur, Planète non sélectionné");
+					this.ctrl.setErreur(1);
 			}
 			else
 			{
@@ -128,26 +127,21 @@ public class PanelAction extends JPanel implements ActionListener
 					this.ctrl.getGalaxie().setPlanete(" ");
 				}
 				else
-					System.out.println("Erreur, Planète non sélectionné");
+					this.ctrl.setErreur(1);
 			}
 			else
-				System.out.println("Erreur, vous devez conquérir un planète après en avoir libérer une");
+				this.ctrl.setErreur(2);
 		}	
 
 		if(e.getSource() == this.btnConAdversaire)
 		{
-			if(this.ctrl.getJeu().getActionLibere() == false)
+			if(this.ctrl.getGalaxie().getSystemeSolaireSelectionne() != ' ')
 			{
-				if(this.ctrl.getGalaxie().getSystemeSolaireSelectionne() != ' ')
-				{
-					this.ctrl.action(couleur, 'D', this.ctrl.getGalaxie().getSystemeSolaireSelectionne());
-					this.ctrl.getGalaxie().setPlanete(" ");
-				}
-				else
-					System.out.println("Erreur, Planète non sélectionné");
+				this.ctrl.action(couleur, 'D', this.ctrl.getGalaxie().getSystemeSolaireSelectionne());
+				this.ctrl.getGalaxie().setPlanete(" ");
 			}
 			else
-				System.out.println("Erreur, vous devez conquérir un planète après en avoir libérer une");
+				this.ctrl.setErreur(1);
 		}
 		this.ctrl.majIHM();	
 	}

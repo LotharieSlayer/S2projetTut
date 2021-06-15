@@ -10,12 +10,13 @@ import java.awt.*;
 
 import javax.swing.*;
 import java.io.*;
+import java.util.concurrent.TimeUnit;
 
 /*--------------------------------------------*/
 /* Classe FrameJoueur                         */
 /*--------------------------------------------*/
 
-public class FrameJoueur extends JFrame 
+public class FrameJoueur extends JFrame
 {
 	private JPanel				 pnlMain;
 	private JPanel				 pnlCoteLeft;
@@ -88,6 +89,7 @@ public class FrameJoueur extends JFrame
 		this.pnlMain.setBackground(Color.WHITE);
 		this.pnlCoteRight.setBackground(Color.WHITE);
 		this.pnlStatut.setBackground(Color.WHITE);
+		this.pnlFooter.setBackground(Color.WHITE);
 
 		this.lblStatut = StatutLabel.label("./images/msgStatut/RectangleN.png");
 
@@ -126,6 +128,8 @@ public class FrameJoueur extends JFrame
 		this.pnlJoueur.maj(ctrl);
 		this.pnlAnneaux.maj(ctrl);
 
+		this.afficherErreur(ctrl, ctrl.getErreur());
+
 		if(ctrl.determinerGagnant() == ctrl.getJoueurA())
 		{
 			this.pnlAnneaux.setVisible(false);
@@ -157,8 +161,6 @@ public class FrameJoueur extends JFrame
 		{
 			this.pnlMain.add(this.pnlStatut, BorderLayout.SOUTH);
 			this.lblStatut.setIcon( this.tIcon2 );
-
-
 		}
 	}
 
@@ -185,7 +187,6 @@ public class FrameJoueur extends JFrame
 				this.lblStatut.setIcon( this.tIcon9 );
 				break;
 		}
-		//Wait
-		ctrl.majIHM();
+		ctrl.setErreur(0);
 	}
 }

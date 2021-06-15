@@ -14,6 +14,7 @@ public class Controleur
 {
 	public  Jeu           metier;
 	private FrameJoueur   ihm   ;
+	private int 		  numErreur;
 
     public Controleur()
     {
@@ -59,7 +60,10 @@ public class Controleur
 			return null;
 	}
 
-	public int getTour()       { return this.metier.getTour()   ; }
+	public int getTour()       					{ return this.metier.getTour()   ; }
+	
+	public void setErreur( int numErreur) 		{  this.numErreur = numErreur; }
+	public int getErreur() 						{  return this.numErreur; }
 	
 	public void action ( String couleurSeigneur, char action, char systemeSolaire )
 	{
