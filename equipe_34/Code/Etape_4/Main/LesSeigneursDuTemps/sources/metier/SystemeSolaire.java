@@ -28,20 +28,13 @@ public class SystemeSolaire
         planetes.add(planete);
     }
 
-    public boolean conquerirPlanete(Joueur seigneurProprietaire, boolean AvancerSystemeSolaire)
+    public boolean conquerirPlanete(Joueur seigneurProprietaire, int numPlanete, boolean AvancerSystemeSolaire)
     {
-        int cpt = 0;
-        while(planetes.get(cpt).getProprietaire() != null && cpt < planetes.size() - 1)
+        if(planetes.get(numPlanete).getProprietaire() == null)
         {
-            cpt++;
-        }
-        
-        if(planetes.get(cpt).getProprietaire() == null)
-        {
-            planetes.get(cpt).changerProprietaire(seigneurProprietaire);
+            planetes.get(numPlanete).changerProprietaire(seigneurProprietaire);
             seigneurProprietaire.conquerirPlanete();
             galaxie.avancerSystemeSolaire(this); 
-            //AvancerSystemeSolaire == true){ galaxie.avancerSystemeSolaire(this); }
             return true;
         }
         else
@@ -51,29 +44,17 @@ public class SystemeSolaire
         }
     } 
 
-    public boolean libererPlanete(Joueur seigneurProprietaire)
+    public boolean libererPlanete(Joueur seigneurProprietaire, int numPlanete)
     {
-        int cpt = 0;
         boolean planeteTrouve = false;
-        while (planeteTrouve == false && cpt < planetes.size() - 1)
+        if (planetes.get(numPlanete).getProprietaire() == seigneurProprietaire)
         {
-            if(planetes.get(cpt).getProprietaire() == null)
-            {
-                cpt++;
-            }
-            else if (planetes.get(cpt).getProprietaire() == seigneurProprietaire)
-            {
-                planeteTrouve = true;
-            }
-            else
-            {
-                cpt++;
-            }
+            planeteTrouve = true;
         }
 
         if(planeteTrouve == true)
         {
-            planetes.get(cpt).libererProprietaire();
+            planetes.get(numPlanete).libererProprietaire();
             seigneurProprietaire.libererPlanete  ();
             return true;
         }

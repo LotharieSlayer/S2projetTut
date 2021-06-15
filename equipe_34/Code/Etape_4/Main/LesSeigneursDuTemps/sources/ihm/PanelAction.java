@@ -102,17 +102,22 @@ public class PanelAction extends JPanel implements ActionListener
 		{
 			if(this.ctrl.getJeu().getActionLibere() == false)
 			{
-				if(this.ctrl.getGalaxie().getSystemeSolaireSelectionne() != ' ')
+				if(this.ctrl.getGalaxie().getPlaneteSelectionne() != " ")
 				{
-					this.ctrl.action(couleur, 'C', this.ctrl.getGalaxie().getSystemeSolaireSelectionne());
-					this.ctrl.getGalaxie().setPlanete(" ");
+					if(this.ctrl.getGalaxie().getSystemesSolaires().get(this.ctrl.getNumSystemeSolaire(this.ctrl.getGalaxie().getPlaneteSelectionne())).getPlanetes().get(this.ctrl.getNumPlanete(this.ctrl.getGalaxie().getPlaneteSelectionne())).getProprietaire() == null)
+					{
+						this.ctrl.action(couleur, 'C', this.ctrl.getGalaxie().getPlaneteSelectionne());
+						this.ctrl.getGalaxie().setPlanete(" ");
+					}
+					else
+						this.ctrl.setErreur(4);
 				}
 				else
 					this.ctrl.setErreur(1);
 			}
 			else
 			{
-				this.ctrl.action(couleur, 'R', this.ctrl.getGalaxie().getSystemeSolaireSelectionne());
+				this.ctrl.action(couleur, 'R', this.ctrl.getGalaxie().getPlaneteSelectionne());
 				this.ctrl.getGalaxie().setPlanete(" ");
 			}
 		}	
@@ -121,10 +126,19 @@ public class PanelAction extends JPanel implements ActionListener
 		{
 			if(this.ctrl.getJeu().getActionLibere() == false)
 			{
-				if(this.ctrl.getGalaxie().getSystemeSolaireSelectionne() != ' ')
+				if(this.ctrl.getGalaxie().getPlaneteSelectionne() != " ")
 				{
-					this.ctrl.action(couleur, 'L', this.ctrl.getGalaxie().getSystemeSolaireSelectionne());
-					this.ctrl.getGalaxie().setPlanete(" ");
+					if(this.ctrl.getGalaxie().getSystemesSolaires().get(this.ctrl.getNumSystemeSolaire(this.ctrl.getGalaxie().getPlaneteSelectionne())).getPlanetes().get(this.ctrl.getNumPlanete(this.ctrl.getGalaxie().getPlaneteSelectionne())).getProprietaire() == null)
+					{
+						this.ctrl.setErreur(5);
+					}
+					else if(this.ctrl.getGalaxie().getSystemesSolaires().get(this.ctrl.getNumSystemeSolaire(this.ctrl.getGalaxie().getPlaneteSelectionne())).getPlanetes().get(this.ctrl.getNumPlanete(this.ctrl.getGalaxie().getPlaneteSelectionne())).getProprietaire().getCouleur() == couleur)
+					{
+						this.ctrl.action(couleur, 'L', this.ctrl.getGalaxie().getPlaneteSelectionne());
+						this.ctrl.getGalaxie().setPlanete(" ");
+					}
+					else
+						this.ctrl.setErreur(5);
 				}
 				else
 					this.ctrl.setErreur(1);
@@ -135,13 +149,23 @@ public class PanelAction extends JPanel implements ActionListener
 
 		if(e.getSource() == this.btnConAdversaire)
 		{
-			if(this.ctrl.getGalaxie().getSystemeSolaireSelectionne() != ' ')
+			if(this.ctrl.getJeu().getActionLibere() == false)
 			{
-				this.ctrl.action(couleur, 'D', this.ctrl.getGalaxie().getSystemeSolaireSelectionne());
-				this.ctrl.getGalaxie().setPlanete(" ");
+				if(this.ctrl.getGalaxie().getPlaneteSelectionne() != " ")
+				{
+					if(this.ctrl.getGalaxie().getSystemesSolaires().get(this.ctrl.getNumSystemeSolaire(this.ctrl.getGalaxie().getPlaneteSelectionne())).getPlanetes().get(this.ctrl.getNumPlanete(this.ctrl.getGalaxie().getPlaneteSelectionne())).getProprietaire() == null)
+					{
+						this.ctrl.action(couleur, 'D', this.ctrl.getGalaxie().getPlaneteSelectionne());
+						this.ctrl.getGalaxie().setPlanete(" ");
+					}
+					else
+						this.ctrl.setErreur(4);
+				}
+				else
+					this.ctrl.setErreur(1);
 			}
 			else
-				this.ctrl.setErreur(1);
+				this.ctrl.setErreur(2);
 		}
 		this.ctrl.majIHM();	
 	}
