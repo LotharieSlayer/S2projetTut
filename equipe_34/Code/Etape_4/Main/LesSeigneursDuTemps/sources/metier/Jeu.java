@@ -69,34 +69,28 @@ public class Jeu
 
         if(action == 'C' || action == 'c')
         {
-
             if(couleurSeigneur == COULEURA)
             {
-                
-                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurA, numPlanete, true) == true)
+                this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurA, numPlanete);
+                if(numSystemSolaire == 3)
+                {  
+                    this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurA    ();
+                }
+                else
                 {
-                    if(numSystemSolaire == 3)
-                    {  
-                        this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurA    ();
-                    }
-                    else
-                    {
-                        this.galaxie.getSystemesSolaires().get(numSystemSolaire + 1).ajouterPlaneteJoueurA();
-                    }
+                    this.galaxie.getSystemesSolaires().get(numSystemSolaire + 1).ajouterPlaneteJoueurA();
                 }
             }
             if(couleurSeigneur == COULEURB)
             {
-                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurB, numPlanete, true) == true)
+                this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurB, numPlanete);
+                if(numSystemSolaire == 3)
                 {
-                    if(numSystemSolaire == 3)
-                    {
-                        this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurB    ();
-                    }
-                    else
-                    {
-                        this.galaxie.getSystemesSolaires().get(numSystemSolaire + 1).ajouterPlaneteJoueurB();
-                    }
+                    this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurB    ();
+                }
+                else
+                {
+                    this.galaxie.getSystemesSolaires().get(numSystemSolaire + 1).ajouterPlaneteJoueurB();
                 }
             }
         }
@@ -104,23 +98,17 @@ public class Jeu
         {
             if(couleurSeigneur == COULEURA)
             {
-                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).libererPlanete(joueurA, numPlanete) == true)
-                {
-                    this.galaxie.getSystemesSolaires().get(numSystemSolaire ).libererPlaneteJoueurA();
-                    this.numPlaneteLibere = numSystemSolaire;
-                    this.actionLibere = true;
-                    this.numTour--;
-                }
+                this.galaxie.getSystemesSolaires().get(numSystemSolaire).libererPlanete(joueurA, numPlanete);
+                this.galaxie.getSystemesSolaires().get(numSystemSolaire ).libererPlaneteJoueurA();
+                this.numPlaneteLibere = numSystemSolaire;
+                this.numTour--;
             }
             if(couleurSeigneur == COULEURB)
             {
-                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).libererPlanete(joueurB, numPlanete) == true)
-                {
-                    this.galaxie.getSystemesSolaires().get(numSystemSolaire ).libererPlaneteJoueurB();
-                    this.numPlaneteLibere = numSystemSolaire;
-                    this.actionLibere = true;
-                    this.numTour--;
-                }
+                this.galaxie.getSystemesSolaires().get(numSystemSolaire).libererPlanete(joueurB, numPlanete);
+                this.galaxie.getSystemesSolaires().get(numSystemSolaire ).libererPlaneteJoueurB();
+                this.numPlaneteLibere = numSystemSolaire;
+                this.numTour--;
             }
         }
         else if(action == 'R')
@@ -128,36 +116,20 @@ public class Jeu
 
             if(couleurSeigneur == COULEURA)
             {
-
                 if(numSystemSolaire < this.numPlaneteLibere)
                 {
-                    if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurA, numPlanete, false) == true)
-                    {
-                        this.numPlaneteLibere = -1;
-                        this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurA();
-                        this.actionLibere = true;
-                    }
-                }
-                else
-                {
-                    System.out.println("Erreur, le système solaire sélectionné est plus proche du centre de la Galaxie ou est le même que le système libéré");
+                    this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurA, numPlanete);
+                    this.numPlaneteLibere = -1;
+                    this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurA();
                 }
             }
-
             if(couleurSeigneur == COULEURB)
             {
                 if(numSystemSolaire < this.numPlaneteLibere)
                 {
-                    if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurB, numPlanete, false) == true)
-                    {
-                        this.numPlaneteLibere = -1;
-                        this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurB();
-                        this.actionLibere = true;
-                    }
-                }
-                else
-                {
-                    System.out.println("Le système solaire sélectionné est plus proche du centre de la Galaxie ou est le même que le système libéré");
+                    this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurB, numPlanete);
+                    this.numPlaneteLibere = -1;
+                    this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurB();
                 }
             }
         }
@@ -166,31 +138,27 @@ public class Jeu
 
             if(couleurSeigneur == COULEURA)
             {
-                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurB, numPlanete, true) == true)
+                this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurB, numPlanete);
+                if(numSystemSolaire == 3)
                 {
-                    if(numSystemSolaire == 3)
-                    {
-                        this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurB();
-                    }
-                    else
-                    {
-                        this.galaxie.getSystemesSolaires().get(numSystemSolaire + 1).ajouterPlaneteJoueurB();
-                    }
+                    this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurB();
+                }
+                else
+                {
+                    this.galaxie.getSystemesSolaires().get(numSystemSolaire + 1).ajouterPlaneteJoueurB();
                 }
             }
             if(couleurSeigneur == COULEURB)
             {
-                if(this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurA, numPlanete, true) == true)
+                this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurA, numPlanete);
+                if(numSystemSolaire == 3)
+                {  
+                    this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurA();
+                }
+                else
                 {
-                    if(numSystemSolaire == 3)
-                    {  
-                        this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurA();
-                    }
-                    else
-                    {
-                        this.galaxie.getSystemesSolaires().get(numSystemSolaire + 1).ajouterPlaneteJoueurA();
-                    }
-                }  
+                    this.galaxie.getSystemesSolaires().get(numSystemSolaire + 1).ajouterPlaneteJoueurA();
+                } 
             }
         }
     }

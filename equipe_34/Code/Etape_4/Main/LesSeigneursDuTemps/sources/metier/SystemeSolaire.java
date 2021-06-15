@@ -28,41 +28,17 @@ public class SystemeSolaire
         planetes.add(planete);
     }
 
-    public boolean conquerirPlanete(Joueur seigneurProprietaire, int numPlanete, boolean AvancerSystemeSolaire)
+    public void conquerirPlanete(Joueur seigneurProprietaire, int numPlanete)
     {
-        if(planetes.get(numPlanete).getProprietaire() == null)
-        {
-            planetes.get(numPlanete).changerProprietaire(seigneurProprietaire);
-            seigneurProprietaire.conquerirPlanete();
-            galaxie.avancerSystemeSolaire(this); 
-            return true;
-        }
-        else
-        {
-            System.out.println("Erreur, le système solaire séléctionné n'a plus de planètes de libre");
-            return false;
-        }
+        planetes.get(numPlanete).changerProprietaire(seigneurProprietaire);
+        seigneurProprietaire.conquerirPlanete();
+        galaxie.avancerSystemeSolaire(this); 
     } 
 
-    public boolean libererPlanete(Joueur seigneurProprietaire, int numPlanete)
+    public void libererPlanete(Joueur seigneurProprietaire, int numPlanete)
     {
-        boolean planeteTrouve = false;
-        if (planetes.get(numPlanete).getProprietaire() == seigneurProprietaire)
-        {
-            planeteTrouve = true;
-        }
-
-        if(planeteTrouve == true)
-        {
-            planetes.get(numPlanete).libererProprietaire();
-            seigneurProprietaire.libererPlanete  ();
-            return true;
-        }
-        else
-        {
-            System.out.println("Erreur, le système solaire séléctionné n'a aucune planète contrôlé par vous !");
-            return false;
-        }
+        planetes.get(numPlanete).libererProprietaire();
+        seigneurProprietaire.libererPlanete  ();
     }
 
     public String getNom()   { return this.nom             ;}
