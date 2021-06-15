@@ -92,25 +92,27 @@ public class PanelAction extends JPanel implements ActionListener
 	public void actionPerformed(ActionEvent e) {
 		String couleur;
 
-		if(this.ctrl.getTour() % 2 != 0){
-			couleur = "Noir";
-		}
-		else
-			couleur = "Blanc";
-
+		couleur = this.ctrl.getJoueurActif().getCouleur();
+		
 		if(e.getSource() == this.btnConqerir)
 		{
 			if(this.ctrl.getJeu().getActionLibere() == false)
 			{
 				if(this.ctrl.getGalaxie().getPlaneteSelectionne() != " ")
 				{
-					if(this.ctrl.getGalaxie().getSystemesSolaires().get(this.ctrl.getNumSystemeSolaire(this.ctrl.getGalaxie().getPlaneteSelectionne())).getPlanetes().get(this.ctrl.getNumPlanete(this.ctrl.getGalaxie().getPlaneteSelectionne())).getProprietaire() == null)
+					if(this.ctrl.getJoueurActif().getNbAnneaux() > 0)
 					{
-						this.ctrl.action(couleur, 'C', this.ctrl.getGalaxie().getPlaneteSelectionne());
-						this.ctrl.getGalaxie().setPlanete(" ");
+						if(this.ctrl.getGalaxie().getSystemesSolaires().get(this.ctrl.getNumSystemeSolaire(this.ctrl.getGalaxie().getPlaneteSelectionne())).getPlanetes().get(this.ctrl.getNumPlanete(this.ctrl.getGalaxie().getPlaneteSelectionne())).getProprietaire() == null)
+						{
+							this.ctrl.action(couleur, 'C', this.ctrl.getGalaxie().getPlaneteSelectionne());
+							this.ctrl.getGalaxie().setPlanete(" ");
+						}
+						else
+							this.ctrl.setErreur(4);
 					}
 					else
-						this.ctrl.setErreur(4);
+						this.ctrl.setErreur(6);
+
 				}
 				else
 					this.ctrl.setErreur(1);
@@ -153,13 +155,17 @@ public class PanelAction extends JPanel implements ActionListener
 			{
 				if(this.ctrl.getGalaxie().getPlaneteSelectionne() != " ")
 				{
-					if(this.ctrl.getGalaxie().getSystemesSolaires().get(this.ctrl.getNumSystemeSolaire(this.ctrl.getGalaxie().getPlaneteSelectionne())).getPlanetes().get(this.ctrl.getNumPlanete(this.ctrl.getGalaxie().getPlaneteSelectionne())).getProprietaire() == null)
+					if(this.ctrl.getJoueurRival().getNbAnneaux() > 0)
 					{
-						this.ctrl.action(couleur, 'D', this.ctrl.getGalaxie().getPlaneteSelectionne());
-						this.ctrl.getGalaxie().setPlanete(" ");
+						if(this.ctrl.getGalaxie().getSystemesSolaires().get(this.ctrl.getNumSystemeSolaire(this.ctrl.getGalaxie().getPlaneteSelectionne())).getPlanetes().get(this.ctrl.getNumPlanete(this.ctrl.getGalaxie().getPlaneteSelectionne())).getProprietaire() == null)
+						{
+							this.ctrl.action(couleur, 'D', this.ctrl.getGalaxie().getPlaneteSelectionne());
+							this.ctrl.getGalaxie().setPlanete(" ");
+						}
+						else
+							this.ctrl.setErreur(4);
 					}
-					else
-						this.ctrl.setErreur(4);
+					this.ctrl.setErreur(7);
 				}
 				else
 					this.ctrl.setErreur(1);

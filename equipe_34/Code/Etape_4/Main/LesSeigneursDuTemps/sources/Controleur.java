@@ -50,6 +50,25 @@ public class Controleur
 
 	public Joueur getJoueurA(){ return this.metier.getJoueurA(); }
 	public Joueur getJoueurB(){ return this.metier.getJoueurB(); }
+	public Joueur getJoueurActif(){
+		if(this.getTour() % 2 != 0){
+			return this.getJoueurA();
+		}
+		else
+		{
+			return this.getJoueurB();
+		}
+	}	
+	
+	public Joueur getJoueurRival(){
+		if(this.getTour() % 2 != 0){
+			return this.getJoueurB();
+		}
+		else
+		{
+			return this.getJoueurA();
+		}
+	}		
 
 	public Joueur determinerGagnant(){ 
 		if(this.metier.getJoueurA().getNbAnneaux() == 0 && this.metier.getJoueurB().getNbAnneaux() == 0)

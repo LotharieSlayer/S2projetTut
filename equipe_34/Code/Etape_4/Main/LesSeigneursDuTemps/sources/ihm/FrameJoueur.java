@@ -40,6 +40,8 @@ public class FrameJoueur extends JFrame
 	private Icon				 tIcon7; 
 	private Icon				 tIcon8; 
 	private Icon				 tIcon9; 
+	private Icon				 tIcon10; 
+	private Icon				 tIcon11; 
 	
 	
 	/**
@@ -57,6 +59,8 @@ public class FrameJoueur extends JFrame
 		this.tIcon7 = new ImageIcon("./images/erreurs/3-systemTropProcheOuSystemeLibere.png");
 		this.tIcon8 = new ImageIcon("./images/erreurs/4-planetAlreadyTaken.png");
 		this.tIcon9 = new ImageIcon("./images/erreurs/5-noControlPlanet.png");
+		this.tIcon10 = new ImageIcon("./images/erreurs/6-noMoreRings.png");
+		this.tIcon11 = new ImageIcon("./images/erreurs/7-noMoreRingsRival.png");
 
 		this.setLocation(160,50);
 		
@@ -185,6 +189,13 @@ public class FrameJoueur extends JFrame
 			case 5:
 				this.pnlMain.add(this.pnlStatut, BorderLayout.SOUTH);
 				this.lblStatut.setIcon( this.tIcon9 );
+			case 6:
+				this.pnlMain.add(this.pnlStatut, BorderLayout.SOUTH);
+				this.lblStatut.setIcon( this.tIcon10 );
+				break;
+			case 7:
+				this.pnlMain.add(this.pnlStatut, BorderLayout.SOUTH);
+				this.lblStatut.setIcon( this.tIcon10 );
 				break;
 		}
 		ctrl.setErreur(0);
