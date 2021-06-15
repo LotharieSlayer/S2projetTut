@@ -163,11 +163,9 @@ public class PanelAction extends JPanel implements ActionListener
 						{
 							this.ctrl.action(couleur, 'L', this.ctrl.getGalaxie().getPlaneteSelectionne());
 							this.ctrl.getGalaxie().setPlanete(" ");
-							System.out.println("OUI");
 						}
 						else
 							this.ctrl.setErreur(8);
-							System.out.println("Non");
 					}
 					else
 						this.ctrl.setErreur(5);
