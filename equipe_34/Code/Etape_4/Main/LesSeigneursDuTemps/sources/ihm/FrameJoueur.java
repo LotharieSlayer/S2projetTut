@@ -27,11 +27,9 @@ public class FrameJoueur extends JFrame
 
 	private PanelJoueur          pnlJoueur;
 	private PanelTitle 			 pnlTitle;
-	
+	private JLabel				 lblStatut;
 	private PanelAnneaux		 pnlAnneaux;
 	private PanelAction			 pnlAction;
-
-	private JLabel				 lblStatut;
 
 	private Icon				 tIcon1; 
 	private Icon				 tIcon2; 
