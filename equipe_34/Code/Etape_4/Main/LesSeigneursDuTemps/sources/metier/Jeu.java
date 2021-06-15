@@ -169,6 +169,26 @@ public class Jeu
         }
     }
 
+    public boolean checkPlaneteLiberable(int numSystemeSolaire)
+    {
+        boolean checkPlaneteLiberable = false;
+        if(numSystemeSolaire == 0)
+        {
+            checkPlaneteLiberable = false;
+        }
+        else
+        {
+            for (int i=0;i<numSystemeSolaire - 1;i++) {
+                for (int j=0;j<this.galaxie.getSystemesSolaires().get(i).getPlanetes().size();j++) {
+                    if(this.galaxie.getSystemesSolaires().get(i).getPlanetes().get(j).getProprietaire() == null){ 
+                        checkPlaneteLiberable = true;
+                    }
+                }
+            }
+        }
+        return checkPlaneteLiberable;
+    }
+
     public int     getNumPlanete(String planete){
 
         int numSystemSolaire     = 0  ;

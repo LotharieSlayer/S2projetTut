@@ -68,7 +68,9 @@ public class Controleur
 		{
 			return this.getJoueurA();
 		}
-	}		
+	}
+	
+	public boolean checkPlaneteLiberable(int numSystemeSolaire){ return this.metier.checkPlaneteLiberable(numSystemeSolaire); }
 
 	public Joueur determinerGagnant(){ 
 		if(this.metier.getJoueurA().getNbAnneaux() == 0 && this.metier.getJoueurB().getNbAnneaux() == 0)

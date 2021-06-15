@@ -149,8 +149,15 @@ public class PanelAction extends JPanel implements ActionListener
 					}
 					else if(this.ctrl.getGalaxie().getSystemesSolaires().get(this.ctrl.getNumSystemeSolaire(this.ctrl.getGalaxie().getPlaneteSelectionne())).getPlanetes().get(this.ctrl.getNumPlanete(this.ctrl.getGalaxie().getPlaneteSelectionne())).getProprietaire().getCouleur() == couleur)
 					{
-						this.ctrl.action(couleur, 'L', this.ctrl.getGalaxie().getPlaneteSelectionne());
-						this.ctrl.getGalaxie().setPlanete(" ");
+						if(this.ctrl.checkPlaneteLiberable(this.ctrl.getNumSystemeSolaire(this.ctrl.getGalaxie().getPlaneteSelectionne())) == true)
+						{
+							this.ctrl.action(couleur, 'L', this.ctrl.getGalaxie().getPlaneteSelectionne());
+							this.ctrl.getGalaxie().setPlanete(" ");
+							System.out.println("OUI");
+						}
+						else
+							this.ctrl.setErreur(8);
+							System.out.println("Non");
 					}
 					else
 						this.ctrl.setErreur(5);
