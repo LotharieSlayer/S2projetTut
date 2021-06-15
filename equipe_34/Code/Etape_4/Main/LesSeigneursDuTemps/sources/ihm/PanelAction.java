@@ -127,8 +127,13 @@ public class PanelAction extends JPanel implements ActionListener
 			}
 			else
 			{
-				this.ctrl.action(couleur, 'R', this.ctrl.getGalaxie().getPlaneteSelectionne());
-				this.ctrl.getGalaxie().setPlanete(" ");
+				if(this.ctrl.getNumSystemeSolaire(this.ctrl.getGalaxie().getPlaneteSelectionne()) < this.ctrl.getJeu().getNumSystemeSolaireLibere())
+				{
+					this.ctrl.action(couleur, 'R', this.ctrl.getGalaxie().getPlaneteSelectionne());
+					this.ctrl.getGalaxie().setPlanete(" ");
+				}
+				else
+					this.ctrl.setErreur(3);
 			}
 		}	
 		

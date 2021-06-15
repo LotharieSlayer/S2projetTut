@@ -33,6 +33,12 @@ public class SystemeSolaire
         galaxie.avancerSystemeSolaire(this); 
     } 
 
+    public void replacerPlanete(Joueur seigneurProprietaire, int numPlanete)
+    {
+        planetes.get(numPlanete).changerProprietaire(seigneurProprietaire);
+        seigneurProprietaire.conquerirPlanete();
+    } 
+
     public void libererPlanete(Joueur seigneurProprietaire, int numPlanete)
     {
         planetes.get(numPlanete).libererProprietaire();

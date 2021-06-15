@@ -135,6 +135,9 @@ public class FrameJoueur extends JFrame
 		this.pnlJoueur.maj(ctrl);
 		this.pnlAnneaux.maj(ctrl);
 
+		System.out.println(ctrl.getJeu().getJoueurA().getNbAnneaux());
+		System.out.println(ctrl.getJeu().getJoueurB().getNbAnneaux());
+		
 		this.afficherErreur(ctrl, ctrl.getErreur());
 
 		if(ctrl.determinerGagnant() == ctrl.getJoueurA())

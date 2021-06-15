@@ -15,9 +15,9 @@ public class Jeu
     private Galaxie galaxie;
 
     private int     numTour = 1;
-    private int     numPlaneteLibere = - 1; // - 1 Signifiant qu'il n'y a aucune planète libéré
 
     private boolean actionLibere = false;
+    private int numSystemeSolaireLibere = -1;
 
     private final String COULEURA = "Noir";
     private final String COULEURB = "Blanc";
@@ -98,15 +98,17 @@ public class Jeu
             {
                 this.galaxie.getSystemesSolaires().get(numSystemSolaire).libererPlanete(joueurA, numPlanete);
                 this.galaxie.getSystemesSolaires().get(numSystemSolaire ).libererPlaneteJoueurA();
-                this.numPlaneteLibere = numSystemSolaire;
                 this.numTour--;
+                this.numSystemeSolaireLibere = numSystemSolaire;
+                this.actionLibere = true;
             }
             if(couleurSeigneur == COULEURB)
             {
                 this.galaxie.getSystemesSolaires().get(numSystemSolaire).libererPlanete(joueurB, numPlanete);
                 this.galaxie.getSystemesSolaires().get(numSystemSolaire ).libererPlaneteJoueurB();
-                this.numPlaneteLibere = numSystemSolaire;
                 this.numTour--;
+                this.numSystemeSolaireLibere = numSystemSolaire;
+                this.actionLibere = true;
             }
         }
         else if(action == 'R')
@@ -114,21 +116,15 @@ public class Jeu
 
             if(couleurSeigneur == COULEURA)
             {
-                if(numSystemSolaire < this.numPlaneteLibere)
-                {
-                    this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurA, numPlanete);
-                    this.numPlaneteLibere = -1;
-                    this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurA();
-                }
+                this.galaxie.getSystemesSolaires().get(numSystemSolaire).replacerPlanete(joueurA, numPlanete);
+                this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurA();
+                this.actionLibere = false;
             }
             if(couleurSeigneur == COULEURB)
             {
-                if(numSystemSolaire < this.numPlaneteLibere)
-                {
-                    this.galaxie.getSystemesSolaires().get(numSystemSolaire).conquerirPlanete(joueurB, numPlanete);
-                    this.numPlaneteLibere = -1;
-                    this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurB();
-                }
+                this.galaxie.getSystemesSolaires().get(numSystemSolaire).replacerPlanete(joueurB, numPlanete);
+                this.galaxie.getSystemesSolaires().get(numSystemSolaire).ajouterPlaneteJoueurB();
+                this.actionLibere = false;
             }
         }
         else if(action == 'd' || action == 'D')
@@ -202,6 +198,7 @@ public class Jeu
         }
         return numSystemeSolaire;
     }
+    public int getNumSystemeSolaireLibere() { return this.numSystemeSolaireLibere; }
 
     public Galaxie getGalaxie(){ return galaxie;      }
     public int     getTour()   { return this.numTour; }
