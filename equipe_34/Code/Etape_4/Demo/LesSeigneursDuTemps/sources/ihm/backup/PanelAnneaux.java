@@ -2,21 +2,19 @@ package equipe_34.lesSeigneursDuTemps.ihm;
 
 import equipe_34.lesSeigneursDuTemps.*;
 
-import java.awt.image.BufferedImage;
-import java.awt.Image;
+import java.awt.*;
+import java.awt.image.*;
 import java.awt.GridLayout;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.FontFormatException;
 
 import java.awt.event.ActionListener;
+import java.awt.event.AdjustmentListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.AdjustmentEvent;
 
-import java.io.IOException;
-import java.io.File;
-import java.io.InputStream;
-
+import java.io.*;
 import javax.imageio.ImageIO;
 
 import javax.swing.*;
@@ -114,7 +112,7 @@ public class PanelAnneaux extends JPanel
 		this.pnlBlanc.add(this.lblBlanc)       ;
 		this.pnlBlanc.add(this.pnlAnneauxBlanc);
 
-		this.pnlMain.add ( this.pnlNoir );
+		this.pnlMain.add ( this.pnlNoir  );
 		this.pnlMain.add ( this.pnlBlanc );
 		this.add ( this.pnlMain, BorderLayout.SOUTH );
 	}
@@ -127,6 +125,9 @@ public class PanelAnneaux extends JPanel
 	{
 		this.pnlAnneauxNoir.removeAll();
 		this.pnlAnneauxBlanc.removeAll();
+
+		//Panel Gauche (Titre de la planète)
+		this.pnlBlanc.add ( this.lblNoir );
 
 		for(int i=0; i< ctrl.getJeu().getJoueurA().getNbAnneaux(); i++)
 		{
@@ -151,7 +152,10 @@ public class PanelAnneaux extends JPanel
 			} 
 			catch (IOException e) { e.printStackTrace();}
 		}
-		this.pnlAnneauxNoir.revalidate();
-		this.pnlAnneauxBlanc.revalidate();
+		
+		this.pnlNoir.add(lblNoir)         ;
+		this.pnlBlanc.add(lblBlanc)       ;
+		this.pnlNoir.add(this.pnlAnneauxNoir)  ;
+		this.pnlBlanc.add(this.pnlAnneauxBlanc);
 	}
 }

@@ -2,10 +2,8 @@ package equipe_34.lesSeigneursDuTemps.ihm;
 
 import equipe_34.lesSeigneursDuTemps.Controleur;
 
-import javax.swing.JPanel;
-
-import java.awt.GridLayout;
-import java.awt.Color;
+import javax.swing.*;
+import java.awt.*;
 
 
 /*--------------------------------------------*/

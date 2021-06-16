@@ -1,7 +1,7 @@
 package equipe_34.lesSeigneursDuTemps.metier;
 
 import equipe_34.lesSeigneursDuTemps.*;
-import java.util.Scanner;
+
 import java.util.ArrayList;
 import java.math.*;
 
@@ -83,7 +83,6 @@ public class Galaxie
             systemesSolaires.add( new SystemeSolaire("Mervelléum", Mervelleum, this));
             systemesSolaires.add( new SystemeSolaire("Quintum", Quintum, this));
 
-            //En attendant de trouver un moyen plus opti
             systemesSolaires.get(0).ajouterPlanete(new Planete("Namek", systemesSolaires.get(0)));
             systemesSolaires.get(0).ajouterPlanete(new Planete("Vegeta", systemesSolaires.get(0)));
             systemesSolaires.get(0).ajouterPlanete(new Planete("Bidal", systemesSolaires.get(0)));
@@ -144,60 +143,6 @@ public class Galaxie
     public void setPlanete(String planeteSelectionne)
     {
         this.planeteSelectionne = planeteSelectionne;
-        switch(planeteSelectionne)
-        {
-            case "Namek":
-                this.systemeSolaireSelectionne = 'T';
-                break;
-            case "Vegeta":
-                this.systemeSolaireSelectionne = 'T';
-                break;
-            case "Bidal":
-                this.systemeSolaireSelectionne = 'T';
-                break;
-            case "Allia":
-                this.systemeSolaireSelectionne = 'U';
-                break;
-            case "Imegga":
-                this.systemeSolaireSelectionne = 'M';
-                break;
-            case "Kaiokaï":
-                this.systemeSolaireSelectionne = 'M';
-                break;
-            case "Plant":
-                this.systemeSolaireSelectionne = 'M';
-                break;
-            case "Yardrat":
-                this.systemeSolaireSelectionne = 'M';
-                break;
-            case "Zun":
-                this.systemeSolaireSelectionne = 'M';
-                break;
-            case "Kaioshinkaï":
-                this.systemeSolaireSelectionne = 'M';
-                break;
-            case "Alpha HZ":
-                this.systemeSolaireSelectionne = 'M';
-                break;
-            case "Konatz":
-                this.systemeSolaireSelectionne = 'Q';
-                break;
-            case "Makyo":
-                this.systemeSolaireSelectionne = 'Q';
-                break;
-            case "Freezer n°79":
-                this.systemeSolaireSelectionne = 'Q';
-                break;
-            case "Meat":
-                this.systemeSolaireSelectionne = 'Q';
-                break;
-            case "Terre":
-                this.systemeSolaireSelectionne = 'Q';
-                break;
-            case " ":
-                this.systemeSolaireSelectionne = ' ';
-        }
     }
     public String getPlaneteSelectionne(){ return this.planeteSelectionne; } 
-    public char getSystemeSolaireSelectionne(){ return this.systemeSolaireSelectionne; } 
 }

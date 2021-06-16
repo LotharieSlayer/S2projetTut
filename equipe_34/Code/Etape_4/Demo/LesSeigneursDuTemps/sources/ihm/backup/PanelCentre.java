@@ -2,30 +2,22 @@ package equipe_34.lesSeigneursDuTemps.ihm;
 
 import equipe_34.lesSeigneursDuTemps.*;
 
+import java.awt.*;
+import java.awt.image.*;
 import java.awt.GridLayout;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Image;
 import java.awt.Font;
-import java.awt.FontFormatException;
 
 import java.awt.event.ActionListener;
+import java.awt.event.AdjustmentListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.AdjustmentEvent;
 
-import java.awt.image.BufferedImage;
-
-import java.io.IOException;
-import java.io.File;
-import java.io.InputStream;
-
+import java.io.*;
 import javax.imageio.ImageIO;
 
-import javax.swing.SwingConstants;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
-
+import javax.swing.*;
 
 /*--------------------------------------------*/
 /* Classe PanelCentre                         */

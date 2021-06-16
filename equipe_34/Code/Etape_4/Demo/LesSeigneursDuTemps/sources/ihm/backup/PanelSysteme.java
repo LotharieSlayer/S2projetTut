@@ -2,20 +2,11 @@ package equipe_34.lesSeigneursDuTemps.ihm;
 
 import equipe_34.lesSeigneursDuTemps.Controleur;
 
+import javax.swing.*;
+import java.awt.*;
 
+import java.io.*;
 import javax.imageio.ImageIO;
-
-import java.io.InputStream;
-import java.io.IOException;
-
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.FontFormatException;
-
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 /*--------------------------------------------*/
 /* Classe PanelSysteme                        */

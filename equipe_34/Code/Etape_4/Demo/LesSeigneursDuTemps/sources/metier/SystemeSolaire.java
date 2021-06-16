@@ -3,8 +3,6 @@ package equipe_34.lesSeigneursDuTemps.metier;
 import equipe_34.lesSeigneursDuTemps.*;
 import java.util.ArrayList;
 
-import javax.lang.model.util.ElementScanner14;
-
 public class SystemeSolaire 
 {
 
@@ -28,59 +26,23 @@ public class SystemeSolaire
         planetes.add(planete);
     }
 
-    public boolean conquerirPlanete(Joueur seigneurProprietaire, boolean AvancerSystemeSolaire)
+    public void conquerirPlanete(Joueur seigneurProprietaire, int numPlanete)
     {
-        int cpt = 0;
-        while(planetes.get(cpt).getProprietaire() != null && cpt < planetes.size() - 1)
-        {
-            cpt++;
-        }
-        
-        if(planetes.get(cpt).getProprietaire() == null)
-        {
-            planetes.get(cpt).changerProprietaire(seigneurProprietaire);
-            seigneurProprietaire.conquerirPlanete();
-            if(AvancerSystemeSolaire == true){ galaxie.avancerSystemeSolaire(this); }
-            return true;
-        }
-        else
-        {
-            System.out.println("Erreur, le système solaire séléctionné n'a plus de planètes de libre");
-            return false;
-        }
+        planetes.get(numPlanete).changerProprietaire(seigneurProprietaire);
+        seigneurProprietaire.conquerirPlanete();
+        galaxie.avancerSystemeSolaire(this); 
     } 
 
-    public boolean libererPlanete(Joueur seigneurProprietaire)
+    public void replacerPlanete(Joueur seigneurProprietaire, int numPlanete)
     {
-        int cpt = 0;
-        boolean planeteTrouve = false;
-        while (planeteTrouve == false && cpt < planetes.size() - 1)
-        {
-            if(planetes.get(cpt).getProprietaire() == null)
-            {
-                cpt++;
-            }
-            else if (planetes.get(cpt).getProprietaire() == seigneurProprietaire)
-            {
-                planeteTrouve = true;
-            }
-            else
-            {
-                cpt++;
-            }
-        }
+        planetes.get(numPlanete).changerProprietaire(seigneurProprietaire);
+        seigneurProprietaire.conquerirPlanete();
+    } 
 
-        if(planeteTrouve == true)
-        {
-            planetes.get(cpt).libererProprietaire();
-            seigneurProprietaire.libererPlanete  ();
-            return true;
-        }
-        else
-        {
-            System.out.println("Erreur, le système solaire séléctionné n'a aucune planète contrôlé par vous !");
-            return false;
-        }
+    public void libererPlanete(Joueur seigneurProprietaire, int numPlanete)
+    {
+        planetes.get(numPlanete).libererProprietaire();
+        seigneurProprietaire.libererPlanete  ();
     }
 
     public String getNom()   { return this.nom             ;}

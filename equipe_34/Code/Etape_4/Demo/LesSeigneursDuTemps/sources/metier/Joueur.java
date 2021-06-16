@@ -1,6 +1,7 @@
 package equipe_34.lesSeigneursDuTemps.metier;
 
 import equipe_34.lesSeigneursDuTemps.*;
+
 import java.util.ArrayList;
 
 public class Joueur 
@@ -9,21 +10,24 @@ public class Joueur
 
     private int    nbAnneaux = 8  ;
 
+    //private ArrayList<Planete> planetesControlees;
+
 	public Joueur ( String couleurSeigneur )
 	{
         this.couleurSeigneur = couleurSeigneur;
     }
     
-    public static Joueur creerJoueur ( String nom, String couleurSeigneur )
+    public static Joueur creerJoueur ( String couleurSeigneur )
 	{
-		if ( nom == null || couleurSeigneur != "Noir" && couleurSeigneur != "Blanc")  return null;
+		if (couleurSeigneur != "Noir" && couleurSeigneur != "Blanc")  return null;
 
 		return new Joueur (couleurSeigneur);
 	}
 
-    public int    getNbAnneaux()    { return this.nbAnneaux;       }
     public String getCouleur()      { return this.couleurSeigneur; }
     public void   conquerirPlanete(){ this.nbAnneaux--;            }
     public void   libererPlanete()  { this.nbAnneaux++;            }
+    public int    getNbAnneaux()    { return this.nbAnneaux;       }
+
 
 }
