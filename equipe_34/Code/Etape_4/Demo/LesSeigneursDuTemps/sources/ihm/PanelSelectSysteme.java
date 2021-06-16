@@ -118,25 +118,6 @@ public class PanelSelectSysteme extends JPanel implements ActionListener
 				this.add(this.btn1 );				//Planete 1
 				this.add(this.btn2 );				//Planete 2
 				this.add(this.btn3 );				//Planete 3
-
-				this.btn4.setVisible(false );
-				this.btn5.setVisible(false );
-				this.btn6.setVisible(false );
-				this.btn7.setVisible(false );
-				this.btn8.setVisible(false );
-				this.btn9.setVisible(false );
-				this.btn10.setVisible(false);
-				this.btn11.setVisible(false);
-				this.btn12.setVisible(false);
-				this.btn13.setVisible(false);
-				this.btn14.setVisible(false);
-				this.btn15.setVisible(false);
-				this.btn16.setVisible(false);
-
-				this.btn1.setVisible(true);
-				this.btn2.setVisible(true);
-				this.btn3.setVisible(true);
-			
 				break;
 
 			case "Uninium": this.add(this.btn4); break; //Planete 1

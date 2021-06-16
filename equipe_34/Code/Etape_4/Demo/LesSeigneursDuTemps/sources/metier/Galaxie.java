@@ -55,7 +55,7 @@ public class Galaxie
                         systemesSolaires.get(i).ajouterPlanete(new Planete("Makyo", systemesSolaires.get(i)));
                         systemesSolaires.get(i).ajouterPlanete(new Planete("Freezer n°79", systemesSolaires.get(i)));
                         systemesSolaires.get(i).ajouterPlanete(new Planete("Meat", systemesSolaires.get(i)));
-                        systemesSolaires.get(i).ajouterPlanete(new Planete("Zun", systemesSolaires.get(i)));
+                        systemesSolaires.get(i).ajouterPlanete(new Planete("Terre", systemesSolaires.get(i)));
                         break;
                 }
                 int j = 0, k = 0;
