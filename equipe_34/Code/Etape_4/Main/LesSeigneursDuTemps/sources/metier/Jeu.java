@@ -178,7 +178,7 @@ public class Jeu
         }
         else
         {
-            for (int i=0;i<numSystemeSolaire - 1;i++) {
+            for (int i=0;i<numSystemeSolaire;i++) {
                 for (int j=0;j<this.galaxie.getSystemesSolaires().get(i).getPlanetes().size();j++) {
                     if(this.galaxie.getSystemesSolaires().get(i).getPlanetes().get(j).getProprietaire() == null){ 
                         checkPlaneteLiberable = true;
