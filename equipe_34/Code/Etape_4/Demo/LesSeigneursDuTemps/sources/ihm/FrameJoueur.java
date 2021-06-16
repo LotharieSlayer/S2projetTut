@@ -194,6 +194,7 @@ public class FrameJoueur extends JFrame
 			case 5:
 				this.pnlMain.add(this.pnlStatut, BorderLayout.SOUTH);
 				this.lblStatut.setIcon( this.tIcon9 );
+				break;
 			case 6:
 				this.pnlMain.add(this.pnlStatut, BorderLayout.SOUTH);
 				this.lblStatut.setIcon( this.tIcon10 );
