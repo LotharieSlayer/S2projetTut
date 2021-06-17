@@ -1,10 +1,10 @@
 // pour compiler lancer la commande :
-javac @compile.list -d [votre répertoire de paquetage_class]
+javac @compile.list -d [votre rÃ©pertoire de paquetage_class]
 
 
-// Placez le dossier fonts (dossier sources/ihm/), dans le dossier IHM issu du paquetage_class (/equipe_34/ihm/)
+// Placez le dossier fonts (dossier sources/ihm/), dans le dossier IHM issu du paquetage_class (/equipe_34/ihm/).
 
-// pour exécuter
+// pour exÃ©cuter
 java equipe_34.lesSeigneursDuTemps.Controleur
 
 
